@@ -1,0 +1,33 @@
+.loginContenedor{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login{
+    height: 75vh;
+    width: 25vw;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5%;
+    background-color: rgb(223, 223, 223);
+}
+
+.loginTitulo{
+    display: flex;
+    justify-content: center;
+}
+
+.loginInput{
+    height: 5vh;
+    width: 20vw;
+    border-radius: 5vh;
+}
+
+.loginButton{
+    height: 5vh;
+    width: 20vw;
+    border-radius: 5vh;
+
+}
