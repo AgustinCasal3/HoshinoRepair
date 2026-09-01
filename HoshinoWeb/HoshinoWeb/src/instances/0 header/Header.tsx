@@ -23,7 +23,12 @@ export function Header() {
             <div className="headerCuenta">
                 <p><a href="/login">Iniciar Sesion</a></p>
             </div>
+
         </header>
+
+        {/* Espaciador para que el header ocupe espacio en la pantalla y aun asi se mantenga en fixed */}
+        <div className="headerEspaciador"></div>
+
         </>
     )
 }
