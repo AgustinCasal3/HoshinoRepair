@@ -1,0 +1,77 @@
+header {
+    height: 10vh;
+    width: 100%;
+
+    background: #D9D9D9;
+    background: linear-gradient(180deg,#D9D9D9 0%, #D9D9D9 96%, rgba(0, 0, 0, 1) 96%, rgba(0, 0, 0, 1) 100%);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.headerImg {
+    position: relative;
+
+    user-select: none;
+}
+
+.headerImg img {
+    margin-top: 1.5vh;
+    height: 8.5vh;
+    display: block;
+}
+
+.gatoImgHover {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.headerImg:hover .gatoImgHover {
+    opacity: 1;
+}
+
+.headerContenido {
+    height: 100%;
+    width: 50vw;
+
+    margin-right: 10vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.headerContenido p {
+    transition: 0.25s ease;
+}
+
+.headerContenido p a {
+    font-size: 2em;
+
+    text-decoration: none;
+    color: black;
+}
+
+.headerContenido p:hover {
+    scale: 1.05;
+}
+
+.headerCuenta p {
+    transition: 0.25s ease;
+}
+
+.headerCuenta p a {
+    font-size: 2em;
+
+    text-decoration: none;
+    color: black;
+}
+
+.headerCuenta p:hover{
+    scale: 1.05;
+}
