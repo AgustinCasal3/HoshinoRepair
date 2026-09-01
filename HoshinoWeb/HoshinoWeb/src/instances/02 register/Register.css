@@ -1,0 +1,64 @@
+/* CSS del registro */
+
+.registerContenedor{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.registerForm{
+    height: 75vh;
+    /* width: 25vw; */
+
+    /* Segun Claude la linea de abajo dice que el ancho es de 25vw, pero nunca menos de 320px ni más de 450px */
+    width: clamp(320px, 25vw, 450px);
+    border-radius: 5vh;
+    background-color: rgb(223, 223, 223);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.registerDiv{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.registerTitulo{
+    display: flex;
+    justify-content: center;
+}
+
+.registerCampos{
+    display: flex;
+    flex-direction: column;
+    margin-top: 5vh;
+}
+
+.registerInput{
+    height: 5vh;
+    width: 20vw;
+    border-radius: 2vh;
+    border: 1px solid rgb(182, 181, 181);
+    background-color: rgb(182, 181, 181);
+}
+
+.registerButton{
+    height:6vh;
+    width: 20vw;
+    border-radius: 2vh;
+    border: 1px solid rgb(253, 244, 244);
+    background-color: rgb(253, 244, 244);
+    margin-top: 5vh;
+    cursor: pointer;
+}
+
+.registerLink{
+    font-size: 2vh;
+    text-decoration: none;
+    color: black;
+    margin-top: 1vh;
+}
