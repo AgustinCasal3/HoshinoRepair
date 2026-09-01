@@ -4,7 +4,7 @@ import './App.css';
 
 // import { AuthProvider } from './context/AuthContext'; // Esto es para la cuenta, lo saque de https://github.com/AgustinCasal3/Fate-Umbrella.ver/blob/main/0%20Fate%20Umbrella.ver%20Web/Fate%20Umbrella.ver/src/context/AuthContext.tsx
 
-import { Inicio } from './instances/00 inicio/Inicio.tsx';  // 01
+import { Home } from './instances/00 home/Home.tsx';  // 01
 
 function Pagina() {
   return (
@@ -38,7 +38,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'home', // Ruta: /home
-        element: <Inicio />,
+        element: <Home />,
       },
     ],
   },
