@@ -5,22 +5,19 @@ export function Login() {
         <>
         {/*Div contenedor de el login*/}
         <div className='loginContenedor'>
-
-            {/* Div del login */}
-            <div>
-
-                <form className='login' action="">
-                    <div className="loginTitulo">
+            
+            {/* Form del login */}
+                <form className='loginForm' action="">
+                    <div className='login'>
                         <h1>inicio de sesión</h1>
+                        <label htmlFor="">Email:</label>
+                        <input className='loginInput' type="text" />
+                        <label htmlFor="">Contraseña:</label>
+                        <input className='loginInput' type="text" />
+                        <a href="">¿Olvidaste tu contraseña?</a>
+                        <button className='loginButton'>Inciar sesión</button>
                     </div>
-                    <label htmlFor="">Email:</label>
-                    <input className='loginInput' type="text" />
-                    <label htmlFor="">Contraseña:</label>
-                    <input className='loginInput' type="text" />
-                    <a href="">¿Olvidaste tu contraseña?</a>
-                    <button className='loginButton'>Inciar sesión</button>
                 </form>
-            </div>
         </div>
         </>
     )
