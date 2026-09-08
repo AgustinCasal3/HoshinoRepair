@@ -22,6 +22,7 @@ export function Header() {
 
             <div className="headerCuenta">
                 <p><a href="/login">Iniciar Sesion</a></p>
+                <p><a href="/cuenta">Cuenta</a></p>
             </div>
 
         </header>
