@@ -1,17 +1,22 @@
 import './Register.css';
 
+import flechaVolver from '../../assets/imgs/01 login/FlechaVolver.png';
+
 export function Register() {
     return (
         <>
 
-        {/*Div contenedor del registro, el que lo acomoda en el medio*/}
-        <div className='registerContenedor'>
+        {/* Div body del registro, el que lo acomoda en el medio */}
+        <div className='registerBody'>
 
-            {/* Form del registro (el cuadrado gris para adentro)*/}
-            <form className='registerForm'>
+            {/* Div del registro (del cuadrado gris para adentro) */}
+            <div className='registerDiv'>
 
-                {/* Div con todo el contenido del registro */}
-                <div className='registerDiv'>
+                {/* Form con todo el contenido del registro */}
+                <form className='registerForm'>
+
+                    {/* Anchor con la imagen de la flecha para hacer el boton del home */}
+                    <a className='registerFlechaVolver' href="/home"><img src={flechaVolver} alt="volver" /></a>
 
                     {/* Titulo del formulario de registro */}
                     <h1 className='registerTitulo'>Registrarse</h1>
@@ -39,8 +44,8 @@ export function Register() {
 
                     {/* Anchor para llevar a la pagina de login /login */}
                     <a className='registerLink' href="/login">¿Ya tenes una cuenta? iniciar sesión</a>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
         </>
     )
