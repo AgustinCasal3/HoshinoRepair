@@ -1,13 +1,13 @@
 /* CSS del Login */
 
-.loginContenedor{
+.loginBody{
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.loginForm{
+.loginDiv{
     height: 75vh;
     /* width: 25vw; */
 
@@ -20,11 +20,24 @@
     align-items: center;
 }
 
-.loginDiv{
+.loginForm{
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
+}
+
+.loginFlechaVolver{
+    height: 2vw;
+    width: 2vw;
+    position: absolute;
+    top: 1vh;
+    left: 1vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(224, 224, 224);
+    border-radius: 1.5vh;
 }
 
 .loginTitulo{

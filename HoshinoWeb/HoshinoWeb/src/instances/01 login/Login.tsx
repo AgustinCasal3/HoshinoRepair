@@ -1,20 +1,26 @@
 import './Login.css';
 
+import flechaVolver from '../../assets/imgs/01 login/FlechaVolver.png';
+
 export function Login() {
     return (
         <>
 
-        {/*Div contenedor del login, el que lo acomoda en el medio*/}
-        <div className='loginContenedor'>
+        {/* Div del body del login, el que lo acomoda en el medio */}
+        <div className='loginBody'>
 
-            {/* Form del login (el cuadrado gris para adentro)*/}
-            <form className='loginForm'>
+            {/* Div del login (del cuadrado gris para adentro) */}
+            <div className='loginDiv'>
 
-                {/* Div con todo el contenido del login */}
-                <div className='loginDiv'>
+
+                {/* Form con todo el contenido del login */}
+                <form className='loginForm'>
+
+                    {/* Anchor con la imagen de la flecha para hacer el boton del home */}
+                    <a className='loginFlechaVolver' href="/home"><img src={flechaVolver} alt="volver" /></a>
 
                     {/* Titulo del formulario de login */}
-                    <h1 className='loginTitulo'>inicio de sesión</h1>
+                    <h1 className='loginTitulo'>Inicio de sesión</h1>
 
                     {/* Div para que juntar las partes de los campos y que tengan el mismo margin */}
                     <div className='loginCampos'>
@@ -33,9 +39,9 @@ export function Login() {
                     <button className='loginButton' type='submit'>Iniciar sesión</button>
 
                     {/* Anchor para llevar a la pagina de registro /register */}
-                    <a className='loginLink' href="/register">¿aun no tenes una cuenta?</a>
-                </div>
-            </form>
+                    <a className='loginLink' href="/register">¿Aun no tenes una cuenta?</a>
+                </form>
+            </div>
         </div>
         </>
     )
