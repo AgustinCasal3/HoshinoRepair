@@ -1,6 +1,6 @@
 import './Login.css';
-
 import flechaVolver from '../../assets/imgs/01 login/FlechaVolver.png';
+import { Error } from './components/01 error/Error';
 
 export function Login() {
     return (
@@ -11,8 +11,7 @@ export function Login() {
 
             {/* Div del login (del cuadrado gris para adentro) */}
             <div className='loginDiv'>
-
-
+                
                 {/* Form con todo el contenido del login */}
                 <form className='loginForm'>
 
@@ -42,6 +41,9 @@ export function Login() {
                     <a className='loginLink' href="/register">¿Aun no tenes una cuenta?</a>
                 </form>
             </div>
+
+            <Error/>
+
         </div>
         </>
     )
