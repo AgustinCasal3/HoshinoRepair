@@ -1,6 +1,6 @@
-//Importaciones del archivo Error.tsx (del login)
+//Importaciones del archivo Error.tsx (del register)
 import './Error.css';
-import iconoAdvertencia from '../../../../assets/imgs/01 login/IconoAdvertencia.png';
+import iconoAdvertencia from '../../../../assets/imgs/02 register/IconoAdvertencia.png';
 
 //Funcion Error
 export function Error() {

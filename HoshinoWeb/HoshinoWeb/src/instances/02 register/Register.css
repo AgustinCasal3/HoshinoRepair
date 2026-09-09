@@ -51,6 +51,11 @@
     margin-top: 5vh;
 }
 
+.registerLabel{
+    display: flex;
+    flex-direction: column;
+}
+
 .registerInput{
     height: 5vh;
     width: 20vw;

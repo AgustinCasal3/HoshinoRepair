@@ -51,6 +51,11 @@
     margin-top: 5vh;
 }
 
+.loginLabel{
+    display: flex;
+    flex-direction: column;
+}
+
 .loginInput{
     height: 5vh;
     width: 20vw;
