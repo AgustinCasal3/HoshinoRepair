@@ -124,9 +124,18 @@
     text-decoration: none;
 }
 
-.cuentaInfoDispositivo img {
+.listaDispositivosArticuloImg {
     width: 7.5vw;
     height: 7.5vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cuentaInfoDispositivo img {
+    max-width: 7.5vw;
+    max-height: 7.5vw;
 
     border-radius: 1vh;
 }

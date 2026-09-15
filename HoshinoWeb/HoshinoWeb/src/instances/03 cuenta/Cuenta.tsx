@@ -44,7 +44,9 @@ export function Cuenta() {
                     <div className="cuentaArticuloDispositivo">
                         <div className="cuentaInfoDispositivo">
                             <a href={`dispositivo/${numDispositivo}`}>
-                                <img src={ImgDispositivo1} alt={`Foto del dispositivo ${numDispositivo}`} />
+                                <div className="listaDispositivosArticuloImg">
+                                    <img src={ImgDispositivo1} alt={`Foto del dispositivo ${numDispositivo}`} />
+                                </div>
                             </a>
                             <a href={`dispositivo/${numDispositivo}`}>
                                 <div className="cuentaDatosDispositivo">
@@ -64,7 +66,9 @@ export function Cuenta() {
                         <div className="cuentaInfoDispositivo">
                             
                             <a href={`dispositivo/${numDispositivo}`}>
-                                <img src={ImgDispositivo2} alt={`Foto del dispositivo ${numDispositivo}`} />
+                                <div className="listaDispositivosArticuloImg">
+                                    <img src={ImgDispositivo2} alt={`Foto del dispositivo ${numDispositivo}`} />
+                                </div>
                             </a>
                             <a href={`dispositivo/${numDispositivo}`}>
                                 <div className="cuentaDatosDispositivo">
