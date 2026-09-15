@@ -9,6 +9,7 @@ import { Login } from './instances/01 login/Login.tsx';  // 02
 import { Register } from './instances/02 register/Register.tsx';  // 03
 import { Cuenta } from './instances/03 cuenta/Cuenta.tsx';  // 04
 import { ListaDispositivos } from './instances/04 listaDispositivos/ListaDispositivos.tsx';  // 05
+import { Chatbot } from './instances/11 chatbot/Chatbot.tsx';  // 11
 
 function Pagina() {
   return (
@@ -59,6 +60,10 @@ const router = createBrowserRouter([
       {
         path: 'dispositivos', // Ruta: /cuenta
         element: <ListaDispositivos />,
+      },
+      {
+        path: 'chatbot', // Ruta: /chatbot
+        element: <Chatbot />,
       },
     ],
   },
