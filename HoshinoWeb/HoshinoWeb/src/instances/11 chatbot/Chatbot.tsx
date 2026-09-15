@@ -16,7 +16,14 @@ export function Chatbot() {
 
                 {/* div con todo el contenido del chatbot */}
                 <div className='chatbotContenido'>
+                    <div className='chatbotDivTitulo'>
+                        <h2 className='chatbotTitulo'>Chatbot: Hoshi :3</h2>
+                    </div>
 
+                    <div className='chatbotInputButton'>
+                        <input className='chatbotInput' type="text" placeholder="Escribe un mensaje..." />
+                        <button className='chatbotButton'>&gt;</button>
+                    </div>
                     
                 </div>
             </div>

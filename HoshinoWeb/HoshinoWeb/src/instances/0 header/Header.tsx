@@ -15,7 +15,7 @@ export function Header() {
             <nav className="headerContenido">
                 <p><a href="/home">Inicio</a></p>
                 <p><a href="/tienda">Tienda</a></p>
-                <p><a href="/home">Chatbot</a></p>
+                <p><a href="/chatbot">Chatbot</a></p>
                 <p><a href="/reclamos">Reclamos</a></p>
                 <p><a href="/reparaciones">Reparaciones</a></p>
             </nav>
