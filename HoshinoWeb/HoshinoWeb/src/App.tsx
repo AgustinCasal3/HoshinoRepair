@@ -8,6 +8,7 @@ import { Home } from './instances/00 home/Home.tsx';  // 01
 import { Login } from './instances/01 login/Login.tsx';  // 02
 import { Register } from './instances/02 register/Register.tsx';  // 03
 import { Cuenta } from './instances/03 cuenta/Cuenta.tsx';  // 04
+import { ListaDispositivos } from './instances/04 ListaDispositivos/ListaDispositivos.tsx';  // 05
 
 function Pagina() {
   return (
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
       {
         path: 'cuenta', // Ruta: /cuenta
         element: <Cuenta />,
+      },
+      {
+        path: 'dispositivos', // Ruta: /cuenta
+        element: <ListaDispositivos />,
       },
     ],
   },

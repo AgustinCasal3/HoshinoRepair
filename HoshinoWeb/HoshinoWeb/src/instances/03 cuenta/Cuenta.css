@@ -178,3 +178,17 @@
 .cuentaVerDispositivo a p:hover {
     background-color: rgb(179, 179, 179);
 }
+
+.cuentaVerListaDipositivos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+
+.cuentaVerListaDipositivos a {
+    text-decoration: none;
+    color: black;
+}

@@ -68,8 +68,8 @@ export function Cuenta() {
                             </a>
                             <a href={`dispositivo/${numDispositivo}`}>
                                 <div className="cuentaDatosDispositivo">
-                                    <h3>Notebook Gamer Lenovo</h3>
-                                    <h2>#000001</h2>
+                                    <h3>Monitor Samsung</h3>
+                                    <h2>#000002</h2>
                                 </div>
                             </a>
                         </div>
@@ -79,6 +79,13 @@ export function Cuenta() {
                             </a>
                         </div>
                     </div>
+                </div>
+                <div className="cuentaVerListaDipositivos">
+                    <h2>
+                        <a href="dispositivos">
+                            Ver lista completa {'>'}
+                        </a>
+                    </h2>
                 </div>
             </section>
         </>
