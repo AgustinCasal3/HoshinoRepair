@@ -1,0 +1,125 @@
+/* CONTENEDOR COMPONENTE */
+
+.dispositivoContenedor {
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    align-items: start;
+    justify-content: center;
+
+    margin-top: 10vh;
+}
+
+/* IZQUIERDA */
+
+.dispositivoIzq {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    margin-right: 5vh;
+}
+
+.dispositivoImg {
+    width: 60vh;
+    height: 60vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 5vh;
+}
+
+.dispositivoImg img {
+    max-width: 60vh;
+    max-height: 60vh;
+
+    border-radius: 5vh;
+}
+
+.dispositivoPago a {
+    width: 35vh;
+    height: 6vh;
+    border-radius: 1vh;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: black;
+    text-decoration: none;
+    font-size: 2.5vh;
+
+    background-color: lightgray;
+    
+    transition: background-color 0.25s ease;
+}
+
+.dispositivoPago a:hover {
+    background-color: rgb(190, 190, 190);
+}
+
+.dispositivoPrecio {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 2.5vh;
+}
+
+.dispositivoPrecio h3 {
+    font-weight: normal;
+    font-size: 2.5vh;
+}
+
+/* DERECHA */
+
+.dispositivoDer {
+    width: 45vw;
+}
+
+.dispositivoTituloDispositivo {
+    margin-bottom: 5vh;
+}
+
+.dispositivoTituloDispositivo h1 {
+    font-size: 7vh;
+    font-weight: normal;
+
+    max-width: 100%;
+}
+
+.dispositivoId h3 {
+    font-size: 2.75vh;
+    font-weight: normal;
+
+    color: gray;
+}
+
+.dispositivoDescripcion {
+    margin-bottom: 5vh;
+}
+
+.dispositivoDescripcion p {
+    font-size: 2.5vh;
+    font-weight: normal;
+}
+
+.dispositivoRevisiones h2 {
+    font-size: 4vh;
+    font-weight: normal;
+
+    margin-bottom: 2.5vh;
+}
+
+.dispositivoListaRevisiones {
+    margin-left: 5vh;
+}
+
+.dispositivoListaRevisiones li {
+    font-size: 2.5vh;
+    color: rgb(90, 90, 90);
+    margin-bottom: 0.5vh;
+}
