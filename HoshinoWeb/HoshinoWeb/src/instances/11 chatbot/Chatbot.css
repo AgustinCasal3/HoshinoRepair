@@ -15,14 +15,27 @@
     border-top-left-radius: 2vh;
     border-top-right-radius: 2vh;
     background-color: rgb(182, 181, 181);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .chatbotTitulo{
     margin-left: 1vh;
 }
 
+.chatbotButtonCerrar{
+    height:4vh;
+    width: 2vw;
+    border-radius: 2vh;
+    border: 1px solid rgb(253, 244, 244);
+    background-color: rgb(253, 244, 244);
+    cursor: pointer;
+    margin-right: 0.5vh;
+}
+
 .chatbotInputButton{
-    height: 40vh;
+    height: 38.5vh;
     display: flex;
     align-items: flex-end;
     justify-content: space-evenly;
@@ -36,12 +49,11 @@
     background-color: rgb(182, 181, 181);
 }
 
-.chatbotButton{
+.chatbotButtonEnviar{
     height:6vh;
     width: 3vw;
     border-radius: 2vh;
     border: 1px solid rgb(253, 244, 244);
     background-color: rgb(253, 244, 244);
-    margin-top: 5vh;
     cursor: pointer;
 }

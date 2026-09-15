@@ -18,11 +18,12 @@ export function Chatbot() {
                 <div className='chatbotContenido'>
                     <div className='chatbotDivTitulo'>
                         <h2 className='chatbotTitulo'>Chatbot: Hoshi :3</h2>
+                        <button className='chatbotButtonCerrar' >X</button>
                     </div>
 
                     <div className='chatbotInputButton'>
                         <input className='chatbotInput' type="text" placeholder="Escribe un mensaje..." />
-                        <button className='chatbotButton'>&gt;</button>
+                        <button className='chatbotButtonEnviar'>&gt;</button>
                     </div>
                     
                 </div>
