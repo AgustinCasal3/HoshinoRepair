@@ -18,6 +18,7 @@ export function Tienda() {
                 <div className="tiendaBusqueda">
                     <input type="text" placeholder='Buscar productos'/>
                 </div>
+                <div className="tiendaEspaciador"></div>
                 <div className="tiendaContenido">
                     <div className="tiendaIzq">
                         <div className="tiendaCategorias">
@@ -127,11 +128,14 @@ export function Tienda() {
                     </div>
                 </div>
                 <div className="tiendaPaginado">
+                    <p>{'<'}</p>
                     <p>1</p>
                     <p>2</p>
                     <p>3</p>
                     <p>4</p>
                     <p>5</p>
+                    <p>...</p>
+                    <p>9</p>
                     <p>{'>'}</p>
                 </div>
             </section>
