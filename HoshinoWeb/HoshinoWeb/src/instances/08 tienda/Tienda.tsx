@@ -9,6 +9,10 @@ import ImgDispositivo4 from '../../assets/imgs/05 dispositivo/productos/Producto
 import ImgDispositivo5 from '../../assets/imgs/05 dispositivo/productos/Producto5.png'
 import ImgDispositivo6 from '../../assets/imgs/05 dispositivo/productos/Producto6.png'
 
+import FlechaArriba from '../../assets/imgs/08 tienda/ArrowUp.svg';
+import FlechaAbajo from '../../assets/imgs/08 tienda/ArrowDown.svg';
+import Buscar from '../../assets/imgs/08 tienda/Search.svg';
+
 export function Tienda() {
     return (
         <>
@@ -17,30 +21,73 @@ export function Tienda() {
             <section className="tiendaContenedor">
                 <div className="tiendaBusqueda">
                     <input type="text" placeholder='Buscar productos'/>
+                    <p>
+                        <img src={Buscar} alt="" />
+                    </p>
                 </div>
                 <div className="tiendaEspaciador"></div>
                 <div className="tiendaContenido">
                     <div className="tiendaIzq">
                         <div className="tiendaCategorias">
                             <h3>Categorias</h3>
-                            <ul>
-                                <li>PCs Armadas</li>
-                                <li>Notebooks</li>
-                                <li>Monitores</li>
-                                <li>
+                            
+                                <h4>
+                                    <img src={FlechaArriba} alt="" />
+                                    PCs Armadas
+                                </h4>
+                                <h4>
+                                    <img src={FlechaArriba} alt="" />
+                                    Notebooks
+                                </h4>
+                                <h4>
+                                    <img src={FlechaArriba} alt="" />
+                                    Monitores
+                                </h4>
+                                <h4>
+                                    <img src={FlechaAbajo} alt="" />
                                     Componentes
-                                    <ul>
-                                        <li>Procesadores</li>
-                                        <li>Motherboard</li>
-                                        <li>Memorias RAM</li>
-                                        <li>Coolers</li>
-                                        <li>Placas de Video</li>
-                                        <li>Discos</li>
-                                        <li>Fuentes de Poder</li>
-                                        <li>Gabinetes</li>
-                                    </ul>
-                                </li>
-                            </ul>
+                                </h4>
+
+                                <h5>
+                                    <img src={FlechaArriba} alt="" />
+                                    Procesadores
+                                </h5>
+                                    
+                                <h5>
+                                    <img src={FlechaArriba} alt="" />
+                                    Motherboard
+                                </h5>
+                                    
+                                <h5>
+                                    <img src={FlechaArriba} alt="" />
+                                    Memorias RAM
+                                </h5>
+                                    
+                                <h5>
+                                    <img src={FlechaArriba} alt="" />
+                                    Coolers
+                                </h5>
+                                    
+                                <h5>
+                                    <img src={FlechaArriba} alt="" />
+                                    Placas de Video
+                                </h5>
+                                    
+                                <h5>
+                                    <img src={FlechaArriba} alt="" />
+                                    Discos
+                                </h5>
+                                    
+                                <h5>
+                                    <img src={FlechaArriba} alt="" />
+                                    Fuentes de Poder
+                                </h5>
+                                    
+                                <h5>
+                                    <img src={FlechaArriba} alt="" />
+                                    Gabinetes
+                                </h5>
+                                    
                         </div>
                     </div>
                     <div className="tiendaDer">

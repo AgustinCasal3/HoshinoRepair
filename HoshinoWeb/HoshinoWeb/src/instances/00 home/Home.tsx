@@ -7,8 +7,8 @@ import { useState } from 'react';
 import ImgCarrousel1 from '../../assets/imgs/00 home/ImgCarrousel1.png';
 import ImgCarrousel2 from '../../assets/imgs/00 home/ImgCarrousel2.png';
 
-import ImgProd1 from '../../assets/imgs/tienda/Productos/PC1.png';
-import ImgProd2 from '../../assets/imgs/tienda/Productos/PC2.png';
+import ImgProd1 from '../../assets/imgs/05 dispositivo/productos/PC1.png';
+import ImgProd2 from '../../assets/imgs/05 dispositivo/productos/PC2.png';
 
 import { Header } from '../0 header/Header';
 
