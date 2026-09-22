@@ -1,0 +1,90 @@
+.reparacionesContenido {
+    width: 100%;
+    min-height: 90vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 2.5vh;
+}
+
+/* MODALIDAD */
+
+.reparacionesModalidad {
+    width: 30vw;
+    height: 85vh;
+    
+    border-radius: 2.5vh;
+    
+    background-color: lightgray;
+}
+
+.reparacionesModalidadIconos {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+
+    gap: 2.5vh;
+}
+
+.reparacionesModalidadIconos h2 {
+    height: 2.5vh;
+
+    padding: 2.5vh;
+
+    font-size: 2.5vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 5vh;
+    border: 1px solid black;
+}
+
+.reparacionesModalidadTexto {
+    border-radius: 2.5vh;
+    padding: 2.5vh;
+}
+
+/* DISPOSITIVO */
+
+.reparacionesDispositivo {
+    width: 30vw;
+    height: 80vh;
+    
+    border-radius: 2.5vh;
+    padding: 2.5vh;
+    
+    background-color: lightgray;
+}
+
+/* UBICACION */
+
+.reparacionesUbicacion {
+    width: 30vw;
+    
+    margin-top: 2.5vh;
+}
+
+.reparacionesUbicacion h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 5vh;
+}
+
+.reparacionesUbicacion p {
+}
+
+.reparacionesUbicacion iframe {
+    margin-top: 2.5vh;
+
+    border-radius: 1.5vh;
+    border: none;
+
+    width: 30vw;
+    height: 20vw;
+}

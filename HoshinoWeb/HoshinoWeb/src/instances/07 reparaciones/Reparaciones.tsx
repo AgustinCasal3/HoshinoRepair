@@ -44,7 +44,15 @@ export function Reparaciones() {
                     <p>Nuestro local se ubica en: Francisco N. Laprida 1469, Vicente Lopez.</p>
                     <p>Entre calles 25 de Mayo y Av. Maipu.</p>
 
-                    <div id="reparacionesMapa"></div>
+                    <div id="reparacionesMapa">
+                        <iframe
+                            title="Ubicación del local"
+                            src="https://www.google.com/maps?q=Laprida+1469,+Vicente+Lopez,+Buenos+Aires&output=embed"
+                            allowFullScreen
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                        />
+                    </div>
                 </div>
             </section>
         </>
