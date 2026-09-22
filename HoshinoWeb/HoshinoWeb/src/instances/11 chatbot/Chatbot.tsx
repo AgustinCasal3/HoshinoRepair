@@ -42,8 +42,8 @@ export function Chatbot() {
                         <div className='chatbotDivEnviar'>
 
                             <input className='chatbotInput' type="text" placeholder="Escribe un mensaje..." />
-                            
-                            <a className='chatbotButtonEnviar'>
+
+                            <a className='chatbotButtonEnviar' href='#'>
                                 <img src={flechaEnviar} alt=">" />
                             </a>
                         </div>

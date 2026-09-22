@@ -1,43 +1,49 @@
 /* CSS del chatbot*/
 .chatbotDiv{
-    /* Esta linea de codigo y las de abajo ajustan el chatbot a la derecha sin sacar el formulario del medio */
+    height: 45vh;
+    width: clamp(320px, 30vw, 450px);
+
+    /* Estas lineas de codigo sirven para acomodar el chatbot en la parte derecha inferior de la pantalla */
     position: fixed;
     bottom: 2vh;
     right: 2vh;
-    height: 45vh;
 
+    /* Para que quede por encima de todo lo demás */
+    z-index: 1000; 
 
-    width: clamp(320px, 30vw, 450px);
     border-radius: 2vh;
     background-color: rgb(223, 223, 223);
-    z-index: 1000; /* para que quede por encima de todo lo demás */
 }
 
 .chatbotDivTitulo{
     height: auto;
+
+
     border-top-left-radius: 2vh;
     border-top-right-radius: 2vh;
     background-color: rgb(182, 181, 181);
 
-
+    /* Acomodan el contenido del div en el medio */
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
 .chatbotTitulo{
+    /* Le agrega margen al titulo del chatbot */
     margin: 2.5vh;
 }
 
 .chatbotButtonCerrar{
     height:5vh;
     width: 5vh;
+
     border-radius: 2vh;
     border: 1px solid rgb(253, 244, 244);
     background-color: rgb(253, 244, 244);
     margin: 2.5vh;
 
-
+    /* Acomodan el contenido del div en el medio */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -46,8 +52,11 @@
 
 .chatbotChat{
     height: 35vh;
+
+    /* Esta linea de codigo sirve para que aparezca un scroll vertical cuando los elementos no entren mas dentro del chatbot */
     overflow-y: auto;
 
+    /* Acomodan el contenido del div en el medio */
     display: flex;
     align-items: end;
     justify-content: center;
@@ -55,34 +64,40 @@
 
 .chatbotDivEnviar{
     width: 100%;
-    display: flex;
+
     gap: 2.5vh;
     margin: 2.5vh;
+
+    display: flex;
 }
 
 .chatbotInput{
     height: 5vh;
     width: calc(100% - 12.5vh);
-    border-radius: 2vh;
+
     border: 1px solid rgb(182, 181, 181);
     background-color: rgb(182, 181, 181);
+    border-radius: 2vh;
     padding: 0 2.5vh;
 }
 
 .chatbotButtonEnviar{
     height: 5vh;
     width: 5vh;
-    border-radius: 2vh;
+
     border: 1px solid rgb(253, 244, 244);
     background-color: rgb(253, 244, 244);
-    cursor: pointer;
+    border-radius: 2vh;
+    text-decoration: none;
 
+    /* Acomodan el contenido del div en el medio */
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .chatbotButtonEnviar img{
+    /* Le di tamaño a la imagen del boton para enviar un mensaje al chatbot */
     height: 2vh;
     width: 2vh;
 }
