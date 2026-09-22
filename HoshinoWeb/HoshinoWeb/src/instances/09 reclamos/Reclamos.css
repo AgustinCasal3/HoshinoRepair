@@ -1,0 +1,156 @@
+.reclamosNav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    background: #dfdfdf;
+    border-bottom: 3px solid #000000;
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    flex-wrap: wrap;
+}
+
+.reclamosLogo { display: flex; align-items: center; gap: 10px; margin-right: 18px; }
+.reclamosLogo svg { width: 32px; height: 32px; }
+.reclamosLogo span { font-weight: 700; font-size: 17px; }
+
+.reclamosNavLinks { display: flex; gap: 26px; flex: 1; flex-wrap: wrap; }
+.reclamosNavLinks a {
+    color: #000000;
+    text-decoration: none;
+    font-size: 16px;
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent;
+}
+.reclamosNavLinks a.active { border-bottom-color: #000000; font-weight: 600; }
+.reclamosNavCuenta { font-weight: 600; font-size: 16px; }
+
+.reclamosMain {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+}
+
+.reclamosCard {
+    background: #dfdfdf;
+    border-radius: 22px;
+    padding: 36px clamp(20px, 5vw, 52px) 44px;
+}
+.reclamosCard h1 { font-size: 30px; text-align: center; margin-bottom: 4px; }
+.reclamosCard .sub { color: #5c5c5c; margin-top: 10px; font-size: 14.5px; text-align: center; }
+
+.reclamosFieldset {
+    border: none;
+    padding: 0;
+    margin: 30px 0 0;
+}
+.reclamosFieldset legend {
+    font-weight: 700;
+    font-size: 13.5px;
+    color: #5c5c5c;
+    margin-bottom: 14px;
+    padding: 0 0 6px 0;
+    border-bottom: 1px solid #bdbdbd;
+    width: 100%;
+}
+
+.reclamosRow { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 18px; }
+.reclamosField { display: flex; flex-direction: column; gap: 7px; }
+.reclamosField.full { grid-column: 1 / -1; }
+
+.reclamosField label { font-size: 14.5px; font-weight: 500; }
+.reclamosField label .req { color: #000000; font-weight: 700; }
+.reclamosField label .opt { color: #5c5c5c; font-weight: 400; font-size: 12.5px; }
+
+.reclamosField input,
+.reclamosField select,
+.reclamosField textarea {
+    font-family: inherit;
+    font-size: 14.5px;
+    padding: 11px 16px;
+    border-radius: 20px;
+    border: 1px solid #9c9b9b;
+    background: #b6b5b5;
+    color: #000000;
+    width: 100%;
+}
+.reclamosField input::placeholder,
+.reclamosField textarea::placeholder { color: #4b4b4b; }
+
+.reclamosField select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000000' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 16px;
+    padding-right: 38px;
+}
+.reclamosField textarea { min-height: 110px; border-radius: 16px; resize: vertical; }
+
+.reclamosField input:focus,
+.reclamosField select:focus,
+.reclamosField textarea:focus { outline: 2px solid #000000; outline-offset: 1px; }
+
+.reclamosFilerow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px dashed #8a8a8a;
+    border-radius: 16px;
+    padding: 14px 16px;
+    background: #ececec;
+    font-size: 13.5px;
+    color: #5c5c5c;
+}
+.reclamosFilerow strong { color: #000000; }
+
+.reclamosSubmitBtn {
+    margin-top: 28px;
+    width: 100%;
+    padding: 15px;
+    border-radius: 20px;
+    border: 1px solid #000000;
+    background: #fdf4f4;
+    color: #000000;
+    font-weight: 700;
+    font-size: 15.5px;
+    cursor: pointer;
+}
+.reclamosSubmitBtn:hover { background: #f3e4e4; }
+
+.reclamosHistorial { margin-top: 34px; }
+.reclamosHistorial h2 { font-size: 20px; margin-bottom: 4px; }
+.reclamosHistorial .sub { color: #5c5c5c; font-size: 14px; margin-bottom: 18px; }
+
+.reclamoItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 18px;
+    border-radius: 16px;
+    background: #dfdfdf;
+    border: 1px solid #c9c9c9;
+    margin-bottom: 10px;
+}
+.reclamoItem .info { display: flex; flex-direction: column; gap: 3px; }
+.reclamoItem .info .ord { font-size: 13px; color: #5c5c5c; }
+.reclamoItem .info .desc { font-size: 14.5px; font-weight: 600; }
+
+.reclamoBadge {
+    font-size: 12.5px;
+    font-weight: 700;
+    padding: 5px 14px;
+    border-radius: 999px;
+    white-space: nowrap;
+    border: 1px solid #000000;
+}
+.reclamoBadge.revision { background: #ffffff; color: #000000; }
+.reclamoBadge.proceso { background: #ececec; color: #000000; }
+.reclamoBadge.resuelto { background: #000000; color: #ffffff; }
+
+@media (max-width: 560px) {
+    .reclamosRow { grid-template-columns: 1fr; }
+    .reclamosNavLinks { gap: 16px; }
+}

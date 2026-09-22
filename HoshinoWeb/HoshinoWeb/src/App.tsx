@@ -13,6 +13,7 @@ import { Dispositivo } from './instances/05 dispositivo/Dispositivo.tsx';  // 05
 import { Reservas } from './instances/06 reservas/Reservas.tsx';  // 06
 import { Reparaciones } from './instances/07 reparaciones/Reparaciones.tsx';  // 07
 import { Tienda } from './instances/08 tienda/Tienda.tsx';  // 08
+import { Reclamos } from './instances/09 reclamos/Reclamos.tsx';  // 09
 import { Chatbot } from './instances/11 chatbot/Chatbot.tsx';  // 11
 
 function Pagina() {
@@ -80,6 +81,10 @@ const router = createBrowserRouter([
       {
         path: 'tienda', // Ruta: /tienda
         element: <Tienda />,
+      },
+      {
+        path: 'reclamos', // Ruta: /reclamos
+        element: <Reclamos />,
       },
       {
         path: 'chatbot', // Ruta: /chatbot
