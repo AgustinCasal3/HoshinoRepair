@@ -11,6 +11,7 @@ import { Cuenta } from './instances/03 cuenta/Cuenta.tsx';  // 03
 import { ListaDispositivos } from './instances/04 listaDispositivos/ListaDispositivos.tsx';  // 04
 import { Dispositivo } from './instances/05 dispositivo/Dispositivo.tsx';  // 05
 import { Reservas } from './instances/06 reservas/Reservas.tsx';  // 06
+import { Reparaciones } from './instances/07 reparaciones/Reparaciones.tsx';  // 07
 import { Tienda } from './instances/08 tienda/Tienda.tsx';  // 08
 import { Chatbot } from './instances/11 chatbot/Chatbot.tsx';  // 11
 
@@ -71,6 +72,10 @@ const router = createBrowserRouter([
       {
         path: 'reservas', // Ruta: /reservas
         element: <Reservas />,
+      },
+      {
+        path: 'reparaciones', // Ruta: /reparaciones
+        element: <Reparaciones />,
       },
       {
         path: 'tienda', // Ruta: /tienda
