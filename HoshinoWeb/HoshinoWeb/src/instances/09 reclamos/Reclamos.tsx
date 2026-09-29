@@ -4,26 +4,6 @@ import { Header } from '../0 header/Header'
 export function Reclamos() {
     return (
         <>
-            {/* <nav className='reclamosNav'>
-                <div className='reclamosLogo'>
-                    <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M14 8 L24 24 M50 8 L40 24" stroke="black" strokeWidth="3.5" strokeLinecap="round"/>
-                        <circle cx="32" cy="34" r="22" fill="none" stroke="black" strokeWidth="3.5"/>
-                        <circle cx="24" cy="30" r="2.2" fill="black"/>
-                        <circle cx="40" cy="30" r="2.2" fill="black"/>
-                        <path d="M27 40 Q32 44 37 40" stroke="black" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
-                    </svg>
-                    <span>Hoshino Repair</span>
-                </div>
-                <div className='reclamosNavLinks'>
-                    <a href="#">Inicio</a>
-                    <a href="#">Tienda</a>
-                    <a href="#">Chatbot</a>
-                    <a href="#" className='active'>Reclamos</a>
-                    <a href="#">Reparaciones</a>
-                </div>
-                <div className='reclamosNavCuenta'>Cuenta</div>
-            </nav> */}
 
             <Header/>
 
@@ -32,6 +12,8 @@ export function Reclamos() {
 
                 
                 <div className='reclamosContenedor'>
+
+                    {/* Titulo de la pagina de reclamos */}
                     <h1>Reclamo</h1>
 
                     <p className='reclamoSubtitulo'>Contanos qué pasó con tu equipo o servicio y te vamos a responder a la brevedad.</p>
@@ -39,8 +21,10 @@ export function Reclamos() {
                     {/* Etiqueta del form para reclamos */}
                     <form>
 
+                        {/* fieldset para agrupar los diferentes grupos de campos */}
                         <fieldset className='reclamosCampos'>
 
+                            {/* Legend que sirve como titulo del fieldset (esa es su funcion posta) */}
                             <legend>Sobre el servicio</legend>
 
                             <div className='reclamosRow'>
@@ -111,13 +95,21 @@ export function Reclamos() {
                                     <label>Adjuntar foto o comprobante <span className='opt'>(opcional)</span></label>
 
                                     <div className='reclamosFilerow'>
-                                        <input className=''
-                                            type="file"
-                                            accept="image/*" // Limita la selección solo a imágenes
-                                            required
-                                            multiple
-                                        />
-                                        📎 <span><strong>Elegir archivo</strong> — JPG, PNG o PDF, máx. 5MB</span>
+
+                                        <label htmlFor="reclamosArchivos">
+                                            📎 <span><strong>Elegir archivo</strong> — JPG, PNG o PDF, máx. 5MB</span>
+
+                                             <input
+                                                id='reclamosArchivos'
+                                                className='reclamosFileInput'
+                                                type="file"
+
+                                                // Limita la selección solo a imágenes
+                                                accept="image/*" 
+                                                required
+                                                multiple
+                                            />
+                                        </label>
                                     </div>
                                 </div>
                             </div>
@@ -133,7 +125,7 @@ export function Reclamos() {
 
                                     <label>Teléfono de contacto <span className='opt'>(opcional)</span></label>
 
-                                    <input type="tel" placeholder="11 2345 6789" />
+                                    <input type="tel" placeholder="11 2222 3333" />
                                 </div>
 
                                 <div className='reclamosField'>
