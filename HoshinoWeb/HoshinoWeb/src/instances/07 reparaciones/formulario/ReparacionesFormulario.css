@@ -1,0 +1,189 @@
+/* SECCION */
+
+.reparacionesFormulario {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+
+    gap: 4vh;
+
+    margin-top: 4vh;
+}
+
+.reparacionesFormulario h1 {
+    font-size: 5vh;
+    font-weight: normal;
+}
+
+/* FORMULARIO */
+
+.reparacionesFormulario form {
+    width: 50vw;
+
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+}
+
+.reparacionesFormulario form label {
+    font-size: 2vh;
+    margin-bottom: 0.5vh;
+}
+
+/* INPUT */
+
+.reparacionesFormulario form input {
+    margin-bottom: 2.5vh;
+
+    width: calc(50vw - 3vh);
+    height: 5vh;
+
+    padding: 0 1.5vh;
+
+    font-size: 2vh;
+
+    border: none;
+    border-radius: 1.5vh;
+
+    background-color: rgb(225 225 225);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* SELECT */
+
+.reparacionesFormulario form select {
+    margin-bottom: 2.5vh;
+    
+    width: 50vw;
+    height: 5vh;
+    
+    padding: 0 1.5vh;
+    
+    font-size: 2vh;
+    
+    border: none;
+    border-radius: 1.5vh;
+    
+    appearance: none;
+    background-image: url('../../../assets\imgs\09 reclamos\FlechaAbajo.svg');
+    background-repeat: no-repeat;
+    background-position: right 1.5vh center;
+    background-size: 2vh;
+
+    background-color: rgb(225 225 225);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ENVIAR IMAGENES */
+
+.divEnviarImagenes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+
+    gap: 1.5vh;
+}
+
+#formularioImagenes {
+    display: none;
+}
+
+.botonSubirImagenes {
+    width: 20vh;
+    height: 5vh;
+
+    font-size: 2vh;
+    
+    border-radius: 2.5vh;
+    border: 2px solid rgb(50, 50, 50);
+    
+    background-color: rgb(255 255 255);
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    cursor: pointer;
+}
+
+#SINMARGIN {
+    margin-bottom: 0;
+    margin: 0;
+}
+
+.inputImagenes {
+    background-color: rgb(225 225 225);
+    border-radius: 1.5vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: calc(100% - 5vh);
+
+    padding: 2.5vh;
+}
+
+.previewImagenes {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+    gap: 1.5vh;
+}
+
+.previewImagenes img {
+    width: 30vh;
+    border-radius: 1vh;
+}
+
+/* ENVIAR */
+
+.formularioBotonEnviar {
+    width: 100%;
+
+    margin: 2.5vh 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.formularioBotonEnviar button {
+    width: 20%;
+    height: 5vh;
+    
+    font-size: 2vh;
+    
+    border-radius: 2.5vh;
+    border: 2px solid rgb(50, 50, 50);
+    
+    background-color: rgb(225 225 225);
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    cursor: pointer;
+
+    transition: 0.25s ease;
+}
+
+.formularioBotonEnviar button:hover {
+    transform: scale(1.025);
+}
