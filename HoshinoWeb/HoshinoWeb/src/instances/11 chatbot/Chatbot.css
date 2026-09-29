@@ -1,4 +1,5 @@
 /* CSS del chatbot*/
+
 .chatbotDiv{
     height: 45vh;
     width: clamp(320px, 30vw, 450px);
@@ -65,6 +66,7 @@
 .chatbotDivEnviar{
     width: 100%;
 
+    /* Margin y gap para acomodar el input y el boton de enviar */
     gap: 2.5vh;
     margin: 2.5vh;
 
@@ -73,11 +75,15 @@
 
 .chatbotInput{
     height: 5vh;
+
+    /* Calculo para que el input del chatbot siempre mida correctamente */
     width: calc(100% - 12.5vh);
 
     border: 1px solid rgb(182, 181, 181);
     background-color: rgb(182, 181, 181);
     border-radius: 2vh;
+
+    /* Padding para que se empiece a escribir un poco mas adentro del input */
     padding: 0 2.5vh;
 }
 
@@ -97,6 +103,7 @@
 }
 
 .chatbotButtonEnviar img{
+
     /* Le di tamaño a la imagen del boton para enviar un mensaje al chatbot */
     height: 2vh;
     width: 2vh;
