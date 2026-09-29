@@ -51,12 +51,12 @@
     text-align: center;
 }
 
-.reclamosFieldset {
+.reclamosCampos {
     border: none;
     padding: 0;
     margin: 30px 0 0;
 }
-.reclamosFieldset legend {
+.reclamosCampos legend {
     font-weight: 700;
     font-size: 13.5px;
     color: #5c5c5c;

@@ -36,9 +36,11 @@ export function Reclamos() {
 
                     <p className='reclamoSubtitulo'>Contanos qué pasó con tu equipo o servicio y te vamos a responder a la brevedad.</p>
 
+                    {/* Etiqueta del form para reclamos */}
                     <form>
-                        <fieldset className='reclamosFieldset'>
-                            
+
+                        <fieldset className='reclamosCampos'>
+
                             <legend>Sobre el servicio</legend>
 
                             <div className='reclamosRow'>
@@ -88,7 +90,7 @@ export function Reclamos() {
                             </div>
                         </fieldset>
 
-                        <fieldset className='reclamosFieldset'>
+                        <fieldset className='reclamosCampos'>
 
                             <legend>Detalle</legend>
 
@@ -109,13 +111,19 @@ export function Reclamos() {
                                     <label>Adjuntar foto o comprobante <span className='opt'>(opcional)</span></label>
 
                                     <div className='reclamosFilerow'>
+                                        <input className=''
+                                            type="file"
+                                            accept="image/*" // Limita la selección solo a imágenes
+                                            required
+                                            multiple
+                                        />
                                         📎 <span><strong>Elegir archivo</strong> — JPG, PNG o PDF, máx. 5MB</span>
                                     </div>
                                 </div>
                             </div>
                         </fieldset>
 
-                        <fieldset className='reclamosFieldset'>
+                        <fieldset className='reclamosCampos'>
 
                             <legend>Contacto</legend>
 
