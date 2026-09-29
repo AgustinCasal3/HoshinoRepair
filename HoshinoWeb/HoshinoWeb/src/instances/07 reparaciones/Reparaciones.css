@@ -13,52 +13,219 @@
 
 .reparacionesModalidad {
     width: 30vw;
-    height: 85vh;
-    
-    border-radius: 2.5vh;
-    
-    background-color: lightgray;
+    height: 82.5vh;
+
+    position: relative;
 }
 
+/* ICONOS */
+
 .reparacionesModalidadIconos {
+    width: 100%;
+    height: 10vh;
+
     display: flex;
-    align-items: center;
-    justify-content: start;
+    align-items: flex-start;
+    justify-content: flex-start;
 
     gap: 2.5vh;
 }
 
-.reparacionesModalidadIconos h2 {
-    height: 2.5vh;
+.reparacionesModalidadIconos img {
+    box-sizing: border-box;
 
-    padding: 2.5vh;
+    height: 10vh;
+    width: 10vh;
 
-    font-size: 2.5vh;
+    padding: 2vh;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background-color: rgb(190, 190, 190);
 
-    border-radius: 5vh;
-    border: 1px solid black;
+    border: 2px solid black;
+
+    border-bottom: 2px solid black;
+
+    border-top-left-radius: 2.5vh;
+    border-top-right-radius: 2.5vh;
+
+    cursor: pointer;
+    user-select: none;
 }
 
+/* PESTAÑA SELECCIONADA */
+
+.reparacionesModalidadIconos img.seleccionado {
+    background-color: white;
+
+    border-bottom: none;
+
+    position: relative;
+    z-index: 2;
+}
+
+/* TEXTO */
+
 .reparacionesModalidadTexto {
-    border-radius: 2.5vh;
+    box-sizing: border-box;
+
+    width: 100%;
+    height: calc(100% - 10vh);
+
     padding: 2.5vh;
+
+    background-color: white;
+
+    border: 2px solid black;
+
+    border-top-right-radius: 2.5vh;
+    border-bottom-left-radius: 2.5vh;
+    border-bottom-right-radius: 2.5vh;
+
+    /* Esto hace que el borde del texto quede detrás de los iconos */
+    margin-top: -2px;
+}
+
+.reparacionesModalidadTexto h3 {
+    font-size: 3.5vh;
+
+    margin-top: 0;
+    margin-bottom: 2.5vh;
+}
+
+.reparacionesModalidadTexto p {
+    font-size: 2vh;
+
+    margin-top: 0;
+    margin-bottom: 1vh;
 }
 
 /* DISPOSITIVO */
 
 .reparacionesDispositivo {
     width: 30vw;
-    height: 80vh;
-    
-    border-radius: 2.5vh;
-    padding: 2.5vh;
-    
-    background-color: lightgray;
+    height: 82.5vh;
+
+    position: relative;
 }
+
+/* ICONOS */
+
+.reparacionesDispositivoIconos {
+    width: 100%;
+    height: 10vh;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    gap: 2.5vh;
+}
+
+.reparacionesDispositivoIconos img {
+    box-sizing: border-box;
+
+    height: 10vh;
+    width: 10vh;
+
+    padding: 2vh;
+
+    background-color: rgb(190, 190, 190);
+
+    border: 2px solid black;
+
+    border-bottom: 2px solid black;
+
+    border-top-left-radius: 2.5vh;
+    border-top-right-radius: 2.5vh;
+
+    cursor: pointer;
+    user-select: none;
+}
+
+/* PESTAÑA SELECCIONADA */
+
+.reparacionesDispositivoIconos img.seleccionado {
+    background-color: white;
+
+    border-bottom: none;
+
+    position: relative;
+    z-index: 2;
+}
+
+/* TEXTO */
+
+.reparacionesDispositivoTexto {
+    box-sizing: border-box;
+
+    width: 100%;
+    height: calc(100% - 10vh);
+
+    padding: 2.5vh;
+
+    background-color: white;
+
+    border: 2px solid black;
+
+    border-top-right-radius: 2.5vh;
+    border-bottom-left-radius: 2.5vh;
+    border-bottom-right-radius: 2.5vh;
+
+    /* Esto hace que el borde del texto quede detrás de los iconos */
+    margin-top: -2px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.reparacionesDispositivoTexto h3 {
+    font-size: 3.5vh;
+
+    margin-top: 0;
+    margin-bottom: 2.5vh;
+}
+
+.reparacionesDispositivoTexto p {
+    font-size: 2vh;
+
+    margin-top: 0;
+    margin-bottom: 1vh;
+}
+
+.reparacionesSolicitarServicio {
+    width: 100%;
+
+    margin-bottom: 1.5vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.reparacionesSolicitarServicio a {
+    color: black;
+    text-decoration: none;
+
+    font-size: 2vh;
+    padding: 2.5vh;
+    border-radius: 4.5vh;
+
+    background-color: rgb(230, 230, 230);
+
+    border: 2px solid black;
+
+    transition: 0.25s ease;
+}
+
+.reparacionesSolicitarServicio a:hover {
+    cursor: pointer;
+    background-color: rgb(200, 200, 200);
+
+    transform: scale(1.025);
+}
+
 
 /* UBICACION */
 
@@ -77,6 +244,9 @@
 }
 
 .reparacionesUbicacion p {
+    font-size: 2vh;
+
+    margin-bottom: 1vh;
 }
 
 .reparacionesUbicacion iframe {

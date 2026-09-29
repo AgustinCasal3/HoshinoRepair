@@ -12,6 +12,7 @@ import { ListaDispositivos } from './instances/04 listaDispositivos/ListaDisposi
 import { Dispositivo } from './instances/05 dispositivo/Dispositivo.tsx';  // 05
 import { Reservas } from './instances/06 reservas/Reservas.tsx';  // 06
 import { Reparaciones } from './instances/07 reparaciones/Reparaciones.tsx';  // 07
+import { ReparacionesFormulario } from './instances/07 reparaciones/formulario/ReparacionesFormulario.tsx';  // 07.5
 import { Tienda } from './instances/08 tienda/Tienda.tsx';  // 08
 import { Reclamos } from './instances/09 reclamos/Reclamos.tsx';  // 09
 import { Chatbot } from './instances/11 chatbot/Chatbot.tsx';  // 11
@@ -77,6 +78,10 @@ const router = createBrowserRouter([
       {
         path: 'reparaciones', // Ruta: /reparaciones
         element: <Reparaciones />,
+      },
+      {
+        path: 'reparaciones/formulario', // Ruta: /reparaciones
+        element: <ReparacionesFormulario />,
       },
       {
         path: 'tienda', // Ruta: /tienda

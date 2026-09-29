@@ -2,6 +2,13 @@ import './Reparaciones.css';
 
 import { Header } from '../0 header/Header';
 
+import IconoLocal from '../../assets/imgs/07 reparaciones/IconoCasa.png'
+import IconoEntrega from '../../assets/imgs/07 reparaciones/IconoEntrega.png'
+import IconoCelular from '../../assets/imgs/07 reparaciones/IconoCelular.png'
+import IconoPC from '../../assets/imgs/07 reparaciones/IconoPC.png'
+import IconoNotebook from '../../assets/imgs/07 reparaciones/IconoNotebook.png'
+import IconoConsola from '../../assets/imgs/07 reparaciones/IconoConsola.png'
+
 export function Reparaciones() {
     return (
         <>
@@ -10,8 +17,8 @@ export function Reparaciones() {
             <section className="reparacionesContenido">
                 <div className="reparacionesModalidad">
                     <div className="reparacionesModalidadIconos">
-                        <h2>En el Local</h2>
-                        <h2>Tecnico a Domicilio</h2>
+                        <img src={IconoLocal} alt="Icono Local" className="seleccionado"/>
+                        <img src={IconoEntrega} alt="Icono Entrega" />
                     </div>
                     <div className="reparacionesModalidadTexto">
                         <h3>Reparacion en el Local</h3>
@@ -23,19 +30,22 @@ export function Reparaciones() {
 
                 <div className="reparacionesDispositivo">
                     <div className="reparacionesDispositivoIconos">
-                        <h2>Celulares</h2>
-                        <h2>PCs Escritorio</h2>
-                        <h2>Notebooks</h2>
-                        <h2>Consolas</h2>
-                        <h2>Otros</h2>
+                        <img src={IconoCelular} alt="Icono Celular" className="seleccionado" />
+                        <img src={IconoPC} alt="Icono PC Escritorio" />
+                        <img src={IconoNotebook} alt="Icono Notebook" />
+                        <img src={IconoConsola} alt="Icono Consolas" />
                     </div>
                     <div className="reparacionesDispositivoTexto">
-                        <h3>Reparacion de Celulares</h3>
-                        <p>En el momento de ser entregado se solicitaran los datos necesarios para hacer pruebas en el dispositivo.</p>
-                        <p>En el caso de ser un cambio de pantalla y/o bateria, mientras el costo total de la reparacion sea menor a $50.000, se hara sin confirmacion previa.</p>
-                        <p>En caso contrario, se enviara un diagnostico y presupuesto por correo.</p>
+                        <div className="reparacionesDispositivoInformacion">
+                            <h3>Reparacion de Celulares</h3>
+                            <p>En el momento de ser entregado se solicitaran los datos necesarios para hacer pruebas en el dispositivo.</p>
+                            <p>En el caso de ser un cambio de pantalla y/o bateria, mientras el costo total de la reparacion sea menor a $50.000, se hara sin confirmacion previa.</p>
+                            <p>En caso contrario, se enviara un diagnostico y presupuesto por correo.</p>
+                        </div>
 
-                        <button>Solicitar Servicio</button>
+                        <div className="reparacionesSolicitarServicio">
+                            <a href='/reparaciones/formulario'>Solicitar Servicio</a>
+                        </div>
                     </div>
                 </div>
 
