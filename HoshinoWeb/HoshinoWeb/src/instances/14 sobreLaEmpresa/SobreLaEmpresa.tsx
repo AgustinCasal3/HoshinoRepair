@@ -1,10 +1,11 @@
-//Importaciones del archivo QuienesSomos.tsx
-import './QuienesSomos.css';
+//Importaciones del archivo sobreLaEmpresa.tsx
+import './SobreLaEmpresa.css';
 
+//Importacion del componente del header
 import { Header } from '../0 header/Header';
 
-//Funcion QuienesSomos
-export function QuienesSomos() {
+//Funcion SobreLaEmpresa
+export function SobreLaEmpresa() {
 
     return (
         <>
@@ -12,44 +13,65 @@ export function QuienesSomos() {
             {/* Etiqueta del header para que se vea arriba de la pantalla */}
             <Header/>
 
-            <div className="quienesSomosContenedor">
+            {/* Div contenedor principal de toda la pantalla */}
+            <div className="sobreLaEmpresaContenedor">
 
-                <div className="quienesSomosMenu">
+                {/* Div del menu de la izquierda */}
+                <div className="sobreLaEmpresaMenu">
+
+                    {/* Titulo del menu de la izquierda (es el que esta con negrita) */}
                     <h4>
                         Quienes Somos
                     </h4>
-                    <h4>
+
+                    {/* Titulo del menu de la izquierda (no esta en negrita gracias a la clase) */}
+                    <h4 className='sobreLaEmpresaMenuTituloSinNegrita'>
                         Servicio Tecnico
                     </h4>
-                    <h4>
+
+                    {/* Titulo del menu de la izquierda (no esta en negrita gracias a la clase) */}
+                    <h4 className='sobreLaEmpresaMenuTituloSinNegrita'>
                         Reparación en el Local
                     </h4>
-                    <h4>
+
+                    {/* Titulo del menu de la izquierda (no esta en negrita gracias a la clase) */}
+                    <h4 className='sobreLaEmpresaMenuTituloSinNegrita'>
                         Reparación a Domicilio
                     </h4>
 
-                    <h5>
+                    {/* Titulo del menu de la izquierda (no esta en negrita gracias a la clase) */}
+                    <h4 className='sobreLaEmpresaMenuTituloSinNegrita'>
                         Politicas y Privacidad
-                    </h5>
-                        
-                    <h5>
+                    </h4>
+
+                    {/* Titulo del menu de la izquierda (no esta en negrita gracias a la clase) */}   
+                    <h4 className='sobreLaEmpresaMenuTituloSinNegrita'>
                         Garantia y Devoluciones
-                    </h5>
-                        
-                    <h5>
+                    </h4>
+
+                    {/* Titulo del menu de la izquierda (no esta en negrita gracias a la clase) */}  
+                    <h4 className='sobreLaEmpresaMenuTituloSinNegrita'>
                         Retirar tu Compra
-                    </h5>
-                        
-                    <h5>
+                    </h4>
+
+                    {/* Titulo del menu de la izquierda (no esta en negrita gracias a la clase) */}   
+                    <h4 className='sobreLaEmpresaMenuTituloSinNegrita'>
                         Contactanos
-                    </h5>
+                    </h4>
+                    
                 </div>
 
-                <div className="quienesSomosBody">
+                {/* Div del body de la información sobre la empresa, la que esta a la derecha */}
+                <div className="sobreLaEmpresaBody">
 
-                    <div className="quienesSomosTitulo">
+                    {/* div del titulo de la información sobre la empresa, el que esta del lado derecho */}
+                    <div className="sobreLaEmpresaTitulo">
+
+                    {/* Titulo de la información sobre la empresa, el que esta del lado derecho */}
                     <h1>Quienes Somos</h1>
                     </div>
+
+                    {/* Ps con los parrafos de informacion del lado de la derecha */}
                     <p>Lorem ipsum dolor sit amet consectetur adipiscing elit proin ultrices tortor, lacus accumsan taciti auctor egestas odio fermentum lectus commodo, tincidunt nostra etiam at vestibulum nisl vulputate cubilia maecenas. Odio facilisis dictum vulputate class ac nibh quis fames faucibus penatibus proin, primis senectus diam iaculis augue porttitor sed integer neque sociosqu. Tellus massa vehicula sociosqu cursus platea dignissim nunc vel, dapibus mus potenti senectus sodales tempus sed, primis aenean nisi euismod dis viverra elementum.</p>
 
                     <p>Habitant diam vivamus gravida fringilla ut natoque, malesuada sem lectus phasellus quisque condimentum, nam nisl nullam hac massa. Proin laoreet eget fermentum pellentesque ridiculus ad nec cum, facilisi fames nibh libero neque torquent himenaeos gravida, ornare ligula metus interdum ullamcorper iaculis velit. Mus faucibus litora bibendum felis vehicula natoque suspendisse dignissim dictum dui ligula ac torquent donec, sollicitudin rutrum volutpat per urna elementum et nunc euismod venenatis ornare cras imperdiet.</p>

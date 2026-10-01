@@ -1,0 +1,38 @@
+
+.sobreLaEmpresaContenedor{
+    height: auto;
+    width: 100%;
+
+    display: flex;
+}
+
+.sobreLaEmpresaMenu{
+    height: auto;
+    /* width: 30%; */
+
+    margin-top: 10vh;
+    padding-left: 30vh;
+
+    border-right: 1px solid black;
+}
+
+.sobreLaEmpresaMenuTituloSinNegrita{
+    font-weight: 400;
+}
+
+.sobreLaEmpresaBody{
+    height: auto;
+    width: 70%;
+
+    text-align: justify;
+
+    margin: 10vh;
+}
+
+.sobreLaEmpresaTitulo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 5vh;
+}

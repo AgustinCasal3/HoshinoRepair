@@ -18,7 +18,7 @@ import { Reclamos } from './instances/09 reclamos/Reclamos.tsx';  // 09
 import { Chatbot } from './instances/11 chatbot/Chatbot.tsx';  // 11
 import { ReservasUsuarios } from './instances/12 reservasUsuarios/ReservasUsuarios.tsx';  // 12
 import { Reservar } from './instances/13 reservar/Reservar.tsx';  // 13
-import { QuienesSomos } from './instances/14 quienesSomos/QuienesSomos.tsx';  // 14
+import { SobreLaEmpresa } from './instances/14 sobreLaEmpresa/SobreLaEmpresa.tsx';  // 14
 
 function Pagina() {
   return (
@@ -107,8 +107,8 @@ const router = createBrowserRouter([
         element: <Reservar />,
       },
       {
-        path: 'quienesSomos', // Ruta: /quienesSomos
-        element: <QuienesSomos />,
+        path: 'sobreLaEmpresa', // Ruta: /sobreLaEmpresa
+        element: <SobreLaEmpresa />,
       },
     ],
   },
