@@ -16,6 +16,9 @@ import { ReparacionesFormulario } from './instances/07 reparaciones/formulario/R
 import { Tienda } from './instances/08 tienda/Tienda.tsx';  // 08
 import { Reclamos } from './instances/09 reclamos/Reclamos.tsx';  // 09
 import { Chatbot } from './instances/11 chatbot/Chatbot.tsx';  // 11
+import { ReservasUsuarios } from './instances/12 reservasUsuarios/ReservasUsuarios.tsx';  // 12
+import { Reservar } from './instances/13 reservar/Reservar.tsx';  // 13
+import { QuienesSomos } from './instances/14 quienesSomos/QuienesSomos.tsx';  // 14
 
 function Pagina() {
   return (
@@ -94,6 +97,18 @@ const router = createBrowserRouter([
       {
         path: 'chatbot', // Ruta: /chatbot
         element: <Chatbot />,
+      },
+      {
+        path: 'reservasUsuarios', // Ruta: /reservasUsuarios
+        element: <ReservasUsuarios />,
+      },
+      {
+        path: 'reservar', // Ruta: /reservar
+        element: <Reservar />,
+      },
+      {
+        path: 'quienesSomos', // Ruta: /quienesSomos
+        element: <QuienesSomos />,
       },
     ],
   },

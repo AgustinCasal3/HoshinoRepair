@@ -1,4 +1,4 @@
-//Importaciones del archivo Chatbot.tsx (del login)
+//Importaciones del archivo Chatbot.tsx
 import './Chatbot.css';
 
 import flechaEnviar from '../../assets/imgs/11 chatbot/ArrowRight.svg';

@@ -24,12 +24,12 @@ export function Reservas() {
                 <div className="listaDispositivos">
                     <div className="listaDispositivosArticulo">
                         <div className="listaDispositivosInfo">
-                            <a href={`dispositivo/${numDispositivo}`}>
+                            <a href={`reservasUsuarios/${numDispositivo}`}>
                                 <div className="listaDispositivosArticuloImg">
                                     <img src={ImgDispositivo4} alt={`Foto del dispositivo ${numDispositivo}`} />
                                 </div>
                             </a>
-                            <a href={`dispositivo/${numDispositivo}`}>
+                            <a href={`reservasUsuarios/${numDispositivo}`}>
                                 <div className="listaDispositivosDatos">
                                     <h3>Steam Frame 1TB</h3>
                                     <h2>#000004</h2>
@@ -37,7 +37,7 @@ export function Reservas() {
                             </a>
                         </div>
                         <div className="listaDispositivosVer">
-                            <a href={`dispositivo/${numDispositivo}`}>
+                            <a href={`reservasUsuarios/${numDispositivo}`}>
                                 <p>Ver</p>
                             </a>
                         </div>
@@ -46,12 +46,12 @@ export function Reservas() {
                     <div className="listaDispositivosArticulo">
                         <div className="listaDispositivosInfo">
                             
-                            <a href={`dispositivo/${numDispositivo}`}>
+                            <a href={`reservasUsuarios/${numDispositivo}`}>
                                 <div className="listaDispositivosArticuloImg">
                                     <img src={ImgDispositivo5} alt={`Foto del dispositivo ${numDispositivo}`} />
                                 </div>
                             </a>
-                            <a href={`dispositivo/${numDispositivo}`}>
+                            <a href={`reservasUsuarios/${numDispositivo}`}>
                                 <div className="listaDispositivosDatos">
                                     <h3>Mac Pro 6,1</h3>
                                     <h2>#000005</h2>
@@ -59,7 +59,7 @@ export function Reservas() {
                             </a>
                         </div>
                         <div className="listaDispositivosVer">
-                            <a href={`dispositivo/${numDispositivo}`}>
+                            <a href={`reservasUsuarios/${numDispositivo}`}>
                                 <p>Ver</p>
                             </a>
                         </div>
@@ -74,12 +74,12 @@ export function Reservas() {
                 <div className="listaDispositivos">
                     <div className="listaDispositivosArticulo">
                         <div className="listaDispositivosInfo">
-                            <a href={`dispositivo/${numDispositivo}`}>
+                            <a href={`reservasUsuarios/${numDispositivo}`}>
                                 <div className="listaDispositivosArticuloImg">
                                     <img src={ImgDispositivo6} alt={`Foto del dispositivo ${numDispositivo}`} />
                                 </div>
                             </a>
-                            <a href={`dispositivo/${numDispositivo}`}>
+                            <a href={`reservasUsuarios/${numDispositivo}`}>
                                 <div className="listaDispositivosDatos">
                                     <h3>Playstation 1</h3>
                                     <h2>#000006</h2>
@@ -87,7 +87,7 @@ export function Reservas() {
                             </a>
                         </div>
                         <div className="listaDispositivosVer">
-                            <a href={`dispositivo/${numDispositivo}`}>
+                            <a href={`reservasUsuarios/${numDispositivo}`}>
                                 <p>Ver</p>
                             </a>
                         </div>

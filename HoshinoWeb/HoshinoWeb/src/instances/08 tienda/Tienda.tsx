@@ -99,7 +99,7 @@ export function Tienda() {
                         </div>
                         <div className="tiendaContenedorArticulos">
                             <div className="tiendaArticulo">
-                                <a href="dispositivo/1">
+                                <a href="reservar/1">
                                     <div className="tiendaArticuloImg">
                                         <img src={ImgDispositivo4} alt="Imagen del dispositivo" />
                                     </div>
@@ -111,7 +111,7 @@ export function Tienda() {
                             </div>
                             
                             <div className="tiendaArticulo">
-                                <a href="dispositivo/1">
+                                <a href="reservar/1">
                                     <div className="tiendaArticuloImg">
                                         <img src={ImgDispositivo5} alt="Imagen del dispositivo" />
                                     </div>
@@ -123,7 +123,7 @@ export function Tienda() {
                             </div>
                             
                             <div className="tiendaArticulo">
-                                <a href="dispositivo/1">
+                                <a href="reservar/1">
                                     <div className="tiendaArticuloImg">
                                         <img src={ImgDispositivo3} alt="Imagen del dispositivo" />
                                     </div>
@@ -135,7 +135,7 @@ export function Tienda() {
                             </div>
                             
                             <div className="tiendaArticulo">
-                                <a href="dispositivo/1">
+                                <a href="reservar/1">
                                     <div className="tiendaArticuloImg">
                                         <img src={ImgDispositivo2} alt="Imagen del dispositivo" />
                                     </div>
@@ -147,7 +147,7 @@ export function Tienda() {
                             </div>
 
                             <div className="tiendaArticulo">
-                                <a href="dispositivo/1">
+                                <a href="reservar/1">
                                     <div className="tiendaArticuloImg">
                                         <img src={ImgDispositivo1} alt="Imagen del dispositivo" />
                                     </div>
@@ -159,7 +159,7 @@ export function Tienda() {
                             </div>
 
                             <div className="tiendaArticulo">
-                                <a href="dispositivo/1">
+                                <a href="reservar/1">
                                     <div className="tiendaArticuloImg">
                                         <img src={ImgDispositivo6} alt="Imagen del dispositivo" />
                                     </div>
