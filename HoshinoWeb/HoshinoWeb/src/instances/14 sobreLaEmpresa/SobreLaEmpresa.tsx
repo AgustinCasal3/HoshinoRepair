@@ -18,47 +18,16 @@ export function SobreLaEmpresa() {
 
                 {/* Div del menu de la izquierda */}
                 <div className="sobreLaEmpresaMenu">
-
-                    {/* Titulo del menu de la izquierda (es el que esta con negrita) */}
-                    <h4>
-                        Quienes Somos
-                    </h4>
-
-                    {/* Titulo del menu de la izquierda (no esta en negrita gracias a la clase) */}
-                    <h4 className='sobreLaEmpresaMenuTituloSinNegrita'>
-                        Servicio Tecnico
-                    </h4>
-
-                    {/* Titulo del menu de la izquierda (no esta en negrita gracias a la clase) */}
-                    <h4 className='sobreLaEmpresaMenuTituloSinNegrita'>
-                        Reparación en el Local
-                    </h4>
-
-                    {/* Titulo del menu de la izquierda (no esta en negrita gracias a la clase) */}
-                    <h4 className='sobreLaEmpresaMenuTituloSinNegrita'>
-                        Reparación a Domicilio
-                    </h4>
-
-                    {/* Titulo del menu de la izquierda (no esta en negrita gracias a la clase) */}
-                    <h4 className='sobreLaEmpresaMenuTituloSinNegrita'>
-                        Politicas y Privacidad
-                    </h4>
-
-                    {/* Titulo del menu de la izquierda (no esta en negrita gracias a la clase) */}   
-                    <h4 className='sobreLaEmpresaMenuTituloSinNegrita'>
-                        Garantia y Devoluciones
-                    </h4>
-
-                    {/* Titulo del menu de la izquierda (no esta en negrita gracias a la clase) */}  
-                    <h4 className='sobreLaEmpresaMenuTituloSinNegrita'>
-                        Retirar tu Compra
-                    </h4>
-
-                    {/* Titulo del menu de la izquierda (no esta en negrita gracias a la clase) */}   
-                    <h4 className='sobreLaEmpresaMenuTituloSinNegrita'>
-                        Contactanos
-                    </h4>
-                    
+                    <ul>
+                            <li className='sobreLaEmpresaSeleccionado'>Quienes Somos</li>
+                            <li>Servicio Tecnico</li>
+                            <li>Reparación en el Local</li>
+                            <li>Reparación a Domicilio</li>
+                            <li>Politicas y Privacidad</li>
+                            <li>Garantia y Devoluciones</li>
+                            <li>Retirar tu Compra</li>
+                            <li>Contactanos</li>
+                    </ul>
                 </div>
 
                 {/* Div del body de la información sobre la empresa, la que esta a la derecha */}
@@ -66,15 +35,16 @@ export function SobreLaEmpresa() {
 
                     {/* div del titulo de la información sobre la empresa, el que esta del lado derecho */}
                     <div className="sobreLaEmpresaTitulo">
-
-                    {/* Titulo de la información sobre la empresa, el que esta del lado derecho */}
-                    <h1>Quienes Somos</h1>
-                    </div>
+                        {/* Titulo de la información sobre la empresa, el que esta del lado derecho */}
+                        <h1>Quienes Somos</h1>
+                    </div>                    
 
                     {/* Ps con los parrafos de informacion del lado de la derecha */}
                     <p>Lorem ipsum dolor sit amet consectetur adipiscing elit proin ultrices tortor, lacus accumsan taciti auctor egestas odio fermentum lectus commodo, tincidunt nostra etiam at vestibulum nisl vulputate cubilia maecenas. Odio facilisis dictum vulputate class ac nibh quis fames faucibus penatibus proin, primis senectus diam iaculis augue porttitor sed integer neque sociosqu. Tellus massa vehicula sociosqu cursus platea dignissim nunc vel, dapibus mus potenti senectus sodales tempus sed, primis aenean nisi euismod dis viverra elementum.</p>
 
                     <p>Habitant diam vivamus gravida fringilla ut natoque, malesuada sem lectus phasellus quisque condimentum, nam nisl nullam hac massa. Proin laoreet eget fermentum pellentesque ridiculus ad nec cum, facilisi fames nibh libero neque torquent himenaeos gravida, ornare ligula metus interdum ullamcorper iaculis velit. Mus faucibus litora bibendum felis vehicula natoque suspendisse dignissim dictum dui ligula ac torquent donec, sollicitudin rutrum volutpat per urna elementum et nunc euismod venenatis ornare cras imperdiet.</p>
+
+                    <h2>¿Como nacio la idea?</h2>
 
                     <p>Taciti duis erat accumsan magnis augue faucibus justo imperdiet molestie massa maecenas, facilisis dui rhoncus venenatis dapibus id nec tristique phasellus. Sed blandit class neque sagittis leo aenean habitant sodales aliquet nam aptent tempus, phasellus nascetur praesent ligula tellus enim curabitur ridiculus justo lacinia placerat, arcu nisi sociosqu molestie imperdiet odio est eros proin euismod ultrices. Mauris venenatis turpis ut risus aliquet taciti volutpat dictum eget maecenas varius litora, platea rhoncus blandit potenti iaculis tempor pulvinar sociis commodo lectus duis. Neque scelerisque aliquet montes dictumst class primis tincidunt auctor fermentum, augue rhoncus senectus ridiculus netus sapien ante convallis.</p>
 

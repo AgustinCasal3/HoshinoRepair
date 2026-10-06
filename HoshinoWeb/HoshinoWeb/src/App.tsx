@@ -107,7 +107,7 @@ const router = createBrowserRouter([
         element: <Reservar />,
       },
       {
-        path: 'sobreLaEmpresa', // Ruta: /sobreLaEmpresa
+        path: 'about', // Ruta: /about
         element: <SobreLaEmpresa />,
       },
     ],

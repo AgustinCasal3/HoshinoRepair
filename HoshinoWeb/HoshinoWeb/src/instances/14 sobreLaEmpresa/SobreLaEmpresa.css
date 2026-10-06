@@ -3,30 +3,70 @@
     height: auto;
     width: 100%;
 
+    margin-top: 10vh;
+
     display: flex;
+    align-items: start;
+    justify-content: center;
 }
 
+
 .sobreLaEmpresaMenu{
-    height: auto;
-    /* width: 30%; */
-
-    margin-top: 10vh;
-    padding-left: 30vh;
-
+    padding: 2.5vh 0;
+    margin-right: 5vh;
     border-right: 1px solid black;
 }
 
-.sobreLaEmpresaMenuTituloSinNegrita{
-    font-weight: 400;
+.sobreLaEmpresaMenu ul {
+    width: 40vh;
+    
+    list-style: none;
+    transition: 0.25s ease;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.sobreLaEmpresaMenu ul li {
+    width: 35vh;
+
+    display: block;
+
+    font-size: 2.5vh;
+    text-align: right;
+    margin: 0.5vh 0;
+    
+    transition: 0.25s ease;
+}
+
+.sobreLaEmpresaMenu ul li:hover {
+    transform: translateX(-1vh);
+    cursor: pointer;
+
+    font-weight: bolder;
+}
+
+.sobreLaEmpresaSeleccionado {
+    font-weight: bold;
 }
 
 .sobreLaEmpresaBody{
     height: auto;
-    width: 70%;
+    width: 60vw;
 
     text-align: justify;
+}
 
-    margin: 10vh;
+.sobreLaEmpresaBody p {
+    font-size: 2.25vh;
+
+    margin-bottom: 3.5vh;
+    line-height: 3.5vh;
+}
+
+.sobreLaEmpresaBody h2 {
+    margin-bottom: 3.5vh;
+    font-size: 4vh;
 }
 
 .sobreLaEmpresaTitulo{
@@ -35,4 +75,8 @@
     justify-content: center;
 
     margin-bottom: 5vh;
+}
+
+.sobreLaEmpresaTitulo h1 {
+    font-size: 7.5vh;
 }
