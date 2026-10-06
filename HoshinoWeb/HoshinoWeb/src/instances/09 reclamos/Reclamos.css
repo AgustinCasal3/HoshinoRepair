@@ -112,15 +112,59 @@
 }
 
 .reclamosFilerow {
+    min-height: 10vh;
     display: flex;
     align-items: center;
-    gap: 12px;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1.5vh;
     border: 1px dashed #8a8a8a;
-    border-radius: 16px;
-    padding: 14px 16px;
+    border-radius: 1.5vh;
+    padding: 1.5vh;
     background: #ececec;
-    font-size: 13.5px;
+    font-size: 1.5vh;
     color: #5c5c5c;
+}
+
+.reclamosTextoArchivo{
+    border: 1px solid black
+
+}
+
+.reclamosTextoArchivos label{
+    background-color: lightgray;
+    border: 2px solid black;
+    border-radius: 1.5vh;
+    cursor: pointer;
+
+    margin: 1.5vh;
+    padding: 1.5vh;
+}
+
+.reclamosArchivos{
+    display: flex;
+    flex-direction: column;
+    display: none;
+}
+
+.previewImagenes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.previewImagenes img {
+  width: 25vh;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.archivosSeleccionadosInfo {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: #666;
 }
 
 .reclamosFilerow strong {

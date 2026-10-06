@@ -1,16 +1,34 @@
-import './Reclamos.css'
-import { Header } from '../0 header/Header'
+import './Reclamos.css';
+import { Header } from '../0 header/Header';
+import { useState } from 'react';
 
 export function Reclamos() {
+
+    // Estado para guardar las URLs de vista previa
+    const [imagenes, setImagenes] = useState<string[]>([]);
+
+    // Función para manejar la selección de archivos
+    const manejarImagenes = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (!e.target.files) return;
+
+        const archivos = Array.from(e.target.files);
+
+        const previews = archivos.map((archivo) =>
+            URL.createObjectURL(archivo)
+        );
+
+        document.querySelector('.reclamosArchivos').style.display = 'flex';
+
+        setImagenes(previews);
+    };
+
     return (
         <>
-
-            <Header/>
+            <Header />
 
             {/* Div del body de reclamos, lo que lo acomoda en el centro y lo que viene a ser el fondo */}
             <div className='reclamosBody'>
 
-                
                 <div className='reclamosContenedor'>
 
                     {/* Titulo de la pagina de reclamos */}
@@ -33,8 +51,8 @@ export function Reclamos() {
 
                                     <label>Orden de reparación / compra <span className='req'>*</span></label>
 
-                                    <select required>
-                                        <option value="">Seleccioná una orden</option>
+                                    <select defaultValue="" required>
+                                        <option value="" disabled>Seleccioná una orden</option>
                                         <option>#4821 — Reparación de pantalla, iPhone 12 (12/09/2026)</option>
                                         <option>#4790 — Cambio de batería, Notebook Lenovo (03/09/2026)</option>
                                         <option>#4712 — Venta, Joystick PS5 (28/08/2026)</option>
@@ -48,8 +66,8 @@ export function Reclamos() {
 
                                     <label>Tipo de dispositivo <span className='req'>*</span></label>
 
-                                    <select required>
-                                        <option value="">Seleccioná</option>
+                                    <select defaultValue="" required>
+                                        <option value="" disabled>Seleccioná</option>
                                         <option>Celular</option>
                                         <option>Notebook</option>
                                         <option>PC de escritorio</option>
@@ -62,8 +80,8 @@ export function Reclamos() {
 
                                     <label>Motivo del reclamo <span className='req'>*</span></label>
 
-                                    <select required>
-                                        <option value="">Seleccioná</option>
+                                    <select defaultValue="" required>
+                                        <option value="" disabled>Seleccioná</option>
                                         <option>Problema con la reparación</option>
                                         <option>Demora en el servicio</option>
                                         <option>Cobro incorrecto</option>
@@ -96,20 +114,44 @@ export function Reclamos() {
 
                                     <div className='reclamosFilerow'>
 
-                                        <label htmlFor="reclamosArchivos">
-                                            📎 <span><strong>Elegir archivo</strong> — JPG, PNG o PDF, máx. 5MB</span>
+                                        <div className='reclamosTextoArchivos'>
 
-                                             <input
-                                                id='reclamosArchivos'
-                                                className='reclamosFileInput'
-                                                type="file"
+                                            <label htmlFor="reclamosArchivos">
+                                                📎 <span><strong>Elegir archivo</strong> — JPG, PNG o PDF, máx. 5MB</span>
 
-                                                // Limita la selección solo a imágenes
-                                                accept="image/*" 
-                                                required
-                                                multiple
-                                            />
-                                        </label>
+                                                <input
+                                                    id='reclamosArchivos'
+                                                    className='reclamosFileInput'
+                                                    type="file"
+                                                    accept="image/*"
+                                                    multiple
+                                                    onChange={manejarImagenes}
+                                                />
+                                            </label>
+                                        </div>
+
+                                        <div className='reclamosArchivos'>
+
+
+                                            {/* Texto descriptivo de cuántos archivos se seleccionaron */}
+                                            {imagenes.length > 0 && (
+                                                <span className="archivosSeleccionadosInfo">
+                                                    {imagenes.length} archivo(s) seleccionado(s)
+                                                </span>
+                                            )}
+
+                                            {/* Contenedor de las vistas previas de las imágenes */}
+                                            <div className="previewImagenes">
+                                                {imagenes.map((imagen, index) => (
+                                                    <img
+                                                        key={`${imagen}-${index}`}
+                                                        src={imagen}
+                                                        alt={`Vista previa ${index + 1}`}
+                                                    />
+                                                ))}
+                                        </div>
+                                    </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -185,5 +227,5 @@ export function Reclamos() {
                 </div>
             </div>
         </>
-    )
+    );
 }
