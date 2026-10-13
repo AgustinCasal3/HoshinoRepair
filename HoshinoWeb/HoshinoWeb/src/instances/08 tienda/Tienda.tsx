@@ -1,6 +1,7 @@
 import './Tienda.css';
 
 import { Header } from '../0 header/Header';
+import { Footer } from '../0 footer/Footer';
 
 import ImgDispositivo1 from '../../assets/imgs/05 dispositivo/productos/Producto1.png'
 import ImgDispositivo2 from '../../assets/imgs/05 dispositivo/productos/Producto2.png'
@@ -186,6 +187,8 @@ export function Tienda() {
                     <p>{'>'}</p>
                 </div>
             </section>
+
+            <Footer/>
         </>
     )
 }

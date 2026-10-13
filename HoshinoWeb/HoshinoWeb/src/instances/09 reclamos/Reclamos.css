@@ -38,12 +38,12 @@
     width: 100%;
 }
 
-.reclamosRow {
-    /* display: grid;
+/*.reclamosRow {
+    display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 18px;
-    margin-bottom: 18px; */
-}
+    margin-bottom: 18px; 
+}*/
 
 .reclamosField {
     display: flex;

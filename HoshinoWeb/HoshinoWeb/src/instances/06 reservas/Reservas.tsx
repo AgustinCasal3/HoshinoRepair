@@ -1,6 +1,7 @@
 import './Reservas.css';
 
 import { Header } from '../0 header/Header';
+import { Footer } from '../0 footer/Footer';
 
 import ImgDispositivo4 from '../../assets/imgs/05 dispositivo/productos/Producto4.png'
 import ImgDispositivo5 from '../../assets/imgs/05 dispositivo/productos/Producto5.png'
@@ -94,6 +95,7 @@ export function Reservas() {
                     </div>
                 </div>
             </section>
+            <Footer/>
         </>
     )
 }

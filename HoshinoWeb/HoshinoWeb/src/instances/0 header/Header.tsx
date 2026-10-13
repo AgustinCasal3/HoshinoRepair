@@ -18,7 +18,6 @@ export function Header() {
                 <p><a href="/chatbot">Chatbot</a></p>
                 <p><a href="/reclamos">Reclamos</a></p>
                 <p><a href="/reparaciones">Reparaciones</a></p>
-                <p><a href="/about">Sobre Nosotros</a></p>
             </nav>
 
             <div className="headerCuenta">

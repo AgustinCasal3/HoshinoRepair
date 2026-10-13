@@ -3,6 +3,7 @@ import './SobreLaEmpresa.css';
 
 //Importacion del componente del header
 import { Header } from '../0 header/Header';
+import { Footer } from '../0 footer/Footer';
 
 //Funcion SobreLaEmpresa
 export function SobreLaEmpresa() {
@@ -51,6 +52,8 @@ export function SobreLaEmpresa() {
                     <p>Sem torquent class sapien viverra vulputate fusce montes est, integer vestibulum pulvinar duis facilisi hac porta blandit ridiculus, varius rutrum purus lacus magna consequat primis. Sagittis vivamus nibh nullam elementum suspendisse metus dignissim dictumst, etiam in mus tristique tellus montes velit suscipit leo, rutrum faucibus feugiat facilisi inceptos parturient est. Suscipit bibendum litora himenaeos nascetur donec curae ullamcorper hendrerit auctor varius duis, magnis montes netus nullam velit vestibulum diam lobortis libero malesuada tempus, imperdiet mattis nisl dignissim facilisis cras ligula porttitor torquent nam.</p>
                 </div>
             </div>
+
+            <Footer/>
         </>
     )
 }

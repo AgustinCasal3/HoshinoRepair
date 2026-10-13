@@ -1,6 +1,7 @@
 import './ReparacionesFormulario.css';
 
 import { Header } from '../../0 header/Header';
+import { Footer } from '../../0 footer/Footer';
 
 import { useState } from "react";
 
@@ -108,6 +109,8 @@ export function ReparacionesFormulario() {
                     </div>
                 </form>
             </section>
+
+            <Footer/>
         </>
     );
 }

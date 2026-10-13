@@ -2,6 +2,7 @@
 import './Reservar.css';
 
 import { Header } from '../0 header/Header';
+import { Footer } from '../0 footer/Footer';
 
 //Funcion Reservar
 export function Reservar() {
@@ -12,7 +13,7 @@ export function Reservar() {
             {/* Etiqueta del header para que se vea arriba de la pantalla */}
             <Header/>
 
-            
+            <Footer/>
         </>
     )
 }

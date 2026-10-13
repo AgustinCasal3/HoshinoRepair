@@ -1,6 +1,8 @@
 import './Reclamos.css';
-import { Header } from '../0 header/Header';
 import { useState } from 'react';
+
+import { Header } from '../0 header/Header';
+import { Footer } from '../0 footer/Footer';
 
 export function Reclamos() {
 
@@ -224,6 +226,8 @@ export function Reclamos() {
                     </div>
                 </div>
             </div>
+
+            <Footer/>
         </>
     );
 }

@@ -1,6 +1,7 @@
 import './Reparaciones.css';
 
 import { Header } from '../0 header/Header';
+import { Footer } from '../0 footer/Footer';
 
 import IconoLocal from '../../assets/imgs/07 reparaciones/IconoCasa.png'
 import IconoEntrega from '../../assets/imgs/07 reparaciones/IconoEntrega.png'
@@ -65,6 +66,8 @@ export function Reparaciones() {
                     </div>
                 </div>
             </section>
+
+            <Footer/>
         </>
     )
 }

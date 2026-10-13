@@ -11,6 +11,7 @@ import ImgProd1 from '../../assets/imgs/05 dispositivo/productos/PC1.png';
 import ImgProd2 from '../../assets/imgs/05 dispositivo/productos/PC2.png';
 
 import { Header } from '../0 header/Header';
+import { Footer } from '../0 footer/Footer';
 
 export function Home() {
 
@@ -99,6 +100,8 @@ export function Home() {
                 </div>
 
             </section>
+
+            <Footer/>
         </>
     )
 }

@@ -6,6 +6,7 @@ import ImgDispositivo1 from '../../assets/imgs/05 dispositivo/productos/Producto
 import ImgDispositivo2 from '../../assets/imgs/05 dispositivo/productos/Producto2.png'
 
 import { Header } from '../0 header/Header';
+import { Footer } from '../0 footer/Footer';
 
 export function Cuenta() {
 
@@ -92,6 +93,8 @@ export function Cuenta() {
                     </h2>
                 </div>
             </section>
+
+            <Footer/>
         </>
     )
 }

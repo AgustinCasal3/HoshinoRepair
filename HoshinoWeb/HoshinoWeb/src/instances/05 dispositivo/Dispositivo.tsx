@@ -1,6 +1,7 @@
 import './Dispositivo.css';
 
 import { Header } from '../0 header/Header';
+import { Footer } from '../0 footer/Footer';
 
 import ImgDispositivo1 from '../../assets/imgs/05 dispositivo/productos/Producto1.png'
 
@@ -48,6 +49,8 @@ export function Dispositivo() {
                     </div>
                 </div>
             </section>
+
+            <Footer/>
         </>
     )
 }
