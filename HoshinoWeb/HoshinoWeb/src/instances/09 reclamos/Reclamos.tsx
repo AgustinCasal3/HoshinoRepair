@@ -47,7 +47,7 @@ export function Reclamos() {
 
                             <div className='reclamosRow'>
 
-                                <div className='reclamosField full'>
+                                <div className='reclamosField'>
 
                                     <label>Orden de reparación / compra <span className='req'>*</span></label>
 
@@ -98,7 +98,7 @@ export function Reclamos() {
 
                             <div className='reclamosRow'>
 
-                                <div className='reclamosField full'>
+                                <div className='reclamosField'>
 
                                     <label>Descripción del reclamo <span className='req'>*</span></label>
 
@@ -108,27 +108,25 @@ export function Reclamos() {
 
                             <div className='reclamosRow'>
 
-                                <div className='reclamosField full'>
+                                <div className='reclamosField'>
 
-                                    <label>Adjuntar foto o comprobante <span className='opt'>(opcional)</span></label>
+                                    <label>Adjuntar foto o comprobante <span /*className='opt'*/>(opcional)</span></label>
 
                                     <div className='reclamosFilerow'>
 
-                                        <div className='reclamosTextoArchivos'>
 
-                                            <label htmlFor="reclamosArchivos">
-                                                📎 <span><strong>Elegir archivo</strong> — JPG, PNG o PDF, máx. 5MB</span>
-
-                                                <input
-                                                    id='reclamosArchivos'
-                                                    className='reclamosFileInput'
-                                                    type="file"
-                                                    accept="image/*"
-                                                    multiple
-                                                    onChange={manejarImagenes}
-                                                />
-                                            </label>
-                                        </div>
+                                        <label className='reclamosTextoArchivos' /*htmlFor="reclamosArchivos"*/>
+                                            📎 <span><strong>Elegir archivo</strong> — JPG, PNG o PDF, máx. 5MB</span>
+                                        
+                                            <input
+                                                id='reclamosArchivos'
+                                                className='reclamosFileInput'
+                                                type="file"
+                                                accept="image/*"
+                                                multiple
+                                                onChange={manejarImagenes}
+                                            />
+                                        </label>
 
                                         <div className='reclamosArchivos'>
 
