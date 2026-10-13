@@ -11,6 +11,10 @@ conectarDB();
 app.use(cors());
 app.use(express.json());
 
+app.use('/users', require('./routes/userRoutes'));
+
+app.use('/devices', require('./routes/deviceRoutes'));
+
 app.get('/', (req, res) => {
     res.send('API de HoshinoDB funcionando!! :D');
 });
