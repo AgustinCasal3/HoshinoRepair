@@ -15,6 +15,10 @@ app.use('/users', require('./routes/userRoutes'));
 
 app.use('/devices', require('./routes/deviceRoutes'));
 
+app.use('/products', require('./routes/productRoutes'));
+
+app.use('/reservations', require('./routes/reservationRoutes'));
+
 app.get('/', (req, res) => {
     res.send('API de HoshinoDB funcionando!! :D');
 });
