@@ -4,10 +4,6 @@ import iconoAdvertencia from '../../../../assets/imgs/01 login/IconoAdvertencia.
 
 //Funcion Error
 export function Error({ mensaje }: { mensaje: string }) {
-
-    //Variable para almacenar y mostrar el error en el futuro
-    let error = "Por favor completa todos los campos";
-
     return (
         <>
 
@@ -21,7 +17,7 @@ export function Error({ mensaje }: { mensaje: string }) {
                     <img className='errorIconoAdvertencia' src={iconoAdvertencia} alt="Icono de advertencia" />
 
                     {/* Utilizacion de la variable del error */}
-                    {error}
+                    {mensaje}
                 </div>
             </div>
         </>
