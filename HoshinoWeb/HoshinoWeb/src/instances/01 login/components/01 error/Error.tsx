@@ -3,7 +3,7 @@ import './Error.css';
 import iconoAdvertencia from '../../../../assets/imgs/01 login/IconoAdvertencia.png';
 
 //Funcion Error
-export function Error() {
+export function Error({ mensaje }: { mensaje: string }) {
 
     //Variable para almacenar y mostrar el error en el futuro
     let error = "Por favor completa todos los campos";
