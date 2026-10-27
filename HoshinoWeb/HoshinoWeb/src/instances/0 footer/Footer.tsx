@@ -56,12 +56,15 @@ export function Footer() {
                     </div>
                 </div>
 
-                <div className="footerCopyRedes">
+                <div className="footerCopy">
                     <p>Copyright© 2026 Hoshino Repair</p>
-                    <img src={whatsapp} alt="Whatsapp" />
-                    <img src={facebook} alt="Facebook" />
-                    <img src={twitter} alt="Twitter" />
-                    <img src={youtube} alt="Youtube" />
+
+                    <div className='footerRedes'>
+                        <a className='footerImg' href="https://wa.me/5491171473214?text=Quiero%20hacer%20una%20consulta%20" target='_blank'><img src={whatsapp} alt="Whatsapp" /></a>
+                        <a className='footerImg' href=""><img src={facebook} alt="Facebook" /></a>
+                        <a className='footerImg' href=""><img src={twitter} alt="Twitter" /></a>
+                        <a className='footerImg' href="https://www.youtube.com/@Aquwus"><img src={youtube} alt="Youtube" /></a>
+                    </div>
                 </div>
 
 
