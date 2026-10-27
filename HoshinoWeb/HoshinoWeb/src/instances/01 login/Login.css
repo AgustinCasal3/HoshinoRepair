@@ -12,7 +12,7 @@
     /* width: 25vw; */
 
     /* Segun Claude la linea de abajo dice que el ancho es de 25vw, pero nunca menos de 320px ni más de 450px */
-    width: clamp(320px, 25vw, 450px);
+    width: 52vh; /*clamp(320px, 25vw, 450px); */
     border-radius: 5vh;
     background-color: rgb(223, 223, 223);
     display: flex;
@@ -48,12 +48,12 @@
 .loginCampos{
     display: flex;
     flex-direction: column;
-    margin-top: 5vh;
+    margin-top: 5vh; 
 }
 
 .loginLabel{
-    display: flex;
-    flex-direction: column;
+    /* display: flex; */
+    /* flex-direction: column; */
 }
 
 .loginInput{
@@ -62,6 +62,9 @@
     border-radius: 2vh;
     border: 1px solid rgb(182, 181, 181);
     background-color: rgb(182, 181, 181);
+
+    /* Padding para que se empiece a escribir un poco mas adentro del input */
+    padding: 0 2.5vh;
 }
 
 .loginLink{
