@@ -10,6 +10,8 @@ header {
     justify-content: space-evenly;
 
     position: fixed;
+
+    z-index: 999;
 }
 
 .headerImg {

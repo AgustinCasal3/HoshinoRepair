@@ -29,11 +29,19 @@ function Pagina() {
 }
 
 function Index() {
+  console.log(window.location.href);
+
+  window.location.href = '/home';
+
   return (
     <>
       <div className="contenedorPlaceholder">
         <div className="botonesPlaceholder">
-          <a href="/home">Home</a>
+          <h1>Easter egg :3</h1>
+          <h2>no tendrias que ver esto xd</h2>
+          <h3>Ir a 
+            <a href="/home">Home</a>
+          </h3>
         </div>
       </div>
     </>
