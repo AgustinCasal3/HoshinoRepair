@@ -1,0 +1,155 @@
+.reservarContenedor {
+    width: 100%;
+    
+    display: flex;
+    align-items: start;
+    justify-content: center;
+
+    gap: 5vh;
+
+    margin: 5vh 0;
+}
+
+/* Imagenes Reservar */
+
+.reservarImagenes {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: start;
+
+    width: 40vw;
+}
+
+.reservarImagenPrincipal {
+    width: 100%;
+
+    margin-bottom: 2.5vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.reservarImagenPrincipal img {
+    width: 35vw;
+
+    border-radius: 1vh;
+}
+
+.reservarImagenesProducto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 1.5vh;
+}
+
+.reservarImagenesProducto img {
+    width: 10vh;
+
+    border-radius: 0.5vh;
+
+    border: 1px solid lightgray;
+
+    cursor: pointer;
+}
+
+#seleccionado {
+    border: 1px solid gray;
+}
+
+/* Info Reservar */
+
+.reservarInfo {
+    width: 40vw;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 2.5vh;
+}
+
+.reservarTexto {
+    display: flex;
+    flex-direction: column;
+
+    gap: 2.5vh;
+}
+
+.reservarTitulo h1 {
+    font-size: 5vh;
+
+    font-weight: normal;
+
+    text-align: center;
+}
+
+.reservarSeparador {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.reservarLinea {
+    background-color: gray;
+
+    width: 30vw;
+    height: 1px;
+}
+
+.reservarInfo p {
+    font-size: 2.5vh;
+    
+    text-align: justify;
+}
+
+.reservarPago {
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 5vh;
+
+    gap: 1.5vh;
+
+    width: 100%;
+}
+
+.reservarPrecios {
+    width: 100%;
+}
+
+.reservarSena p, .reservarTotal p {
+    font-size: 3vh;
+
+    text-align: right;
+}
+
+.reservarProducto {
+    background-color: lightgray;
+    
+    font-size: 2vh;
+
+    padding: 1.5vh 5vh;
+
+    border-radius: 2.5vh;
+
+    color: black;
+    text-decoration: none;
+
+    transition: 0.15s ease;
+}
+
+.reservarProducto:hover {
+    transform: scale(1.015);
+}

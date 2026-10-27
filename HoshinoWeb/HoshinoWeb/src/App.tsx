@@ -111,7 +111,7 @@ const router = createBrowserRouter([
         element: <ReservasUsuarios />,
       },
       {
-        path: 'reservar', // Ruta: /reservar
+        path: 'reservar/:id', // Ruta: /reservar
         element: <Reservar />,
       },
       {
