@@ -1,25 +1,57 @@
 footer{
+    margin-top: 5vh;
     background: #D9D9D9;
 }
 .footerContenido{
-    height: 35vh;
+    height: auto;
 }
 
 .footerContenedorListas{
-    padding: 5vh 0;
+    height: 25vh;
     width: auto;
     display: flex;
     justify-content: space-evenly;
     border-bottom: 1px solid black;
+    padding: 5vh 0;
 }
 
 .footerLista{
     display: flex;
-    /* align-items: center; */
 }
 
 .footerLista ul{
     list-style: none;
+    transition: 0.25s ease;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.footerLista ul li {
+    width: 35vh;
+
+    display: block;
+
+    font-size: 2.5vh;
+    margin: 0.5vh 0;
+    
+    transition: 0.25s ease;
+}
+
+.footerLista ul li:hover {
+    transform: translateX(1vh);
+    cursor: pointer;
+
+    font-weight: bolder;
+}
+
+.footerLista a{
+    text-decoration: none;
+    color: black;
+}
+
+.footerListaTitulo{
+    font-weight: bold;
 }
 
 .footerCopy{
