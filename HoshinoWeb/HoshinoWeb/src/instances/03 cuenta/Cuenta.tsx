@@ -118,7 +118,7 @@ export function Cuenta() {
                                         <div className="cuentaInfoDispositivo">
                                             <a href={`/dispositivo/${device.deviceId}`}>
                                                 <div className="listaDispositivosArticuloImg">
-                                                    <img src={`../src/assets/imgs/05 dispositivo/dispositivos/${user.userId}/${device.deviceId}/${device.pictures[0]}`} alt={device.name} />
+                                                    <img src={`../src/assets/imgs/05 dispositivo/dispositivos/${user.userId}/${device.deviceId}/${imagenDispositivo}`} alt={device.name} />
                                                 </div>
                                             </a>
                                             <a href={`/dispositivo/${device.deviceId}`}>

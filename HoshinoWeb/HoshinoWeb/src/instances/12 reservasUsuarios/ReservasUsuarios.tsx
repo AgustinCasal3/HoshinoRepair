@@ -13,6 +13,8 @@ export function ReservasUsuarios() {
             {/* Etiqueta del header para que se vea arriba de la pantalla */}
             <Header/>
 
+                ESTA SERIA LA PANTALLA DEL DETALLE DE LA RESERVA DEL USUARIO
+
             <Footer/>
 
         </>
