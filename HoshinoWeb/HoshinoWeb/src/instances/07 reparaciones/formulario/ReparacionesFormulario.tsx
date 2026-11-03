@@ -8,18 +8,28 @@ import { useState } from "react";
 export function ReparacionesFormulario() {
 
     const [imagenes, setImagenes] = useState<string[]>([]);
+    const [errorArchivos, setErrorArchivos] = useState<string>('');
 
     const manejarImagenes = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (!e.target.files) return;
 
         const archivos = Array.from(e.target.files);
 
+        // Validación: Máximo 10 imágenes
+        if (archivos.length > 10) {
+            setErrorArchivos('No podés subir más de 10 imágenes.');
+            e.target.value = ''; // Limpia el input
+            setImagenes([]);
+            return;
+        }
+
+        setErrorArchivos('');
+
         const previews = archivos.map((archivo) =>
             URL.createObjectURL(archivo)
         );
 
         setImagenes(previews);
-        document.querySelector('.divEnviarImagenes').style.marginBottom = '2.5vh';
     };
 
     const manejarEnvio = (e: React.FormEvent<HTMLFormElement>) => {
@@ -79,7 +89,8 @@ export function ReparacionesFormulario() {
                     </label>
 
                     <div className="inputImagenes">
-                        <div className="divEnviarImagenes">
+                        {/* Se reemplazó el document.querySelector por un estilo dinámico basado en el estado */}
+                        <div className="divEnviarImagenes" style={{ marginBottom: imagenes.length > 0 ? '2.5vh' : '0' }}>
                             <label htmlFor="formularioImagenes" className="botonSubirImagenes" id='SINMARGIN'>
                                 Elegir archivos
                                 <input
@@ -92,6 +103,13 @@ export function ReparacionesFormulario() {
                             </label>
                             <span>{imagenes.length} archivo(s) seleccionados</span>
                         </div>
+
+                        {/* Mensaje de error si se superan las 10 imágenes */}
+                        {errorArchivos && (
+                            <span style={{ color: 'red', fontSize: '0.85rem', display: 'block', marginBottom: '15px' }}>
+                                {errorArchivos}
+                            </span>
+                        )}
 
                         <div className="previewImagenes">
                             {imagenes.map((imagen, index) => (
