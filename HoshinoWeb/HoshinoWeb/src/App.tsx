@@ -19,6 +19,9 @@ import { Chatbot } from './instances/11 chatbot/Chatbot.tsx';  // 11
 import { ReservasUsuarios } from './instances/12 reservasUsuarios/ReservasUsuarios.tsx';  // 12
 import { Reservar } from './instances/13 reservar/Reservar.tsx';  // 13
 import { SobreLaEmpresa } from './instances/14 sobreLaEmpresa/SobreLaEmpresa.tsx';  // 14
+import { CambiarContraseña1 } from './instances/15 cambiarContraseña1/CambiarContraseña1.tsx';  // 15
+import { CambiarContraseña2 } from './instances/16 cambiarContraseña2/CambiarContraseña2.tsx';  // 16
+import { CambiarContraseña3 } from './instances/17 cambiarContraseña3/CambiarContraseña3.tsx';  // 17
 
 function Pagina() {
   return (
@@ -117,6 +120,18 @@ const router = createBrowserRouter([
       {
         path: 'about', // Ruta: /about
         element: <SobreLaEmpresa />,
+      },
+      {
+        path: 'cambiarContraseña1', // Ruta: /cambiarContraseña1
+        element: <CambiarContraseña1 />,
+      },
+      {
+        path: 'cambiarContraseña2', // Ruta: /cambiarContraseña2
+        element: <CambiarContraseña2 />,
+      },
+      {
+        path: 'cambiarContraseña3', // Ruta: /cambiarContraseña3
+        element: <CambiarContraseña3 />,
       },
     ],
   },

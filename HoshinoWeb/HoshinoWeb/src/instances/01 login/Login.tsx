@@ -98,7 +98,7 @@ export function Login() {
                                 onChange={(e) => setPassword(e.target.value)}
                             />
                                 
-                            <a className='loginLink' href="">¿Olvidaste tu contraseña?</a>
+                            <a className='loginLink' href="/cambiarContraseña1">¿Olvidaste tu contraseña?</a>
                         </div>
 
                         {/* Boton que envia el formulario de inicio de sesión */}
