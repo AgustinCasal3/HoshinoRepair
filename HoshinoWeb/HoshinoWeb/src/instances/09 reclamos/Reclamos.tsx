@@ -5,15 +5,30 @@ import { Header } from '../0 header/Header';
 import { Footer } from '../0 footer/Footer';
 
 export function Reclamos() {
-
     // Estado para guardar las URLs de vista previa
     const [imagenes, setImagenes] = useState<string[]>([]);
+    
+    // Estado para manejar mensajes de error en los archivos
+    const [errorArchivos, setErrorArchivos] = useState<string>('');
 
     // Función para manejar la selección de archivos
     const manejarImagenes = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (!e.target.files) return;
 
         const archivos = Array.from(e.target.files);
+
+        // Validación: Máximo 10 imágenes
+        if (archivos.length > 10) {
+            setErrorArchivos('No podés subir más de 10 imágenes.');
+            // Limpiamos el input para evitar que se carguen los archivos no válidos
+            e.target.value = ''; 
+            setImagenes([]);
+            document.querySelector('.reclamosArchivos').style.display = 'none';
+            return;
+        }
+
+        // Si pasa la validación, limpiamos el error
+        setErrorArchivos('');
 
         const previews = archivos.map((archivo) =>
             URL.createObjectURL(archivo)
@@ -22,6 +37,13 @@ export function Reclamos() {
         document.querySelector('.reclamosArchivos').style.display = 'flex';
 
         setImagenes(previews);
+    };
+
+    // Función para validar que solo se ingresen números en el teléfono
+    const manejarTelefono = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const valor = e.target.value;
+        // Elimina cualquier carácter que no sea un número del 0 al 9
+        e.target.value = valor.replace(/[^0-9]/g, '');
     };
 
     return (
@@ -116,7 +138,6 @@ export function Reclamos() {
 
                                     <div className='reclamosFilerow'>
 
-
                                         <label className='reclamosTextoArchivos' /*htmlFor="reclamosArchivos"*/>
                                             📎 <span><strong>Elegir archivo</strong> — JPG, PNG o PDF, máx. 5MB</span>
                                         
@@ -124,14 +145,20 @@ export function Reclamos() {
                                                 id='reclamosArchivos'
                                                 className='reclamosFileInput'
                                                 type="file"
-                                                accept="image/*"
+                                                accept="image/png, image/jpeg"
                                                 multiple
                                                 onChange={manejarImagenes}
                                             />
                                         </label>
+                                        
+                                        {/* Mensaje de error para el límite de imágenes */}
+                                        {errorArchivos && (
+                                            <span style={{ color: 'red', fontSize: '0.85rem', marginTop: '4px' }}>
+                                                {errorArchivos}
+                                            </span>
+                                        )}
 
-                                        <div className='reclamosArchivos'>
-
+                                        <div className='reclamosArchivos' style={{ display: imagenes.length > 0 ? 'flex' : 'none' }}>
 
                                             {/* Texto descriptivo de cuántos archivos se seleccionaron */}
                                             {imagenes.length > 0 && (
@@ -149,8 +176,8 @@ export function Reclamos() {
                                                         alt={`Vista previa ${index + 1}`}
                                                     />
                                                 ))}
+                                            </div>
                                         </div>
-                                    </div>
 
                                     </div>
                                 </div>
@@ -167,14 +194,23 @@ export function Reclamos() {
 
                                     <label>Teléfono de contacto <span className='opt'>(opcional)</span></label>
 
-                                    <input type="tel" placeholder="11 2222 3333" />
+                                    <input 
+                                        type="tel" 
+                                        placeholder="11 2222 3333" 
+                                        onChange={manejarTelefono}
+                                    />
                                 </div>
 
                                 <div className='reclamosField'>
 
                                     <label>Email de contacto <span className='opt'>(opcional)</span></label>
 
-                                    <input type="email" placeholder="nombre@correo.com" />
+                                    <input 
+                                        type="email" 
+                                        placeholder="nombre@correo.com" 
+                                        pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
+                                        title="Por favor, ingresá un correo electrónico válido (ej. usuario@dominio.com)"
+                                    />
                                 </div>
                             </div>
                         </fieldset>
