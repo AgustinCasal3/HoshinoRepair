@@ -18,6 +18,8 @@ header {
     position: relative;
 
     user-select: none;
+
+    filter: drop-shadow(0px 2px 0px white);
 }
 
 .headerImg img {
@@ -65,19 +67,37 @@ header {
     scale: 1.05;
 }
 
-.headerCuenta p {
+.headerCuenta a {
     transition: 0.25s ease;
+
+    text-decoration: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5vh;
 }
 
-.headerCuenta p a {
+.headerCuenta p {
     font-size: 25px;
 
     text-decoration: none;
     color: black;
 }
 
-.headerCuenta p:hover{
-    scale: 1.05;
+.headerCuenta img {
+    width: 5vh;
+    height: 5vh;
+    
+    border-radius: 2.5vh;
+}
+
+.headerCuentaContenido {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 1.5vh;
 }
 
 .headerEspaciador {

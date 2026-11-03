@@ -1,7 +1,5 @@
 import './Cuenta.css';
 
-import UserPfp from '../../assets/imgs/04 cuenta/UserPfp1.png';
-
 import ImgDispositivo1 from '../../assets/imgs/05 dispositivo/productos/Producto1.png'
 import ImgDispositivo2 from '../../assets/imgs/05 dispositivo/productos/Producto2.png'
 
@@ -24,7 +22,7 @@ export function Cuenta() {
             <section className="cuentaInfo">
                 <div className="cuentaInfoContenedor">
                     <div className="cuentaPerfil">
-                        <img src={UserPfp} alt="Foto de Perfil" />
+                        <img src='../src/assets/imgs/04 cuenta/1/1.png' alt="Foto de Perfil" />
                         <h1>{NombreCuenta}</h1>
                     </div>
                     <div className="cuentaDatos">

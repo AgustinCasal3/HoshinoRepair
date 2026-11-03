@@ -1,9 +1,12 @@
 import './Header.css';
+import { useAuth } from '../../context/AuthContext'; // Importar el hook de autenticación
 
-import GatoHoshino from '../../assets/imgs/0 header/Gato Hoshino.png'
-import GatoHoshinoHover from '../../assets/imgs/0 header/Gato Hoshino Hover.png'
+import GatoHoshino from '../../assets/imgs/0 header/Gato Hoshino.png';
+import GatoHoshinoHover from '../../assets/imgs/0 header/Gato Hoshino Hover.png';
 
 export function Header() {
+    const { user } = useAuth(); // Obtener el usuario activo
+
     return (
         <>
         <header>
@@ -21,15 +24,34 @@ export function Header() {
             </nav>
 
             <div className="headerCuenta">
-                <p><a href="/login">Iniciar Sesion</a></p>
-                <p><a href="/cuenta">Cuenta</a></p>
+                {user ? (
+                    <div className="headerCuentaContenido">
+                        {/* // Si el usuario está logueado, se muestra el botón de Cuenta */}
+                        <a href="/cuenta">
+                            <p>
+                                {user.username}
+                            </p>
+                            <img src={`../src/assets/imgs/04 cuenta/${user.userId}/${user.picture}`} alt="Icono de la Cuenta" />
+                        </a>
+                        <p>
+                            |
+                        </p>
+                        <a href='/login'>
+                            <p>
+                                Logout
+                            </p>
+                        </a>
+                    </div>
+                ) : (
+                    // Si NO está logueado, se muestra Iniciar Sesión
+                    <p><a href="/login">Iniciar Sesión</a></p>
+                )}
             </div>
 
         </header>
 
-        {/* Espaciador para que el header ocupe espacio en la pantalla y aun asi se mantenga en fixed */}
+        {/* Espaciador para mantener espacio con posición fixed */}
         <div className="headerEspaciador"></div>
-
         </>
-    )
+    );
 }

@@ -2,7 +2,7 @@ import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
 
 import './App.css';
 
-// import { AuthProvider } from './context/AuthContext'; // Esto es para la cuenta, lo saque de https://github.com/AgustinCasal3/Fate-Umbrella.ver/blob/main/0%20Fate%20Umbrella.ver%20Web/Fate%20Umbrella.ver/src/context/AuthContext.tsx
+import { AuthProvider } from './context/AuthContext'; // Esto es para la cuenta, lo saque de https://github.com/AgustinCasal3/Fate-Umbrella.ver/blob/main/0%20Fate%20Umbrella.ver%20Web/Fate%20Umbrella.ver/src/context/AuthContext.tsx
 
 import { Home } from './instances/00 home/Home.tsx';  // 00
 import { Login } from './instances/01 login/Login.tsx';  // 01
@@ -124,9 +124,9 @@ const router = createBrowserRouter([
 
 const App: React.FC = () => {
   return (
-    //<AuthProvider>
+    <AuthProvider>
       <RouterProvider router={router} />
-    //</AuthProvider>
+    </AuthProvider>
   )
 }
 
