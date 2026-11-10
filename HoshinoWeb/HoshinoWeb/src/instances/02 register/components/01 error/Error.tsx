@@ -2,26 +2,24 @@
 import './Error.css';
 import iconoAdvertencia from '../../../../assets/imgs/02 register/IconoAdvertencia.png';
 
-//Funcion Error
-export function Error() {
+// Definimos la interfaz para las props
+interface ErrorProps {
+    mensaje: string;
+}
 
-    //Variable para almacenar y mostrar el error en el futuro
-    let error = "Por favor completa todos los campos";
+//Funcion Error
+export function Error({ mensaje }: ErrorProps) {
+
+    // Si no hay mensaje, no renderiza el componente
+    if (!mensaje) return null;
 
     return (
         <>
-
-            {/* Div del error (del cuadrado gris para adentro) */}
             <div className='errorDiv'>
-
-                {/* div con todo el contenido del error */}
                 <div className='errorContenido'>
-
-                    {/* Img con la imagen de la advertencia */}
                     <img className='errorIconoAdvertencia' src={iconoAdvertencia} alt="Icono de advertencia" />
-
-                    {/* Utilizacion de la variable del error */}
-                    {error}
+                    {/* Renderiza el texto que le llega desde Register.tsx */}
+                    {mensaje}
                 </div>
             </div>
         </>
