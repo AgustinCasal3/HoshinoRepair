@@ -5,7 +5,7 @@ import GatoHoshino from '../../assets/imgs/0 header/Gato Hoshino.png';
 import GatoHoshinoHover from '../../assets/imgs/0 header/Gato Hoshino Hover.png';
 
 export function Header() {
-    const { user } = useAuth(); // Obtener el usuario activo
+    const { user, logout } = useAuth(); // Obtener el usuario activo
 
     return (
         <>
@@ -36,15 +36,25 @@ export function Header() {
                         <p>
                             |
                         </p>
-                        <a href='/login'>
+                        <a
+                            onClick={(e) => {
+                                e.preventDefault();
+                                logout();
+                            }}
+                        >
                             <p>
                                 Logout
                             </p>
                         </a>
                     </div>
                 ) : (
-                    // Si NO está logueado, se muestra Iniciar Sesión
-                    <p><a href="/login">Iniciar Sesión</a></p>
+                    <div className="headerCuentaContenido">
+                        <a href="/login">
+                            <p>
+                                Iniciar Sesión
+                            </p>
+                        </a>
+                    </div>
                 )}
             </div>
 

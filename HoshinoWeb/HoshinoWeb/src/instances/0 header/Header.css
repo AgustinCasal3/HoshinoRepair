@@ -83,6 +83,8 @@ header {
 
     text-decoration: none;
     color: black;
+
+    cursor: pointer;
 }
 
 .headerCuenta img {

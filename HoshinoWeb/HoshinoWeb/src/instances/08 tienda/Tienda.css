@@ -90,7 +90,7 @@
     font-size: 5vh;
     font-weight: normal;
 
-    margin-bottom: 2.5vh;
+    margin-bottom: 1.5vh;
 }
 
 .tiendaCategorias h4 {
@@ -98,12 +98,10 @@
     align-items: center;
     justify-content: left;
 
-    padding-left: 3.5vh;
-
     font-size: 3vh;
     font-weight: normal;
 
-    margin-bottom: 0.25vh;
+    margin-top: 0.5vh;
 }
 
 .tiendaCategorias h4 img {
@@ -133,6 +131,19 @@
     margin-right: 0.5vh;
 }
 
+.tiendaLimpiarFiltros {
+    margin: 1.5vh 0 2.5vh;
+    padding: 1vh;
+
+    background-color: rgb(255, 188, 188);
+    color: red;
+
+    border: 1px solid rgb(255, 121, 121);
+    border-radius: 1.5vh;
+
+    cursor: pointer;
+}
+
 /* DERECHA */
 
 .tiendaFiltros {
@@ -140,15 +151,39 @@
 
     display: flex;
     align-items: center;
-    justify-content: right;
+    justify-content: space-between;
 }
 
 .tiendaOrdenarPor {
-    width: 20vw;
+    width: 15vw;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    padding: 1.5vh;
+    border-radius: 2.5vh;
+    border: 1px solid gray;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.tiendaOrdenDropdown {
+    position: 'absolute';
+    top: '100%';
+    right: 0;
+    background-color: 'white';
+    border: '1px solid #333';
+    border-radius: 8px;
+    padding: 8px 0;
+    z-index: 10;
+    width: '100%';
+
+    transition: 0.15s;
+}
+
+.tiendaOrdenDropdown p:hover {
+    background-color: lightgray;
 }
 
 .tiendaContenedorArticulos {
