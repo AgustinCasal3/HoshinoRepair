@@ -82,6 +82,10 @@
     margin-right: 5vh;
 }
 
+.tiendaCategorias {
+    user-select: none;
+}
+
 .tiendaCategorias h3 {
     display: flex;
     align-items: center;
@@ -133,13 +137,15 @@
 
 .tiendaLimpiarFiltros {
     margin: 1.5vh 0 2.5vh;
-    padding: 1vh;
+    padding: 1.5vh;
 
     background-color: rgb(255, 188, 188);
     color: red;
 
+    font-size: 1.5vh;
+
     border: 1px solid rgb(255, 121, 121);
-    border-radius: 1.5vh;
+    border-radius: 2.5vh;
 
     cursor: pointer;
 }
@@ -151,35 +157,60 @@
 
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: right;
+
+    user-select: none;
 }
 
 .tiendaOrdenarPor {
     width: 15vw;
+    height: 2vh;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
+    background-color: white;
+
     padding: 1.5vh;
     border-radius: 2.5vh;
-    border: 1px solid gray;
+    border: 1px solid lightgray;
 
-    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    position: relative; 
+    cursor: pointer;
+}
+
+.tiendaOrdenarPor.abierto {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-color: transparent;
 }
 
 .tiendaOrdenDropdown {
-    position: 'absolute';
-    top: '100%';
-    right: 0;
-    background-color: 'white';
-    border: '1px solid #333';
-    border-radius: 8px;
-    padding: 8px 0;
+    position: absolute;
+    top: calc(100% - 1px);
+    left: -1px;
+    width: calc(100% + 2px);
+    box-sizing: border-box;
+    
+    background-color: white;
+    
+    border: 1px solid lightgray;
+    border-top: none;
+    border-bottom-left-radius: 2.5vh;
+    border-bottom-right-radius: 2.5vh;
+    
+    padding: 0;
     z-index: 10;
-    width: '100%';
+    
+    overflow: hidden;
+}
 
-    transition: 0.15s;
+.tiendaOrdenDropdown p {
+    padding: 1vh 1.5vh;
+    margin: 0;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
 }
 
 .tiendaOrdenDropdown p:hover {
@@ -228,8 +259,10 @@
 }
 
 .tiendaArticuloTexto {
-    width: 100%;
+    max-width: 25vh;
     height: auto;
+
+    text-align: center;
 
     margin-top: 2.5vh;
 

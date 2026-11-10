@@ -11,6 +11,7 @@ import Buscar from '../../assets/imgs/08 tienda/Search.svg';
 import FallbackImg from '../../assets/imgs/05 dispositivo/productos/Producto1.png';
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:4000/api';
+const PRODUCTOS_POR_PAGINA = 30;
 
 interface ProductItem {
     productId: number;
@@ -74,6 +75,9 @@ export function Tienda() {
     const [categoriaSeleccionada, setCategoriaSeleccionada] = useState<string>('');
     const [orden, setOrden] = useState<string>('default');
 
+    // Estado del paginado
+    const [paginaActual, setPaginaActual] = useState<number>(1);
+
     // Estado para saber qué categorías están desplegadas en el menú lateral
     const [categoriasAbiertas, setCategoriasAbiertas] = useState<Record<string, boolean>>({});
 
@@ -95,6 +99,11 @@ export function Tienda() {
 
         fetchProductos();
     }, []);
+
+    // Reiniciar a la página 1 cuando cambia algún filtro o búsqueda
+    useEffect(() => {
+        setPaginaActual(1);
+    }, [busqueda, categoriaSeleccionada, orden]);
 
     // Función para abrir/cerrar acordeón de cada categoría
     const toggleCategoriaAbierta = (nombreCategoria: string) => {
@@ -126,6 +135,18 @@ export function Tienda() {
         if (orden === 'nombre') return a.name.localeCompare(b.name);
         return a.productId - b.productId;
     });
+
+    // 3. Cálculos para la paginación (30 por página)
+    const totalPaginas = Math.ceil(productosOrdenados.length / PRODUCTOS_POR_PAGINA) || 1;
+    const indiceInicio = (paginaActual - 1) * PRODUCTOS_POR_PAGINA;
+    const productosPaginados = productosOrdenados.slice(indiceInicio, indiceInicio + PRODUCTOS_POR_PAGINA);
+
+    const cambiarPagina = (nuevaPagina: number) => {
+        if (nuevaPagina >= 1 && nuevaPagina <= totalPaginas) {
+            setPaginaActual(nuevaPagina);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    };
 
     // Función helper para construir la ruta de la imagen
     const obtenerRutaImagen = (prod: ProductItem) => {
@@ -171,9 +192,7 @@ export function Tienda() {
                                 </button>
                             )}
 
-                            <h3>
-                                Categorías
-                            </h3>
+                            <h3>Categorías</h3>
 
                             {CATEGORIAS.map((cat) => {
                                 const tieneSubcategorias = cat.subcategorias && cat.subcategorias.length > 0;
@@ -193,7 +212,7 @@ export function Tienda() {
                                             style={{ 
                                                 cursor: 'pointer', 
                                                 opacity: estaSeleccionada ? 1 : 0.85, 
-                                                fontWeight: estaSeleccionada ? 'normal' : 'light',
+                                                fontWeight: estaSeleccionada ? 'bold' : 'normal',
                                                 display: 'flex',
                                                 alignItems: 'center',
                                                 gap: '8px'
@@ -205,7 +224,7 @@ export function Tienda() {
                                             {cat.nombre}
                                         </h4>
 
-                                        {/* Subcategorías (Se despliegan al abrir la categoría principal) */}
+                                        {/* Subcategorías */}
                                         {tieneSubcategorias && estaAbierta && (
                                             <div>
                                                 {cat.subcategorias!.map((subCat) => {
@@ -217,7 +236,7 @@ export function Tienda() {
                                                             style={{ 
                                                                 cursor: 'pointer', 
                                                                 opacity: subSeleccionada ? 1 : 0.7,
-                                                                fontWeight: subSeleccionada ? 'normal' : 'light',
+                                                                fontWeight: subSeleccionada ? 'bold' : 'normal',
                                                                 paddingLeft: '20px',
                                                                 display: 'flex',
                                                                 alignItems: 'center',
@@ -240,12 +259,8 @@ export function Tienda() {
                     {/* Panel Derecho: Filtro de orden y Lista de artículos */}
                     <div className="tiendaDer">
                         <div className="tiendaFiltros">
-
-                            
-
                             <div 
-                                className="tiendaOrdenarPor" 
-                                style={{ cursor: 'pointer', position: 'relative' }}
+                                className={`tiendaOrdenarPor ${mostrarMenuOrden ? 'abierto' : ''}`}
                                 onClick={() => setMostrarMenuOrden(!mostrarMenuOrden)}
                             >
                                 <p>
@@ -255,15 +270,10 @@ export function Tienda() {
                                         orden === 'nombre' ? 'Nombre (A-Z)' : 'Destacados'
                                     }
                                 </p>
-                                <p>↓</p>
+                                <img src={FlechaAbajo} alt="" />
 
                                 {mostrarMenuOrden && (
-                                    <div 
-                                        className="tiendaOrdenDropdown"
-                                        style={{
-                                            
-                                        }}
-                                    >
+                                    <div className="tiendaOrdenDropdown">
                                         <p onClick={() => setOrden('default')}>Destacados</p>
                                         <p onClick={() => setOrden('precio-asc')}>Menor Precio</p>
                                         <p onClick={() => setOrden('precio-desc')}>Mayor Precio</p>
@@ -277,8 +287,8 @@ export function Tienda() {
                             <p style={{ textAlign: 'center', color: '#fff', padding: '40px' }}>Cargando catálogo...</p>
                         ) : (
                             <div className="tiendaContenedorArticulos">
-                                {productosOrdenados.length > 0 ? (
-                                    productosOrdenados.map((producto) => (
+                                {productosPaginados.length > 0 ? (
+                                    productosPaginados.map((producto) => (
                                         <div key={producto.productId} className="tiendaArticulo">
                                             <a href={`/reservar/${producto.productId}`}>
                                                 <div className="tiendaArticuloImg">
@@ -304,11 +314,34 @@ export function Tienda() {
                     </div>
                 </div>
 
-                {/* Paginado */}
+                {/* PAGINADO */}
                 <div className="tiendaPaginado">
-                    <p>{'<'}</p>
-                    <p style={{ fontWeight: 'bold' }}>1</p>
-                    <p>{'>'}</p>
+                    <p 
+                        onClick={() => cambiarPagina(paginaActual - 1)}
+                        style={{ opacity: paginaActual === 1 ? 0.4 : 1, cursor: paginaActual === 1 ? 'default' : 'pointer' }}
+                    >
+                        {'<'}
+                    </p>
+
+                    {Array.from({ length: totalPaginas }, (_, i) => i + 1).map((numPagina) => (
+                        <p
+                            key={numPagina}
+                            onClick={() => cambiarPagina(numPagina)}
+                            style={{
+                                fontWeight: numPagina === paginaActual ? 'bold' : 'normal',
+                                backgroundColor: numPagina === paginaActual ? 'rgb(180, 180, 180)' : 'lightgray'
+                            }}
+                        >
+                            {numPagina}
+                        </p>
+                    ))}
+
+                    <p 
+                        onClick={() => cambiarPagina(paginaActual + 1)}
+                        style={{ opacity: paginaActual === totalPaginas ? 0.4 : 1, cursor: paginaActual === totalPaginas ? 'default' : 'pointer' }}
+                    >
+                        {'>'}
+                    </p>
                 </div>
             </section>
 
