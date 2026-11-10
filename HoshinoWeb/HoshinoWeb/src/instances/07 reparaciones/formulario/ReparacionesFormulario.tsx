@@ -63,7 +63,7 @@ export function ReparacionesFormulario() {
                         <option value="pc">PC Escritorio</option>
                         <option value="notebook">Notebook</option>
                         <option value="consola">Consola</option>
-                        <option value="handheld">Handheld</option>
+                        <option value="handheld">Consola Portatil</option>
                         <option value="vr">Headset VR</option>
                         <option value="tv">TVs</option>
                         <option value="impresora">Impresora</option>
