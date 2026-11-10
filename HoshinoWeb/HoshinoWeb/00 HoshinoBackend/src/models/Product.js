@@ -13,7 +13,7 @@ const productSchema = new mongoose.Schema({
     stock: { type: Number, default: 0 },
     warranty: { type: String },
     pictures: [{ type: String }],
-    description: { type: String },
+    description: [{ type: String }],
     specs: [{
         part: String,
         model: String

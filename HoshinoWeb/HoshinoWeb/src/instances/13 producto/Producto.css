@@ -1,4 +1,4 @@
-.reservarContenedor {
+.productoContenedor {
     width: 100%;
     
     display: flex;
@@ -10,9 +10,9 @@
     margin: 5vh 0;
 }
 
-/* Imagenes Reservar */
+/* Imagenes Producto */
 
-.reservarImagenes {
+.productoImagenes {
     display: flex;
     flex-direction: column;
 
@@ -22,32 +22,33 @@
     width: 40vw;
 }
 
-.reservarImagenPrincipal {
-    width: 100%;
+.productoImagenPrincipal {
+    width: 70vh;
+    height: 70vh;
 
     margin-bottom: 2.5vh;
 
     display: flex;
     align-items: center;
     justify-content: center;
-
 }
 
-.reservarImagenPrincipal img {
+.productoImagenPrincipal img {
     width: 35vw;
 
     border-radius: 1vh;
 }
 
-.reservarImagenesProducto {
+
+.productoImagenesProducto {
     display: flex;
     align-items: center;
     justify-content: center;
-
+    
     gap: 1.5vh;
 }
 
-.reservarImagenesProducto img {
+.productoImagenesProducto img {
     width: 10vh;
 
     border-radius: 0.5vh;
@@ -55,15 +56,16 @@
     border: 1px solid lightgray;
 
     cursor: pointer;
+    transition: border 0.15s ease;
 }
 
 #seleccionado {
     border: 1px solid gray;
 }
 
-/* Info Reservar */
+/* Info Producto */
 
-.reservarInfo {
+.productoInfo {
     width: 40vw;
 
     display: flex;
@@ -75,14 +77,15 @@
     gap: 2.5vh;
 }
 
-.reservarTexto {
+.productoTexto {
     display: flex;
     flex-direction: column;
 
     gap: 2.5vh;
+    width: 100%;
 }
 
-.reservarTitulo h1 {
+.productoTitulo h1 {
     font-size: 5vh;
 
     font-weight: normal;
@@ -90,7 +93,7 @@
     text-align: center;
 }
 
-.reservarSeparador {
+.productoSeparador {
     width: 100%;
 
     display: flex;
@@ -98,20 +101,22 @@
     justify-content: center;
 }
 
-.reservarLinea {
+.productoLinea {
     background-color: gray;
 
     width: 30vw;
     height: 1px;
 }
 
-.reservarInfo p {
+.productoInfo p {
     font-size: 2.5vh;
     
     text-align: justify;
+
+    margin-bottom: 0;
 }
 
-.reservarPago {
+.productoPago {
     display: flex;
     flex-direction: column;
     
@@ -125,17 +130,17 @@
     width: 100%;
 }
 
-.reservarPrecios {
+.productoPrecios {
     width: 100%;
 }
 
-.reservarSena p, .reservarTotal p {
+.productoSena p, .productoTotal p {
     font-size: 3vh;
 
     text-align: right;
 }
 
-.reservarProducto {
+.productoBotonReservar {
     background-color: lightgray;
     
     font-size: 2vh;
@@ -150,6 +155,6 @@
     transition: 0.15s ease;
 }
 
-.reservarProducto:hover {
+.productoBotonReservar:hover {
     transform: scale(1.015);
 }

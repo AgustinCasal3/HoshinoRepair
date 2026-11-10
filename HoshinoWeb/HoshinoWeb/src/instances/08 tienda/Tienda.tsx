@@ -290,7 +290,7 @@ export function Tienda() {
                                 {productosPaginados.length > 0 ? (
                                     productosPaginados.map((producto) => (
                                         <div key={producto.productId} className="tiendaArticulo">
-                                            <a href={`/reservar/${producto.productId}`}>
+                                            <a href={`/producto/${producto.productId}`}>
                                                 <div className="tiendaArticuloImg">
                                                     <img 
                                                         src={obtenerRutaImagen(producto)} 

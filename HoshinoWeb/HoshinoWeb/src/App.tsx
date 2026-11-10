@@ -17,7 +17,7 @@ import { Tienda } from './instances/08 tienda/Tienda.tsx';  // 08
 import { Reclamos } from './instances/09 reclamos/Reclamos.tsx';  // 09
 import { Chatbot } from './instances/11 chatbot/Chatbot.tsx';  // 11
 import { ReservasUsuarios } from './instances/12 reservasUsuarios/ReservasUsuarios.tsx';  // 12
-import { Reservar } from './instances/13 reservar/Reservar.tsx';  // 13
+import { Producto } from './instances/13 producto/Producto.tsx';  // 13
 import { SobreLaEmpresa } from './instances/14 sobreLaEmpresa/SobreLaEmpresa.tsx';  // 14
 import { CambiarContraseña1 } from './instances/15 cambiarContraseña1/CambiarContraseña1.tsx';  // 15
 import { CambiarContraseña2 } from './instances/16 cambiarContraseña2/CambiarContraseña2.tsx';  // 16
@@ -114,8 +114,8 @@ const router = createBrowserRouter([
         element: <ReservasUsuarios />,
       },
       {
-        path: 'reservar/:id', // Ruta: /reservar
-        element: <Reservar />,
+        path: 'producto/:id', // Ruta: /reservar
+        element: <Producto />,
       },
       {
         path: 'about', // Ruta: /about
