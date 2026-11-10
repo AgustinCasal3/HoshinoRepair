@@ -1,18 +1,18 @@
-/* CSS del Login */
+/* CSS del cambiar contraseña 2 */
 
-.loginBody{
+.cambiarContraseña2Body{
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.loginDiv{
+.cambiarContraseña2Div{
     height: 75vh;
     /* width: 25vw; */
 
     /* Segun Claude la linea de abajo dice que el ancho es de 25vw, pero nunca menos de 320px ni más de 450px */
-    width: 25vw; /*clamp(320px, 25vw, 450px); */
+    width: auto; /*clamp(320px, 25vw, 450px); */
     border-radius: 5vh;
     background-color: rgb(223, 223, 223);
     display: flex;
@@ -20,33 +20,48 @@
     /* align-items: center; */
 }
 
-.loginForm{
+.cambiarContraseña2Form{
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
 }
 
-.loginTitulo{
+.cambiarContraseña2Titulo{
     display: flex;
     justify-content: center;
+    margin: 1vh;
 }
 
-.loginCampos{
+.cambiarContraseña2p{
+    text-align: center;
+    font-size: 2vh;
+    margin: 0;                    /* NUEVO: junta las dos líneas como en el prototipo */
+}
+
+.cambiarContraseña2Campos{
     width: 20vw;
     display: flex;
     flex-direction: column;
     margin-top: 5vh; 
 }
 
-.loginLabel{
+.cambiarContraseña2Label{
     display: flex;
     flex-direction: column;
 }
 
-.loginInput{
+.cambiarContraseña2InputButton{
+    display: flex;                /* CAMBIO: antes inline. ESTO pone input y botón en fila */
+    align-items: center;          /* NUEVO */
+    gap: 1vh;   
+}
+
+.cambiarContraseña2Input{
     height: 5vh;
-    width: 100%;
+    /* width: 100%; */
+    flex: 1;                      /* NUEVO: ocupa todo el espacio que deja el botón */
+    min-width: 0; 
     box-sizing: border-box; /* NUEVO: para que el padding no lo agrande */;
     border-radius: 2vh;
     border: 1px solid rgb(182, 181, 181);
@@ -56,14 +71,24 @@
     padding: 0 2.5vh;
 }
 
-.loginLink{
+.cambiarContraseña2ButtonCodigo{
+    text-decoration: none;
+    border-radius: 2vh;
+    border: 1px solid rgb(253, 244, 244);
+    background-color: rgb(253, 244, 244);
+    cursor: pointer;
+    color: black;
+    padding: 1vh;
+}
+
+.cambiarContraseña2Link{
     font-size: 2vh;
     text-decoration: none;
     color: black;
     margin-top: 1vh;
 }
 
-.loginButton{
+.cambiarContraseña2ButtonSiguiente{
     height:6vh;
     width: 20vw;
     border-radius: 2vh;
@@ -72,9 +97,14 @@
     margin-top: 5vh;
     cursor: pointer;
     color: black;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
 }
 
-.loginFlechaVolver{
+.cambiarContraseña2FlechaVolver{
     height: 5vh;
     width: 5vh;
     position: absolute;

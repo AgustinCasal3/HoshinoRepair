@@ -1,18 +1,18 @@
-/* CSS del Login */
+/* CSS del cambiar contraseña 3 */
 
-.loginBody{
+.cambiarContraseña3Body{
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.loginDiv{
+.cambiarContraseña3Div{
     height: 75vh;
     /* width: 25vw; */
 
     /* Segun Claude la linea de abajo dice que el ancho es de 25vw, pero nunca menos de 320px ni más de 450px */
-    width: 25vw; /*clamp(320px, 25vw, 450px); */
+    width: auto; /*clamp(320px, 25vw, 450px); */
     border-radius: 5vh;
     background-color: rgb(223, 223, 223);
     display: flex;
@@ -20,31 +20,32 @@
     /* align-items: center; */
 }
 
-.loginForm{
+.cambiarContraseña3Form{
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
 }
 
-.loginTitulo{
+.cambiarContraseña3Titulo{
     display: flex;
     justify-content: center;
+    margin: 1vh;
 }
 
-.loginCampos{
+.cambiarContraseña3Campos{
     width: 20vw;
     display: flex;
     flex-direction: column;
     margin-top: 5vh; 
 }
 
-.loginLabel{
+.cambiarContraseña3Label{
     display: flex;
     flex-direction: column;
 }
 
-.loginInput{
+.cambiarContraseña3Input{
     height: 5vh;
     width: 100%;
     box-sizing: border-box; /* NUEVO: para que el padding no lo agrande */;
@@ -56,14 +57,21 @@
     padding: 0 2.5vh;
 }
 
-.loginLink{
+.cambiarContraseña3Button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.cambiarContraseña3Link{
     font-size: 2vh;
     text-decoration: none;
     color: black;
     margin-top: 1vh;
 }
 
-.loginButton{
+.cambiarContraseña3Button{
     height:6vh;
     width: 20vw;
     border-radius: 2vh;
@@ -74,7 +82,7 @@
     color: black;
 }
 
-.loginFlechaVolver{
+.cambiarContraseña3FlechaVolver{
     height: 5vh;
     width: 5vh;
     position: absolute;

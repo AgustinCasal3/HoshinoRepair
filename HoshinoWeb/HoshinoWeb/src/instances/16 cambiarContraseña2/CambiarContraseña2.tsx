@@ -1,49 +1,62 @@
-//Importaciones del archivo cambiarContraseña1.tsx
+//Importaciones del archivo cambiarContraseña2.tsx
 import "./CambiarContraseña2.css";
 
 //Importacion de la flecha volver
 import flechaVolver from '../../assets/imgs/01 login/FlechaVolver.png';
 
 
-//Funcion SobreLaEmpresa
+//Funcion CambiarContraseña2
 export function CambiarContraseña2() {
 
     return (
         <>
 
-            {/* Div del body del login, el que lo acomoda en el medio */}
-            <div className='loginBody'>
+            {/* Div del body del cambiar contraseña 2, el que lo acomoda en el medio */}
+            <div className='cambiarContraseña2Body'>
 
-                {/* Div del login (del cuadrado gris para adentro) */}
-                <div className='loginDiv'>
+                {/* Div del cambiar contraseña 2 (del cuadrado gris para adentro) */}
+                <div className='cambiarContraseña2Div'>
                     
-                    {/* Form con todo el contenido del login */}
-                    <form className='loginForm'>
+                    {/* Form con todo el contenido del cambiar contraseña 2 */}
+                    <form className='cambiarContraseña2Form'>
 
                         {/* Anchor con la imagen de la flecha para hacer el boton del home */}
-                        <a className='loginFlechaVolver' href="/cambiarContraseña1">
+                        <a className='cambiarContraseña2FlechaVolver' href="/cambiarContraseña1">
                             <img src={flechaVolver} alt="volver" />
                         </a>
 
-                        {/* Titulo del formulario de login */}
-                        <h1 className='loginTitulo'>Cambiar contraseña2</h1>
+                        {/* Titulo del formulario de cambiar contraseña 2 */}
+                        <h1 className='cambiarContraseña2Titulo'>Recuperar Contraseña</h1>
+
+                        <p className="cambiarContraseña2p">Se le enviara un codigo por correo.</p>
+                        <p className="cambiarContraseña2p">En caso de no haberlo recibido solicitar uno nuevo.</p>
 
                         {/* Div para que juntar las partes de los campos y que tengan el mismo margin */}
-                        <div className='loginCampos'>
-                            <label className='loginLabel' htmlFor="email">Email:</label>
+                        <div className='cambiarContraseña2Campos'>
+                            <label className='cambiarContraseña2Label' htmlFor="codigo">Codigo:</label>
+
+                            <div className="cambiarContraseña2InputButton">
+
                             <input 
-                                className='loginInput'
-                                type="email"
+                                className='cambiarContraseña2Input'
+                                type="text"
                                 required
                                 minLength={5}
-                                id='email'
-                                name='email'
+                                id='codigo'
+                                name='codigo'
                             />
+                            <a href="/cambiarContraseña3" className='cambiarContraseña2ButtonCodigo'>
+                                Reenviar Codigo
+                                {/* <button className='loginButton' type='submit' disabled>
+                                    Siguiente
+                                </button> */}
+                            </a>
+                            </div>
                         </div>
 
 
-                        {/* Boton que envia el formulario de inicio de sesión */}
-                        <a href="/cambiarContraseña3" className='loginButton'>
+                        {/* Boton que envia el formulario de cambiar contraseña 2 */}
+                        <a href="/cambiarContraseña3" className='cambiarContraseña2ButtonSiguiente'>
                             Siguiente
                         {/* <button className='loginButton' type='submit' disabled>
                             Siguiente
@@ -51,7 +64,7 @@ export function CambiarContraseña2() {
                         </a>
 
                         {/* Anchor para llevar a la pagina de registro /register */}
-                        <a className='loginLink' href="/login">¿Ya tenes cuenta? Iniciar Sesión</a>
+                        <a className='cambiarContraseña2Link' href="/login">¿Ya tenes cuenta? Iniciar Sesión</a>
                     </form>
                 </div>
 
