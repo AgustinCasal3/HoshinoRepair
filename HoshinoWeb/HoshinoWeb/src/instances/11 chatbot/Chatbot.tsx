@@ -1,62 +1,57 @@
-//Importaciones del archivo Chatbot.tsx
+import { useState } from 'react';
 import './Chatbot.css';
 
 import flechaEnviar from '../../assets/imgs/11 chatbot/ArrowRight.svg';
 import botonCerrar from '../../assets/imgs/11 chatbot/Close.svg';
+import logoGato from '../../assets/imgs/0 header/Gato Hoshino.png';
 
-
-import {Home} from '../00 home/Home';
-
-//Funcion Chatbot
 export function Chatbot() {
+    const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <>
+        <div 
+            className={`chatbotWidget ${isOpen ? 'abierto' : ''}`}
+            onClick={!isOpen ? () => setIsOpen(true) : undefined}
+        >
+            {/* Cabecera: Sirve como botón cuando está cerrado y como título cuando está abierto */}
+            <div className="chatbotHeader">
+                <div className="chatbotHeaderInfo">
+                    <img src={logoGato} alt="Hoshi" className="chatbotHeaderIcono" />
+                    <h2 className="chatbotTitulo">Chatbot Hoshi :3</h2>
+                </div>
+
+                {/* Botón de cierre que aparece solo al expandirse */}
+                {isOpen && (
+                    <button 
+                        type="button"
+                        className="chatbotButtonCerrar" 
+                        onClick={(e) => {
+                            e.stopPropagation(); // Evita reabrir al hacer clic en cerrar
+                            setIsOpen(false);
+                        }}
+                    >
+                        <img src={botonCerrar} alt="Cerrar" />
+                    </button>
+                )}
+            </div>
             
-            {/* Etiqueta del home para que se vea junto con el chatbot (temporal) */}
-            <Home/>
-
-            {/* Div del chatbot (del cuadrado gris para adentro) */}
-            <div className='chatbotDiv'>
-
-                {/* div con todo el contenido del chatbot */}
-                <div className='chatbotContenido'>
-
-                    {/* Div con el titulo y el boton de cerrar el chatbot. Basicamente la parte de arriba del chatbot */}
-                    <div className='chatbotDivTitulo'>
-
-                        {/* Titulo del chatbot */}
-                        <h2 className='chatbotTitulo'>Chatbot: Hoshi :3</h2>
-
-                        {/* Boton para cerrar el chatbot. Funciona con una imagen */}
-                        <a href='/home' className='chatbotButtonCerrar' >
-                            <img src={botonCerrar} alt="X" />
-                        </a>
-                    </div>
+            {/* Cuerpo del Chatbot: Se revela suavemente cuando la ventana termina de expandirse */}
+            <div className="chatbotCuerpo">
+                <div className="chatbotChat">
+                    <div className="chatbotDivMensajes"></div>
                     
-                    {/* Div de la parte del titulo para abajo del chatbot (desde donde se ven los mensajes para abajo) */}
-                    <div className='chatbotChat'>
-
-                        {/* Div de la parte de los mensajes del chatbot (abajo del titulo pero arriba de la parte de enviar) */}
-                        <div className='chatbotDivMensajes'>
-                        </div>
-                        
-                        {/* Div de la parte para escribir y enviar mensajes (abajo de la parte de los mensajes) */}
-                        <div className='chatbotDivEnviar'>
-
-                            {/* Input para escribir los mensajes */}
-                            <input className='chatbotInput' type="text" placeholder="Escribe un mensaje..." />
-
-                            {/* Boton para enviar los mensajes */}
-                            <a className='chatbotButtonEnviar' href='/home'>
-                                <img src={flechaEnviar} alt=">" />
-                            </a>
-                        </div>
-
+                    <div className="chatbotDivEnviar">
+                        <input 
+                            className="chatbotInput" 
+                            type="text" 
+                            placeholder="Escribe un mensaje..." 
+                        />
+                        <button type="button" className="chatbotButtonEnviar">
+                            <img src={flechaEnviar} alt="Enviar" />
+                        </button>
                     </div>
-                    
                 </div>
             </div>
-        </>
-    )
+        </div>
+    );
 }

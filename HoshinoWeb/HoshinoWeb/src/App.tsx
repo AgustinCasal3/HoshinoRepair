@@ -27,6 +27,8 @@ function Pagina() {
   return (
     <>
       <Outlet />
+      {/* Widget del Chatbot siempre visible */}
+      <Chatbot />
     </>
   )
 }
@@ -104,10 +106,6 @@ const router = createBrowserRouter([
       {
         path: 'reclamos', // Ruta: /reclamos
         element: <Reclamos />,
-      },
-      {
-        path: 'chatbot', // Ruta: /chatbot
-        element: <Chatbot />,
       },
       {
         path: 'reservasUsuarios', // Ruta: /reservasUsuarios
