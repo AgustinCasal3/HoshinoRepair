@@ -6,6 +6,10 @@ import { useState } from 'react';
 
 import ImgCarrousel1 from '../../assets/imgs/00 home/ImgCarrousel1.png';
 import ImgCarrousel2 from '../../assets/imgs/00 home/ImgCarrousel2.png';
+import ImgCarrousel3 from '../../assets/imgs/00 home/ImgCarrousel3.png';
+import ImgCarrousel4 from '../../assets/imgs/00 home/ImgCarrousel4.png';
+import ImgCarrousel5 from '../../assets/imgs/00 home/ImgCarrousel5.png';
+import ImgCarrousel6 from '../../assets/imgs/00 home/ImgCarrousel6.png';
 
 import ImgProd1 from '../../assets/imgs/05 dispositivo/productos/PC1.png';
 import ImgProd2 from '../../assets/imgs/05 dispositivo/productos/PC2.png';
@@ -20,6 +24,10 @@ export function Home() {
     const imagenesCarrousel = [
         ImgCarrousel1,
         ImgCarrousel2,
+        ImgCarrousel3,
+        ImgCarrousel4,
+        ImgCarrousel5,
+        ImgCarrousel6,
     ];
 
     const siguienteImagen = () => {
@@ -39,15 +47,21 @@ export function Home() {
         <>
             <Header />
 
-            <section className="homeCarrousel" onClick={anteriorImagen}>
-                <div className="homeBtnIzq">
-                    <img src={FlechaBtn} alt="Imagen Anteior"/>
-                </div>
-                <div className="homeImgCarrousel">
-                    <img src={imagenesCarrousel[imagenActual]} alt='Imagen de promocion' />
-                </div>
-                <div className="homeBtnDer" onClick={siguienteImagen}>
-                    <img className="flechaInvertida" src={FlechaBtn} alt="Imagen Siguiente"/>
+            <section className="homeCarrousel">
+                <div className="homeCarrouselContenedor">
+                    <div className="homeBtnIzq" onClick={anteriorImagen}>
+                        <img src={FlechaBtn} alt="Imagen Anterior"/>
+                    </div>
+                    
+                    <img 
+                        className="homeImgPrincipal" 
+                        src={imagenesCarrousel[imagenActual]} 
+                        alt='Imagen de promocion' 
+                    />
+
+                    <div className="homeBtnDer" onClick={siguienteImagen}>
+                        <img className="flechaInvertida" src={FlechaBtn} alt="Imagen Siguiente"/>
+                    </div>
                 </div>
             </section>
 
