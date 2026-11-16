@@ -18,6 +18,7 @@ import { Reclamos } from './instances/09 reclamos/Reclamos.tsx';  // 09
 import { Chatbot } from './instances/11 chatbot/Chatbot.tsx';  // 11
 import { ReservasUsuarios } from './instances/12 reservasUsuarios/ReservasUsuarios.tsx';  // 12
 import { Producto } from './instances/13 producto/Producto.tsx';  // 13
+import { ReservarProducto } from './instances/18 reservarProducto/ReservarProducto.tsx';  // 18
 import { SobreLaEmpresa } from './instances/14 sobreLaEmpresa/SobreLaEmpresa.tsx';  // 14
 import { CambiarContraseña1 } from './instances/15 cambiarContraseña1/CambiarContraseña1.tsx';  // 15
 import { CambiarContraseña2 } from './instances/16 cambiarContraseña2/CambiarContraseña2.tsx';  // 16
@@ -112,8 +113,12 @@ const router = createBrowserRouter([
         element: <ReservasUsuarios />,
       },
       {
-        path: 'producto/:id', // Ruta: /reservar
+        path: 'producto/:id', // Ruta: /producto
         element: <Producto />,
+      },
+      {
+        path: 'producto/reservar/:id', // Ruta: /producto/reservar/x
+        element: <ReservarProducto />,
       },
       {
         path: 'about', // Ruta: /about

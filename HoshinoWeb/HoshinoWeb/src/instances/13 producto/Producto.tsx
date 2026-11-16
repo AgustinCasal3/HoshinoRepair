@@ -197,7 +197,7 @@ export function Producto() {
                             </div>
                         </div>
 
-                        <a className="productoBotonReservar" href={`/subirComprobante/${producto.productId}`}>
+                        <a className="productoBotonReservar" href={`/producto/reservar/${producto.productId}`}>
                             Reservar
                         </a>
                     </div>
