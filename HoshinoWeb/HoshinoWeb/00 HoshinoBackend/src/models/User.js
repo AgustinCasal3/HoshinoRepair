@@ -6,6 +6,11 @@ const userSchema = new mongoose.Schema({
     email: { type: String, required: true },
     number: { type: Number },
     passwordHash: { type: String, required: true },
+    // NUEVO: datos temporales para recuperar contraseña
+    resetCodeHash: { type: String },
+    resetCodeExpires: { type: Date },
+    resetAttempts: { type: Number, default: 0 },
+    picture: { type: String },
     picture: { type: String },
     createdAt: { type: Date, default: Date.now },
     lastLogin: { type: Date },

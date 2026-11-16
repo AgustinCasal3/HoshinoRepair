@@ -1,63 +1,76 @@
-//Importaciones del archivo cambiarContraseña1.tsx
 import "./CambiarContraseña1.css";
-
-//Importacion de la flecha volver
 import flechaVolver from '../../assets/imgs/01 login/FlechaVolver.png';
 
+// NUEVO: importaciones para el backend
+import { useState, FormEvent } from 'react';
+import axios from 'axios';
+import { Error } from '../01 login/components/01 error/Error' // misma ruta que en Login.tsx
 
-//Funcion CambiarContraseña1
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:4000';
+
 export function CambiarContraseña1() {
+    // NUEVO: estados
+    const [email, setEmail] = useState<string>('');
+    const [errorMessage, setErrorMessage] = useState<string>('');
+    const [loading, setLoading] = useState<boolean>(false);
+
+    // NUEVO: envía el mail y pasa a la pantalla 2
+    const handleSubmit = async (e: FormEvent) => {
+        e.preventDefault();
+        setErrorMessage('');
+        setLoading(true);
+        try {
+            await axios.post(`${API_URL}/users/recuperar/solicitar`, { email });
+            sessionStorage.setItem('recuperarEmail', email);
+            window.location.href = '/cambiarContraseña2';
+        } catch (error: any) {
+            setErrorMessage(error.response?.data?.mensaje || 'No se pudo conectar con el servidor');
+        } finally {
+            setLoading(false);
+        }
+    };
 
     return (
         <>
-
-            {/* Div del body del cambiar contraseña 1, el que lo acomoda en el medio */}
             <div className='cambiarContraseña1Body'>
-
-                {/* Div del cambiar contraseña 1 (del cuadrado gris para adentro) */}
                 <div className='cambiarContraseña1Div'>
-                    
-                    {/* Form con todo el contenido del cambiar contraseña 1 */}
-                    <form className='cambiarContraseña1Form'>
 
-                        {/* Anchor con la imagen de la flecha para hacer el boton del home */}
+                    {/* CAMBIO: se agrega onSubmit */}
+                    <form className='cambiarContraseña1Form' onSubmit={handleSubmit}>
+
                         <a className='cambiarContraseña1FlechaVolver' href="/login">
                             <img src={flechaVolver} alt="volver" />
                         </a>
 
-                        {/* Titulo del formulario de cambiar contraseña 1 */}
                         <h1 className='cambiarContraseña1Titulo'>Recuperar Contraseña</h1>
 
                         <p className="cambiarContraseña1p">Ingrese el correo de la cuenta a recuperar la contraseña.</p>
 
-                        {/* Div para que juntar las partes de los campos y que tengan el mismo margin */}
                         <div className='cambiarContraseña1Campos'>
                             <label className='cambiarContraseña1Label' htmlFor="email">Email:</label>
-                            <input 
+                            <input
                                 className='cambiarContraseña1Input'
                                 type="email"
                                 required
                                 minLength={5}
                                 id='email'
                                 name='email'
+                                value={email}                                  // NUEVO
+                                onChange={(e) => setEmail(e.target.value)}     // NUEVO
                             />
-
                         </div>
 
+                        {/* CAMBIO: el <a> pasa a ser un <button type="submit"> */}
+                        <button type="submit" className='cambiarContraseña1Button' disabled={loading}>
+                            {loading ? 'Enviando..' : 'Siguiente'}
+                        </button>
 
-                        {/* Boton que envia el formulario de cambiar contraseña 1 */}
-                        <a href="/cambiarContraseña2" className='cambiarContraseña1Button'>
-                            Siguiente
-                        {/* <button className='loginButton' type='submit' disabled>
-                            Siguiente
-                        </button> */}
-                        </a>
-
-                        {/* Anchor para llevar a la pagina de registro /register */}
                         <a className='cambiarContraseña1Link' href="/login">¿Ya tenes cuenta? Iniciar Sesión</a>
                     </form>
                 </div>
 
+                {/* NUEVO */}
+                {errorMessage && <Error mensaje={errorMessage} />}
             </div>
         </>
     )

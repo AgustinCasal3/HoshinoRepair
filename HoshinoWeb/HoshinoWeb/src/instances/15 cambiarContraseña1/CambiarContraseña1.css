@@ -8,7 +8,7 @@
 }
 
 .cambiarContraseña1Div{
-    height: 75vh;
+    height: 50vh;
     /* width: 25vw; */
 
     /* Segun Claude la linea de abajo dice que el ancho es de 25vw, pero nunca menos de 320px ni más de 450px */
@@ -82,6 +82,8 @@
     align-items: center;
     justify-content: center;
     text-decoration: none;
+
+    font-family: inherit; /* NUEVO: que el botón use la misma letra que el resto */
 }
 
 .cambiarContraseña1FlechaVolver{
