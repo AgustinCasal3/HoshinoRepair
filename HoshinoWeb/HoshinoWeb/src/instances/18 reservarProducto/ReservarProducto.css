@@ -5,7 +5,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 2.5vh;
+    gap: 10vh;
 }
 
 .reservarIzq {
@@ -17,11 +17,11 @@
     align-items: center;
     justify-content: center;
 
-    margin-bottom: 5vh;
+    margin-bottom: 2.5vh;
 }
 
 .reservaTitulo h1 {
-    font-size: 6.5vh;
+    font-size: 6vh;
 
     text-align: center;
 }
@@ -29,7 +29,7 @@
 .reservaInfo p {
     margin-bottom: 5vh;
 
-    font-size: 3vh;
+    font-size: 2.5vh;
 
     text-align: justify;
 }
@@ -42,11 +42,192 @@
 }
 
 .reservarInfoPago p {
-    font-size: 3vh;
+    font-size: 2.5vh;
 }
 
 .reservarCuentasPago {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+/* Tarjeta resumen del dispositivo */
+.reservarDispositivoResumen {
+    display: flex;
+    align-items: center;
+    gap: 2vh;
+    background-color: #f0f0f0;
+    border: 1px solid #d5d5d5;
+    border-radius: 2vh;
+    padding: 1.5vh 2vh;
+    margin-bottom: 3vh;
+}
+
+.reservarDispositivoResumen img {
+    width: 9vh;
+    height: 9vh;
+    object-fit: cover;
+    border-radius: 1.2vh;
+}
+
+.reservarDispositivoDetalles h3 {
+    font-size: 2.3vh;
+    margin-bottom: 0.5vh;
+}
+
+.reservarDispositivoDetalles p {
+    font-size: 2vh;
+    margin: 0.2vh 0;
+}
+
+.reservarMontoSena {
+    color: #1f7a3e;
+}
+/* DERECHA - FORMULARIO */
+
+.reservarFormulario {
+    display: flex;
+    flex-direction: column;
+    width: 32vw;
+    gap: 3vh;
+    padding: 3vh;
+    background-color: rgb(215, 215, 215);
+    border-radius: 2.5vh;
+    box-sizing: border-box;
+}
+
+.reservarFormulario input[type="text"] {
+    background-color: rgb(190, 190, 190);
+    border: none;
+    border-radius: 2vh;
+    padding: 1.2vh 1.8vh;
+    display: block;
+    font-size: 2.3vh;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.reservarFormulario label {
+    display: block;
+    font-size: 2.4vh;
+    margin-bottom: 1vh;
+}
+
+.reservarFormulario button[type="submit"] {
+    padding: 2vh;
+    font-size: 2.5vh;
+    background-color: rgb(190, 190, 190);
+    border-radius: 2.5vh;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.reservarFormulario button[type="submit"]:hover {
+    background-color: rgb(175, 175, 175);
+}
+
+/* Zona de subida acumulativa */
+.reservarDropzone {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    height: 8vh;
+    background-color: rgb(190, 190, 190);
+    border: 2px dashed rgb(150, 150, 150);
+    border-radius: 2vh;
+    cursor: pointer;
+    font-size: 2vh !important;
+    transition: background-color 0.2s ease;
+}
+
+.reservarDropzone:hover {
+    background-color: rgb(180, 180, 180);
+}
+
+/* Galería de miniaturas subidas */
+.reservarMiniaturas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5vh;
+    margin-top: 1.5vh;
+}
+
+.reservarMiniaturaItem {
+    position: relative;
+    width: 11vh;
+    height: 11vh;
+    border-radius: 1.2vh;
+    overflow: hidden;
+    border: 1px solid #999;
+}
+
+.reservarMiniaturaItem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.reservarMiniaturaOverlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.65);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.4vh;
+    padding: 0.5vh;
+    opacity: 0;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.reservarMiniaturaItem:hover .reservarMiniaturaOverlay {
+    opacity: 1;
+}
+
+.reservarEliminarImg {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 2.4vh;
+    height: 2.4vh;
+    border-radius: 50%;
+    border: none;
+    background-color: rgba(220, 53, 69, 0.9);
+    color: white;
+    font-size: 1.6vh;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 2;
+}
+
+/* Modal Lightbox para ampliar imagen */
+.reservarModalFondo {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    cursor: zoom-out;
+}
+
+.reservarModalContenido {
+    max-width: 85vw;
+    max-height: 85vh;
+    cursor: default;
+}
+
+.reservarModalContenido img {
+    max-width: 100%;
+    max-height: 85vh;
+    border-radius: 1.5vh;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }

@@ -58,6 +58,19 @@ export function Reservas() {
         );
     }
 
+    // Helper para apuntar directamente a la carpeta de productos original
+    const obtenerImagenReserva = (reserva: ReservationItem) => {
+        const pic = reserva.productData?.picture;
+        if (!pic) return '../src/assets/imgs/05 dispositivo/productos/Producto4.png';
+
+        if (pic.startsWith('../') || pic.startsWith('/') || pic.startsWith('http') || pic.startsWith('data:')) {
+            return pic;
+        }
+
+        const nombreArchivo = pic.includes('.') ? pic : `${pic}.png`;
+        return `../src/assets/imgs/08 tienda/Productos/${reserva.productId}/${nombreArchivo}`;
+    };
+
     // Clasificación de reservas por estado
     const reservasActivas = reservas.filter(r => r.status !== 'Retirado');
     const reservasRetiradas = reservas.filter(r => r.status === 'Retirado');
@@ -77,31 +90,31 @@ export function Reservas() {
                 ) : (
                     <div className="listaDispositivos">
                         {reservasActivas.length > 0 ? (
-                            reservasActivas.map((reserva) => {
-
-                                return (
-                                    <div key={reserva.reservationId} className="listaDispositivosArticulo">
-                                        <div className="listaDispositivosInfo">
-                                            <a href={`/reservasUsuarios/${reserva.reservationId}`}>
-                                                <div className="listaDispositivosArticuloImg">
-                                                    <img src={`../src/assets/imgs/06 reservas/reserva/${user.userId}/${reserva.reservationId}/${reserva.productData.picture}`} alt={reserva.productData?.name} />
-                                                </div>
-                                            </a>
-                                            <a href={`/reservasUsuarios/${reserva.reservationId}`}>
-                                                <div className="listaDispositivosDatos">
-                                                    <h3>{reserva.productData?.name}</h3>
-                                                    <h2>#{String(reserva.reservationId).padStart(6, '0')}</h2>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div className="listaDispositivosVer">
-                                            <a href={`/reservasUsuarios/${reserva.reservationId}`}>
-                                                <p>Ver</p>
-                                            </a>
-                                        </div>
+                            reservasActivas.map((reserva) => (
+                                <div key={reserva.reservationId} className="listaDispositivosArticulo">
+                                    <div className="listaDispositivosInfo">
+                                        <a href={`/reservasUsuarios/${reserva.reservationId}`}>
+                                            <div className="listaDispositivosArticuloImg">
+                                                <img 
+                                                    src={obtenerImagenReserva(reserva)} 
+                                                    alt={reserva.productData?.name} 
+                                                />
+                                            </div>
+                                        </a>
+                                        <a href={`/reservasUsuarios/${reserva.reservationId}`}>
+                                            <div className="listaDispositivosDatos">
+                                                <h3>{reserva.productData?.name}</h3>
+                                                <h2>#{String(reserva.reservationId).padStart(6, '0')}</h2>
+                                            </div>
+                                        </a>
                                     </div>
-                                );
-                            })
+                                    <div className="listaDispositivosVer">
+                                        <a href={`/reservasUsuarios/${reserva.reservationId}`}>
+                                            <p>Ver</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            ))
                         ) : (
                             <p style={{ textAlign: 'center', color: '#aaa', width: '100%' }}>
                                 No tienes reservas activas en este momento.
@@ -122,31 +135,31 @@ export function Reservas() {
                 ) : (
                     <div className="listaDispositivos">
                         {reservasRetiradas.length > 0 ? (
-                            reservasRetiradas.map((reserva) => {
-
-                                return (
-                                    <div key={reserva.reservationId} className="listaDispositivosArticulo">
-                                        <div className="listaDispositivosInfo">
-                                            <a href={`/reservasUsuarios/${reserva.reservationId}`}>
-                                                <div className="listaDispositivosArticuloImg">
-                                                    <img src={`../src/assets/imgs/06 reservas/reserva/${user.userId}/${reserva.reservationId}/${reserva.productData.picture}`} alt={reserva.productData?.name} />
-                                                </div>
-                                            </a>
-                                            <a href={`/reservasUsuarios/${reserva.reservationId}`}>
-                                                <div className="listaDispositivosDatos">
-                                                    <h3>{reserva.productData?.name}</h3>
-                                                    <h2>#{String(reserva.reservationId).padStart(6, '0')}</h2>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div className="listaDispositivosVer">
-                                            <a href={`/reservasUsuarios/${reserva.reservationId}`}>
-                                                <p>Ver</p>
-                                            </a>
-                                        </div>
+                            reservasRetiradas.map((reserva) => (
+                                <div key={reserva.reservationId} className="listaDispositivosArticulo">
+                                    <div className="listaDispositivosInfo">
+                                        <a href={`/reservasUsuarios/${reserva.reservationId}`}>
+                                            <div className="listaDispositivosArticuloImg">
+                                                <img 
+                                                    src={obtenerImagenReserva(reserva)} 
+                                                    alt={reserva.productData?.name} 
+                                                />
+                                            </div>
+                                        </a>
+                                        <a href={`/reservasUsuarios/${reserva.reservationId}`}>
+                                            <div className="listaDispositivosDatos">
+                                                <h3>{reserva.productData?.name}</h3>
+                                                <h2>#{String(reserva.reservationId).padStart(6, '0')}</h2>
+                                            </div>
+                                        </a>
                                     </div>
-                                );
-                            })
+                                    <div className="listaDispositivosVer">
+                                        <a href={`/reservasUsuarios/${reserva.reservationId}`}>
+                                            <p>Ver</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            ))
                         ) : (
                             <p style={{ textAlign: 'center', color: '#aaa', width: '100%' }}>
                                 No tienes reservas retiradas.

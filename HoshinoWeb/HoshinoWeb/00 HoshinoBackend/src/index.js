@@ -6,12 +6,13 @@ const express = require('express');
 const cors = require('cors');
 const conectarDB = require('./config/database');
 
-const app = express();
+const app = express(); // <-- Esta es la línea que faltaba
 
 conectarDB();
 
 app.use(cors());
-app.use(express.json());
+app.use(express.json({ limit: '15mb' }));
+app.use(express.urlencoded({ limit: '15mb', extended: true }));
 
 app.use('/users', require('./routes/userRoutes'));
 
@@ -20,6 +21,8 @@ app.use('/devices', require('./routes/deviceRoutes'));
 app.use('/products', require('./routes/productRoutes'));
 
 app.use('/reservations', require('./routes/reservationRoutes'));
+
+app.use('/payments', require('./routes/paymentRoutes'));
 
 app.get('/', (req, res) => {
     res.send('API de HoshinoDB funcionando!! :D');

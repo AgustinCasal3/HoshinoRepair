@@ -1,0 +1,316 @@
+.reservaDetalleContenedor {
+    width: 100%;
+    min-height: 85vh;
+    padding: 5vh 8vw;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 8vw;
+}
+
+/* COLUMNA IZQUIERDA */
+
+.reservaDetalleIzq {
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.reservaDetalleImg {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 4vh;
+}
+
+.reservaDetalleImg img {
+    max-width: 28vw;
+    max-height: 32vh;
+    object-fit: contain;
+    border-radius: 1.5vh;
+}
+
+.reservaDetallePrecios {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.8vh;
+}
+
+.reservaFilaPrecio {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 2.8vh;
+    color: #000;
+}
+
+.reservaSubtituloAbonado {
+    text-align: center;
+    margin: 0.5vh 0;
+}
+
+.reservaSubtituloAbonado p {
+    font-size: 2.5vh;
+    color: #333;
+}
+
+/* COLUMNA DERECHA */
+
+.reservaDetalleDer {
+    width: 48vw;
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+}
+
+.reservaDetalleCabecera h1 {
+    font-size: 4.5vh;
+    font-weight: normal;
+    line-height: 1.2;
+    margin: 0 0 0.8vh 0;
+    color: #000;
+}
+
+.reservaCodigo {
+    font-size: 2.2vh;
+    color: #777;
+    margin: 0;
+}
+
+/* ESTADO Y TIMELINE */
+
+.reservaDetalleEstadoBloque {
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}
+
+.reservaEstadoFila {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.reservaEstadoFila h2 {
+    font-size: 3.2vh;
+    font-weight: normal;
+    margin: 0;
+}
+
+.reservaBadgeEstado {
+    padding: 0.8vh 2.2vh;
+    border-radius: 1vh;
+    font-size: 2.5vh;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.estadoPendiente {
+    background-color: #f7c785;
+    color: #000;
+}
+
+.estadoVerde {
+    background-color: #9be3a8;
+    color: #0d4a1a;
+}
+
+.estadoRojo {
+    background-color: #f59c9c;
+    color: #5e0b0b;
+}
+
+.reservaTimeline {
+    padding-left: 1.5vh;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6vh;
+}
+
+.reservaTimeline p {
+    font-size: 2vh;
+    color: #333;
+    margin: 0;
+}
+
+.reservaFechaRetiro {
+    text-align: center;
+    margin-top: 1vh;
+}
+
+.reservaFechaRetiro h3 {
+    font-size: 2.6vh;
+    font-weight: normal;
+    margin: 0;
+}
+
+/* FACTURACIÓN Y CARRUSEL DE COMPROBANTES */
+
+.reservaDetalleFacturacion {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5vh;
+    margin-top: 1vh;
+}
+
+.reservaDetalleFacturacion h2 {
+    font-size: 3.2vh;
+    font-weight: normal;
+    margin: 0;
+}
+
+.reservaFacturacionContenido {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 3vw;
+}
+
+.reservaDatosColumnas {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5vh;
+    flex: 1;
+}
+
+.reservaBloqueDatos h4 {
+    font-size: 2.3vh;
+    font-weight: normal;
+    margin: 0 0 0.8vh 0;
+    color: #111;
+}
+
+.reservaBloqueDatos p {
+    font-size: 1.9vh;
+    color: #333;
+    margin: 0.3vh 0;
+    padding-left: 1.5vh;
+}
+
+/* Carrusel de Comprobantes */
+
+.reservaCarruselComprobantes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 18vw;
+}
+
+.reservaCarruselVisor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2vh;
+}
+
+.reservaCarruselFlecha {
+    background: none;
+    border: none;
+    font-size: 2.8vh;
+    color: #333;
+    cursor: pointer;
+    padding: 0.5vh 1vh;
+    user-select: none;
+    transition: transform 0.15s ease;
+}
+
+.reservaCarruselFlecha:hover {
+    transform: scale(1.2);
+    color: #000;
+}
+
+.reservaComprobanteImgContenedor {
+    position: relative;
+    width: 11vw;
+    height: 26vh;
+    border: 1px solid #ddd;
+    border-radius: 1vh;
+    overflow: hidden;
+    background-color: #fafafa;
+    cursor: zoom-in;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.reservaComprobanteImgContenedor img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.reservaComprobanteHover {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.6vh;
+    padding: 1vh;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.reservaComprobanteImgContenedor:hover .reservaComprobanteHover {
+    opacity: 1;
+}
+
+.reservaCarruselPuntos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1vh;
+    margin-top: 1.5vh;
+}
+
+.reservaPunto {
+    width: 1.1vh;
+    height: 1.1vh;
+    border-radius: 50%;
+    background-color: #ccc;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.reservaPunto.activo {
+    background-color: #555;
+}
+
+.reservaSinComprobantes {
+    font-size: 1.9vh;
+    color: #888;
+    font-style: italic;
+}
+
+/* Modal Lightbox */
+
+.reservaModalFondo {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    cursor: zoom-out;
+}
+
+.reservaModalContenido {
+    max-width: 85vw;
+    max-height: 85vh;
+    cursor: default;
+}
+
+.reservaModalContenido img {
+    max-width: 100%;
+    max-height: 85vh;
+    border-radius: 1.5vh;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}

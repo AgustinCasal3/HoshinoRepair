@@ -93,6 +93,10 @@ const router = createBrowserRouter([
         element: <Reservas />,
       },
       {
+        path: 'reservasUsuarios/:id', // Ruta: /reservasUsuarios/x
+        element: <ReservasUsuarios />,
+      },
+      {
         path: 'reparaciones', // Ruta: /reparaciones
         element: <Reparaciones />,
       },
@@ -107,10 +111,6 @@ const router = createBrowserRouter([
       {
         path: 'reclamos', // Ruta: /reclamos
         element: <Reclamos />,
-      },
-      {
-        path: 'reservasUsuarios', // Ruta: /reservasUsuarios
-        element: <ReservasUsuarios />,
       },
       {
         path: 'producto/:id', // Ruta: /producto
