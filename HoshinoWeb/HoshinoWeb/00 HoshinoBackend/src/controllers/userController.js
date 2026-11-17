@@ -90,8 +90,6 @@ const loginUser = async (req, res) => {
 const enviarCodigo = async (user) => {
     const codigo = crypto.randomInt(100000, 1000000).toString();
 
-    console.log(codigo);
-
     user.resetCodeHash = hashCodigo(codigo, user);
     user.resetCodeExpires = new Date(Date.now() + 10 * 60 * 1000); // 10 minutos
     user.resetAttempts = 0;
