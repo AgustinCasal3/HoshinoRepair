@@ -95,17 +95,20 @@ const enviarCodigo = async (user) => {
     user.resetAttempts = 0;
     await user.save();
 
-    try{
-
-        await transporter.sendMail({
-            from: process.env.MAIL_USER,
-            to: user.email,
-            subject: 'Código para recuperar tu contraseña',
-            text: `Tu código es: ${codigo}. Vence en 10 minutos.`
-        });
-    }catch(error){
-        console.error('No se pudo enviar el mail:', error.message); // CAMBIO: ya no rompe el flujo
-    }
+    await transporter.sendMail({
+        from: ' "HoshinoRepair" ' + process.env.MAIL_USER,
+        to: user.email,
+        subject: 'Código para recuperar tu contraseña | Hoshino',
+        html: `
+        <p>Hola ${user.email || ''},</p>
+            <p>El codigo para recuperar tu contraseña en <b>Hoshino</b> es: </p>
+            <p>${codigo}</p>
+            <p>El codigo expirará en 10 minutos.</p>
+            <br/>
+            <p>- Hoshino</p>
+        `,
+    });
+    
 };
 
 // Devuelve un mensaje de error, o null si el código es válido
