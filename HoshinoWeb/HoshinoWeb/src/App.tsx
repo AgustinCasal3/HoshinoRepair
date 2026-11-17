@@ -85,7 +85,7 @@ const router = createBrowserRouter([
         element: <ListaDispositivos />,
       },
       {
-        path: 'dispositivo/1', // Ruta: /dispositivo/1
+        path: 'dispositivo/:id', // Ruta: /dispositivo/1
         element: <Dispositivo />,
       },
       {

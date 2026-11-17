@@ -2,13 +2,15 @@
 
 .dispositivoContenedor {
     width: 100%;
+    min-height: 80vh;
     height: auto;
 
     display: flex;
-    align-items: start;
+    align-items: flex-start;
     justify-content: center;
+    gap: 6vh;
 
-    margin-top: 10vh;
+    margin: 8vh 0;
 }
 
 /* IZQUIERDA */
@@ -18,60 +20,156 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 40vw;
+}
 
-    margin-right: 5vh;
+/* Carrusel de Imágenes */
+
+.dispositivoCarrusel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5vh;
+    width: 100%;
+}
+
+.dispositivoCarruselFlecha {
+    background-color: #e4e4e4;
+    border: none;
+    width: 4.5vh;
+    height: 4.5vh;
+    border-radius: 50%;
+    font-size: 2.5vh;
+    color: #333;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.dispositivoCarruselFlecha:hover {
+    background-color: #cccccc;
+    transform: scale(1.1);
 }
 
 .dispositivoImg {
-    width: 60vh;
-    height: 60vh;
+    width: 50vh;
+    height: 45vh;
 
     display: flex;
     align-items: center;
     justify-content: center;
-
-    margin-bottom: 5vh;
 }
 
 .dispositivoImg img {
-    max-width: 60vh;
-    max-height: 60vh;
-
-    border-radius: 5vh;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 2vh;
 }
 
-.dispositivoPago a {
-    width: 35vh;
-    height: 6vh;
-    border-radius: 1vh;
-    
+/* Miniaturas debajo de la foto principal */
+
+.dispositivoMiniaturas {
     display: flex;
     align-items: center;
     justify-content: center;
-
-    color: black;
-    text-decoration: none;
-    font-size: 2.5vh;
-
-    background-color: lightgray;
-    
-    transition: background-color 0.25s ease;
+    gap: 1.5vh;
+    margin-top: 2vh;
 }
 
-.dispositivoPago a:hover {
-    background-color: rgb(190, 190, 190);
+.dispositivoMiniaturas img {
+    width: 8vh;
+    height: 8vh;
+    object-fit: cover;
+    border-radius: 1vh;
+    border: 2px solid transparent;
+    opacity: 0.6;
+    cursor: pointer;
+    transition: opacity 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
 }
 
-.dispositivoPrecio {
+.dispositivoMiniaturas img:hover {
+    opacity: 0.9;
+}
+
+.dispositivoMiniaturas img.miniaturaActiva {
+    opacity: 1;
+    border-color: #555;
+    transform: scale(1.05);
+}
+
+/* Desglose de Costos y Aviso (Más angosto, fondo y borde blancos) */
+
+.dispositivoPago {
+    width: 26vw;
+    margin-top: 4vh;
+    background-color: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 2vh;
+    padding: 2vh 1.5vh;
+    box-sizing: border-box;
+}
+
+.dispositivoPresupuestoTitulo {
+    font-size: 2.4vh;
+    font-weight: normal;
+    margin: 0 0 1.8vh 0;
+    color: #222;
+    border-bottom: 1px solid #e6e6e6;
+    padding-bottom: 1vh;
+}
+
+.dispositivoDesglose {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2vh;
+    margin-bottom: 2vh;
+}
+
+.dispositivoDesgloseFila {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2vh;
+    font-size: 2vh;
+    color: #444;
+}
+
+.dispositivoDesgloseTexto small {
+    color: #888;
+    font-size: 1.6vh;
+}
+
+.dispositivoDesgloseMonto {
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.dispositivoPrecioTotal {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 2.5vh;
+    padding-top: 1.5vh;
+    border-top: 1px solid #e6e6e6;
 }
 
-.dispositivoPrecio h3 {
-    font-weight: normal;
+.dispositivoPrecioTotal h3 {
+    font-weight: 600;
     font-size: 2.5vh;
+    margin: 0;
+}
+
+.dispositivoAvisoPago {
+    margin: 2vh 0 0 0;
+    font-size: 1.85vh;
+    color: #666;
+    text-align: center;
+    background-color: transparent;
+    padding: 0.5vh 0;
+    line-height: 1.4;
 }
 
 /* DERECHA */
@@ -81,45 +179,82 @@
 }
 
 .dispositivoTituloDispositivo {
-    margin-bottom: 5vh;
+    margin-bottom: 3.5vh;
+}
+
+.dispositivoCabeceraFila {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2vh;
+    flex-wrap: wrap;
 }
 
 .dispositivoTituloDispositivo h1 {
-    font-size: 7vh;
+    font-size: 5.5vh;
     font-weight: normal;
+    margin: 0;
+}
 
-    max-width: 100%;
+.dispositivoBadgeEstado {
+    padding: 0.8vh 2vh;
+    border-radius: 1vh;
+    font-size: 2.2vh;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.estadoPendiente {
+    background-color: #f7c785;
+    color: #000;
+}
+
+.estadoVerde {
+    background-color: #9be3a8;
+    color: #0d4a1a;
+}
+
+.estadoRojo {
+    background-color: #f59c9c;
+    color: #5e0b0b;
 }
 
 .dispositivoId h3 {
-    font-size: 2.75vh;
+    font-size: 2.5vh;
     font-weight: normal;
-
     color: gray;
+    margin: 0.8vh 0 0 0;
 }
 
 .dispositivoDescripcion {
-    margin-bottom: 5vh;
+    margin-bottom: 4vh;
 }
 
 .dispositivoDescripcion p {
-    font-size: 2.5vh;
+    font-size: 2.3vh;
     font-weight: normal;
+    line-height: 1.5;
 }
 
 .dispositivoRevisiones h2 {
-    font-size: 4vh;
+    font-size: 3.6vh;
     font-weight: normal;
-
-    margin-bottom: 2.5vh;
+    margin-bottom: 2vh;
 }
 
 .dispositivoListaRevisiones {
-    margin-left: 5vh;
+    margin-left: 3.5vh;
 }
 
 .dispositivoListaRevisiones li {
-    font-size: 2.5vh;
-    color: rgb(90, 90, 90);
-    margin-bottom: 0.5vh;
+    font-size: 2.7vh;
+    color: rgb(70, 70, 70);
+    margin-bottom: 1.3vh;
+    line-height: 1.45;
+}
+
+.dispositivoRevisionEstado {
+    font-size: 2.1vh;
+    color: #888;
 }
