@@ -114,16 +114,34 @@ export function Tienda() {
     };
 
     // 1. Filtrar por búsqueda de texto y por categoría/subcategoría/marca
+    // Helper para comparar textos de forma segura (soporta strings, arrays, números o null/undefined)
+    const coincideTexto = (campo: unknown, textoBuscado: string, exacto = false): boolean => {
+        if (!campo) return false;
+        
+        // Si en MongoDB el campo se guardó como un Array (ej: ["Intel", "Nvidia"])
+        if (Array.isArray(campo)) {
+            return campo.some((item) => coincideTexto(item, textoBuscado, exacto));
+        }
+
+        const valorNormalizado = String(campo).toLowerCase().trim();
+        return exacto 
+            ? valorNormalizado === textoBuscado 
+            : valorNormalizado.includes(textoBuscado);
+    };
+
+    // 1. Filtrar por búsqueda de texto y por categoría/subcategoría/marca
     const productosFiltrados = productos.filter((prod) => {
-        const coincideBusqueda = prod.name.toLowerCase().includes(busqueda.toLowerCase()) ||
-            (prod.brand && prod.brand.toLowerCase().includes(busqueda.toLowerCase()));
+        const textoBusqueda = busqueda.toLowerCase().trim();
+        const selCat = categoriaSeleccionada.toLowerCase().trim();
 
-        const selCat = categoriaSeleccionada.toLowerCase();
+        const coincideBusqueda = textoBusqueda === '' ||
+            coincideTexto(prod.name, textoBusqueda) ||
+            coincideTexto(prod.brand, textoBusqueda);
 
-        const coincideCategoria = categoriaSeleccionada === '' ||
-            (prod.category && prod.category.toLowerCase() === selCat) ||
-            (prod.brand && prod.brand.toLowerCase() === selCat) ||
-            (prod.type && prod.type.toLowerCase() === selCat);
+        const coincideCategoria = selCat === '' ||
+            coincideTexto(prod.category, selCat, true) ||
+            coincideTexto(prod.brand, selCat, true) ||
+            coincideTexto(prod.type, selCat, true);
 
         return coincideBusqueda && coincideCategoria;
     });
