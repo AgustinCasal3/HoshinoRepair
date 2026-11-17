@@ -39,11 +39,18 @@ export function ReservarProducto() {
     }, [id]);
 
     // Acumular imágenes sin borrar las que ya estaban subidas
+    // Acumular solo imágenes válidas sin borrar las que ya estaban subidas
     const handleAgregarImagenes = (e: ChangeEvent<HTMLInputElement>) => {
         if (!e.target.files) return;
         const archivos = Array.from(e.target.files);
 
-        archivos.forEach((archivo) => {
+        const archivosValidos = archivos.filter((archivo) => archivo.type.startsWith('image/'));
+
+        if (archivosValidos.length !== archivos.length) {
+            alert('Solo se permiten archivos de imagen (JPG, PNG, WEBP, etc.).');
+        }
+
+        archivosValidos.forEach((archivo) => {
             const reader = new FileReader();
             reader.onloadend = () => {
                 if (typeof reader.result === 'string') {
@@ -157,15 +164,19 @@ export function ReservarProducto() {
                 {/* Columna Derecha: Formulario y Galería de Comprobantes */}
                 <div className="reservarDer">
                     <form onSubmit={handleSubmit} className="reservarFormulario">
+                        
+                        {/* REEMPLAZÁ ESTE PRIMER DIV POR EL NUEVO */}
                         <div className="reservarInput">
                             <label htmlFor="dni">DNI o CUIL:</label>
                             <input 
                                 id="dni"
                                 type="text" 
+                                inputMode="numeric"
+                                maxLength={11}
                                 required
                                 placeholder="12345678"
                                 value={dniOrCuil}
-                                onChange={(e) => setDniOrCuil(e.target.value)}
+                                onChange={(e) => setDniOrCuil(e.target.value.replace(/\D/g, ''))}
                             />
                         </div>
 
