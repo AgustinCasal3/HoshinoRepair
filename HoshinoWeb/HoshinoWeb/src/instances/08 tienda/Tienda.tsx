@@ -201,14 +201,6 @@ export function Tienda() {
                     {/* Panel Izquierdo: Categorías desplegables */}
                     <div className="tiendaIzq">
                         <div className="tiendaCategorias">
-                            {categoriaSeleccionada && (
-                                <button 
-                                    onClick={() => setCategoriaSeleccionada('')}
-                                    className='tiendaLimpiarFiltros'
-                                >
-                                    Limpiar filtros
-                                </button>
-                            )}
 
                             <h3>Categorías</h3>
 
@@ -277,6 +269,16 @@ export function Tienda() {
                     {/* Panel Derecho: Filtro de orden y Lista de artículos */}
                     <div className="tiendaDer">
                         <div className="tiendaFiltros">
+
+                            {categoriaSeleccionada && (
+                                <button 
+                                    onClick={() => setCategoriaSeleccionada('')}
+                                    className='tiendaLimpiarFiltros'
+                                >
+                                    Limpiar filtros
+                                </button>
+                            )}
+
                             <div 
                                 className={`tiendaOrdenarPor ${mostrarMenuOrden ? 'abierto' : ''}`}
                                 onClick={() => setMostrarMenuOrden(!mostrarMenuOrden)}

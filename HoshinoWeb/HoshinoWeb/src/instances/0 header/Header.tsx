@@ -27,7 +27,7 @@ export function Header() {
                     <div className="headerCuentaContenido">
                         <a href="/cuenta">
                             <p>{user.username}</p>
-                            <img src={`../src/assets/imgs/04 cuenta/${user.userId}/${user.picture}`} alt="Icono de la Cuenta" />
+                            <img src={`../../src/assets/imgs/04 cuenta/${user.userId}/${user.picture}`} alt="Icono de la Cuenta" />
                         </a>
                         <p>|</p>
                         <a

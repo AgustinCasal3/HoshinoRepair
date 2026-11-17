@@ -136,8 +136,8 @@
 }
 
 .tiendaLimpiarFiltros {
-    margin: 1.5vh 0 2.5vh;
-    padding: 1.5vh;
+    margin: 0;
+    padding: 1.5vh 2vh;
 
     background-color: rgb(255, 188, 188);
     color: red;
@@ -148,6 +148,24 @@
     border-radius: 2.5vh;
 
     cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.tiendaLimpiarFiltros:hover {
+    background-color: rgb(255, 165, 165);
+}
+
+/* DERECHA */
+
+.tiendaFiltros {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1.5vh;
+
+    user-select: none;
 }
 
 /* DERECHA */
