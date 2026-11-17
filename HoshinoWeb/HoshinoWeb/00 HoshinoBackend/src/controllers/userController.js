@@ -1,83 +1,212 @@
 const User = require('../models/User');
-
-// NUEVO
 const crypto = require('crypto');
 const nodemailer = require('nodemailer');
 
-// NUEVO: campos que nunca deben salir hacia el frontend
-const CAMPOS_PRIVADOS = '-passwordHash -resetCodeHash -resetCodeExpires -resetAttempts';
+const CAMPOS_PRIVADOS = '-passwordHash -resetCodeHash -resetCodeExpires -resetAttempts -verifyTokenHash -verifyTokenExpires';
+const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:5173';
 
-// NUEVO
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: { user: process.env.MAIL_USER, pass: process.env.MAIL_PASS }
 });
 
-// NUEVO: hashea el código para no guardarlo en texto plano
 const hashCodigo = (codigo, user) =>
     crypto.createHash('sha256').update(`${codigo}:${user._id}`).digest('hex');
 
+const hashToken = (token) =>
+    crypto.createHash('sha256').update(token).digest('hex');
+
 const getUsers = async (req, res) => {
     try {
-        const users = await User.find().select(CAMPOS_PRIVADOS); // CAMBIO: antes User.find()
+        const users = await User.find().select(CAMPOS_PRIVADOS);
         res.json(users);
     } catch (error) {
         console.error(error);
-        res.status(500).json({ mensaje: 'Error al conseguir los usuarios (userController.js)'});
+        res.status(500).json({ mensaje: 'Error al conseguir los usuarios (userController.js)' });
     }
 };
 
 const getUserById = async (req, res) => {
     try {
         const idBuscado = req.params.id;
-
-        const user = await User.findOne({ userId: idBuscado }).select(CAMPOS_PRIVADOS); // CAMBIO
+        const user = await User.findOne({ userId: idBuscado }).select(CAMPOS_PRIVADOS);
 
         if (!user) {
-            return res.status(404).json({ mensaje: 'Usuario no encontrado'});
+            return res.status(404).json({ mensaje: 'Usuario no encontrado' });
         }
 
         res.json(user);
     } catch (error) {
         console.error(error);
-        res.status(500).json({ mensaje: 'Error al obtener el usuario (userController.js)'});
+        res.status(500).json({ mensaje: 'Error al obtener el usuario (userController.js)' });
     }
 };
 
-// Iniciar sesión (POST)
+// ---------- REGISTRO Y VERIFICACIÓN DE EMAIL ----------
+
+// Registrar nuevo usuario y enviar mail con token de 24hs (POST /users/register)
+const registerUser = async (req, res) => {
+    try {
+        const { username, email, password } = req.body;
+
+        if (!username || !email || !password) {
+            return res.status(400).json({ mensaje: 'Todos los campos son obligatorios.' });
+        }
+
+        if (password.length < 8) {
+            return res.status(400).json({ mensaje: 'La contraseña debe tener al menos 8 caracteres.' });
+        }
+
+        const emailNormalizado = email.trim().toLowerCase();
+        const usuarioExistente = await User.findOne({ email: emailNormalizado });
+
+        // Si ya existe y ya verificó su correo, bloqueamos el registro
+        if (usuarioExistente && usuarioExistente.isVerified) {
+            return res.status(400).json({ mensaje: 'Ya existe una cuenta registrada con ese correo.' });
+        }
+
+        // Generar token aleatorio y su hash para guardar en DB (expira en 24 horas)
+        const rawToken = crypto.randomBytes(32).toString('hex');
+        const tokenHasheado = hashToken(rawToken);
+        const expiracion = new Date(Date.now() + 24 * 60 * 60 * 1000);
+
+        let userToSave;
+
+        if (usuarioExistente && !usuarioExistente.isVerified) {
+            // Si se había registrado antes pero nunca activó la cuenta, actualizamos datos y reenviamos token
+            usuarioExistente.username = username.trim();
+            usuarioExistente.passwordHash = password;
+            usuarioExistente.verifyTokenHash = tokenHasheado;
+            usuarioExistente.verifyTokenExpires = expiracion;
+            userToSave = await usuarioExistente.save();
+        } else {
+            // Calcular siguiente userId autoincremental
+            const lastUser = await User.findOne().sort({ userId: -1 });
+            const nextUserId = lastUser ? lastUser.userId + 1 : 1;
+
+            userToSave = new User({
+                userId: nextUserId,
+                username: username.trim(),
+                email: emailNormalizado,
+                passwordHash: password,
+                isVerified: false,
+                verifyTokenHash: tokenHasheado,
+                verifyTokenExpires: expiracion
+            });
+            await userToSave.save();
+        }
+
+        const verifyUrl = `${FRONTEND_URL}/verify/${rawToken}`;
+        console.log('Link de verificación generado:', verifyUrl);
+
+        // Enviar correo de activación
+        try {
+            await transporter.sendMail({
+                from: `"Hoshino Repair" <${process.env.MAIL_USER}>`,
+                to: userToSave.email,
+                subject: 'Activá tu cuenta en Hoshino Repair',
+                text: `Hola ${userToSave.username},\n\nGracias por registrarte en Hoshino Repair. Para activar tu cuenta, hacé click en el siguiente enlace:\n${verifyUrl}\n\nSi no podés hacer click, pegá este link en tu navegador:\n${verifyUrl}\n\nEl link expirará en 24 horas.\n\n- Hoshino Repair`,
+                html: `
+                    <div style="font-family: Arial, sans-serif; color: #222; line-height: 1.6;">
+                        <p>Hola <strong>${userToSave.username}</strong>,</p>
+                        <p>Gracias por registrarte en <strong>Hoshino Repair</strong>. Para activar tu cuenta, hacé click en el siguiente enlace:</p>
+                        <p>
+                            <a href="${verifyUrl}" style="display: inline-block; padding: 10px 20px; background-color: #d9d9d9; color: #000; text-decoration: none; border-radius: 8px; font-weight: bold;">
+                                Activá tu cuenta
+                            </a>
+                        </p>
+                        <p>Si no podés hacer click, pegá este link en tu navegador:<br/>
+                        <a href="${verifyUrl}">${verifyUrl}</a></p>
+                        <p style="color: #666; font-size: 13px;">El link expirará en 24 horas.</p>
+                        <p>- Hoshino Repair</p>
+                    </div>
+                `
+            });
+        } catch (mailError) {
+            console.error('Error al enviar mail de verificación:', mailError.message);
+        }
+
+        res.status(201).json({
+            mensaje: 'Usuario registrado. Revisá tu correo electrónico para activar tu cuenta.'
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ mensaje: 'Error al registrar el usuario.' });
+    }
+};
+
+// Verificar token del enlace de correo (GET /users/verify/:token)
+const verifyUser = async (req, res) => {
+    try {
+        const { token } = req.params;
+        if (!token) {
+            return res.status(400).json({ mensaje: 'Token no proporcionado.' });
+        }
+
+        const tokenHasheado = hashToken(token);
+
+        const user = await User.findOne({
+            verifyTokenHash: tokenHasheado,
+            verifyTokenExpires: { $gt: new Date() }
+        });
+
+        if (!user) {
+            return res.status(400).json({
+                mensaje: 'El enlace de verificación es inválido o ya expiró (24 horas).'
+            });
+        }
+
+        user.isVerified = true;
+        user.verifyTokenHash = undefined;
+        user.verifyTokenExpires = undefined;
+        await user.save();
+
+        res.status(200).json({
+            mensaje: '¡Cuenta activada con éxito! Ya podés iniciar sesión.'
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ mensaje: 'Error del servidor al verificar la cuenta.' });
+    }
+};
+
+// ---------- INICIAR SESIÓN ----------
+
 const loginUser = async (req, res) => {
     try {
         const { email, password } = req.body;
 
-        // 1. Buscar el usuario por email
-        const user = await User.findOne({ email });
+        const user = await User.findOne({ email: email.trim().toLowerCase() });
         if (!user) {
             return res.status(404).json({ mensaje: 'El usuario no existe.' });
         }
 
-        // 2. Verificar la contraseña (por ahora directo con passwordHash)
+        // Bloquea el login solo si tiene una verificación pendiente
+        if (user.isVerified === false && user.verifyTokenHash) {
+            return res.status(403).json({
+                mensaje: 'Tu cuenta aún no está activada. Revisá tu correo electrónico.'
+            });
+        }
+
         if (user.passwordHash !== password) {
             return res.status(401).json({ mensaje: 'Contraseña incorrecta.' });
         }
 
-        // 3. Actualizar la última fecha de login
         user.lastLogin = new Date();
         await user.save();
 
-        // 4. Retornar los datos del usuario sin exponer la contraseña
         const userObject = user.toObject();
         delete userObject.passwordHash;
-
-        // NUEVO
         delete userObject.resetCodeHash;
         delete userObject.resetCodeExpires;
         delete userObject.resetAttempts;
+        delete userObject.verifyTokenHash;
+        delete userObject.verifyTokenExpires;
 
         res.status(200).json({
             mensaje: 'Inicio de sesión exitoso',
             user: userObject
         });
-
     } catch (error) {
         console.error(error);
         res.status(500).json({ mensaje: 'Error al intentar iniciar sesión.' });
@@ -86,32 +215,27 @@ const loginUser = async (req, res) => {
 
 // ---------- RECUPERAR CONTRASEÑA ----------
 
-// Genera, guarda y envía un código nuevo
 const enviarCodigo = async (user) => {
     const codigo = crypto.randomInt(100000, 1000000).toString();
+    console.log(codigo);
 
     user.resetCodeHash = hashCodigo(codigo, user);
-    user.resetCodeExpires = new Date(Date.now() + 10 * 60 * 1000); // 10 minutos
+    user.resetCodeExpires = new Date(Date.now() + 10 * 60 * 1000);
     user.resetAttempts = 0;
     await user.save();
 
-    await transporter.sendMail({
-        from: ' "HoshinoRepair" ' + process.env.MAIL_USER,
-        to: user.email,
-        subject: 'Código para recuperar tu contraseña | Hoshino',
-        html: `
-        <p>Hola ${user.email || ''},</p>
-            <p>El codigo para recuperar tu contraseña en <b>Hoshino</b> es: </p>
-            <p>${codigo}</p>
-            <p>El codigo expirará en 10 minutos.</p>
-            <br/>
-            <p>- Hoshino</p>
-        `,
-    });
-    
+    try {
+        await transporter.sendMail({
+            from: process.env.MAIL_USER,
+            to: user.email,
+            subject: 'Código para recuperar tu contraseña',
+            text: `Tu código es: ${codigo}. Vence en 10 minutos.`
+        });
+    } catch (error) {
+        console.error('No se pudo enviar el mail:', error.message);
+    }
 };
 
-// Devuelve un mensaje de error, o null si el código es válido
 const validarCodigo = async (user, codigo) => {
     if (!user || !user.resetCodeHash || !user.resetCodeExpires) return 'Código inválido';
     if (user.resetCodeExpires < new Date()) return 'El código venció, solicitá uno nuevo';
@@ -125,13 +249,11 @@ const validarCodigo = async (user, codigo) => {
     return null;
 };
 
-// Pantalla 1 y botón "Reenviar código" (POST /users/recuperar/solicitar)
 const solicitarCodigo = async (req, res) => {
     try {
         const user = await User.findOne({ email: req.body.email });
         if (user) await enviarCodigo(user);
 
-        // Misma respuesta exista o no el correo, para no revelar qué mails están registrados
         res.json({ mensaje: 'Si el correo existe, te enviamos un código' });
     } catch (error) {
         console.error(error);
@@ -139,7 +261,6 @@ const solicitarCodigo = async (req, res) => {
     }
 };
 
-// Pantalla 2 (POST /users/recuperar/verificar)
 const verificarCodigo = async (req, res) => {
     try {
         const { email, codigo } = req.body;
@@ -155,7 +276,6 @@ const verificarCodigo = async (req, res) => {
     }
 };
 
-// Pantalla 3 (POST /users/recuperar/cambiar)
 const cambiarPassword = async (req, res) => {
     try {
         const { email, codigo, nuevaContraseña } = req.body;
@@ -168,10 +288,7 @@ const cambiarPassword = async (req, res) => {
         const error = await validarCodigo(user, codigo);
         if (error) return res.status(400).json({ mensaje: error });
 
-        // Se guarda igual que lo compara loginUser (texto plano por ahora)
         user.passwordHash = nuevaContraseña;
-
-        // El código ya se usó: se borra
         user.resetCodeHash = undefined;
         user.resetCodeExpires = undefined;
         user.resetAttempts = 0;
@@ -184,12 +301,13 @@ const cambiarPassword = async (req, res) => {
     }
 };
 
-// No olvides agregarlo al module.exports al final del archivo:
 module.exports = {
     getUsers,
     getUserById,
+    registerUser,
+    verifyUser,
     loginUser,
-    solicitarCodigo,   // NUEVO
-    verificarCodigo,   // NUEVO
-    cambiarPassword    // NUEVO
+    solicitarCodigo,
+    verificarCodigo,
+    cambiarPassword
 };

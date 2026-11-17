@@ -8,6 +8,7 @@ import { Home } from './instances/00 home/Home.tsx';  // 00
 import { Login } from './instances/01 login/Login.tsx';  // 01
 import { Register } from './instances/02 register/Register.tsx';  // 02
 import { Cuenta } from './instances/03 cuenta/Cuenta.tsx';  // 03
+import { VerifyEmail } from './instances/02 register/VerifyEmail.tsx'; //03.1
 import { ListaDispositivos } from './instances/04 listaDispositivos/ListaDispositivos.tsx';  // 04
 import { Dispositivo } from './instances/05 dispositivo/Dispositivo.tsx';  // 05
 import { Reservas } from './instances/06 reservas/Reservas.tsx';  // 06
@@ -75,6 +76,10 @@ const router = createBrowserRouter([
       {
         path: 'register', // Ruta: /register
         element: <Register />,
+      },
+      {
+        path: 'verify/:token',
+        element: <VerifyEmail />,
       },
       {
         path: 'cuenta', // Ruta: /cuenta

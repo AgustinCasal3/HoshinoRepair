@@ -1,18 +1,17 @@
 /* CSS del registro */
 
-.registerBody{
-    height: 100vh;
+.registerBody {
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.registerDiv{
-    height: 75vh;
-    /* width: 25vw; */
-
-    /* Segun Claude la linea de abajo dice que el ancho es de 25vw, pero nunca menos de 320px ni más de 450px */
-    width: 25vw; /*clamp(320px, 25vw, 450px);*/
+.registerDiv {
+    min-height: 75vh;
+    height: auto;
+    padding: 4vh 0;
+    width: clamp(320px, 26vw, 450px);
     border-radius: 5vh;
     background-color: rgb(223, 223, 223);
     display: flex;
@@ -20,60 +19,67 @@
     align-items: center;
 }
 
-.registerForm{
+.registerForm {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
 }
 
-.registerTitulo{
+.registerTitulo {
     display: flex;
     justify-content: center;
+    margin-bottom: 1vh;
 }
 
-.registerCampos{
+.registerCampos {
     width: 20vw;
+    min-width: 260px;
     display: flex;
     flex-direction: column;
-    margin-top: 5vh;
+    margin-top: 2.2vh;
 }
 
-.registerLabel{
+.registerLabel {
     display: flex;
     flex-direction: column;
+    margin-bottom: 0.6vh;
 }
 
-.registerInput{
+.registerInput {
     height: 5vh;
     width: 100%;
-    box-sizing: border-box; /* NUEVO: para que el padding no lo agrande */
+    box-sizing: border-box;
     border-radius: 2vh;
     border: 1px solid rgb(182, 181, 181);
     background-color: rgb(182, 181, 181);
-
-    /* Padding para que se empiece a escribir un poco mas adentro del input */
     padding: 0 2.5vh;
 }
 
-.registerButton{
-    height:6vh;
+.registerButton {
+    height: 6vh;
     width: 20vw;
+    min-width: 260px;
     border-radius: 2vh;
     border: 1px solid rgb(253, 244, 244);
     background-color: rgb(253, 244, 244);
-    margin-top: 5vh;
+    margin-top: 3.5vh;
     cursor: pointer;
+    transition: background-color 0.2s ease;
 }
 
-.registerLink{
+.registerButton:hover:not(:disabled) {
+    background-color: rgb(240, 230, 230);
+}
+
+.registerLink {
     font-size: 2vh;
     text-decoration: none;
     color: black;
-    margin-top: 1vh;
+    margin-top: 1.5vh;
 }
 
-.registerFlechaVolver{
+.registerFlechaVolver {
     height: 5vh;
     width: 5vh;
     position: absolute;
