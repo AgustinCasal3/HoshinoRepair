@@ -5,10 +5,22 @@ import { Footer } from '../../0 footer/Footer';
 
 import { useState } from "react";
 
+// NUEVO: valores válidos que pueden llegar desde la pantalla de Reparaciones
+const DISPOSITIVOS_VALIDOS = ['celular', 'pc', 'notebook', 'consola'];
+
+// NUEVO: lee un parámetro de la URL; si no existe o tiene un valor raro, devuelve ''
+function leerParametro(nombre: string, validos: string[]): string {
+    const valor = new URLSearchParams(window.location.search).get(nombre) ?? '';
+    return validos.includes(valor) ? valor : '';
+}
+
 export function ReparacionesFormulario() {
 
     const [imagenes, setImagenes] = useState<string[]>([]);
     const [errorArchivos, setErrorArchivos] = useState<string>('');
+
+    // NUEVO: arrancan con lo que vino en la URL (o vacío si entraron directo al formulario)
+    const [tipoDispositivo, setTipoDispositivo] = useState<string>(() => leerParametro('dispositivo', DISPOSITIVOS_VALIDOS));
 
     const manejarImagenes = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (!e.target.files) return;
@@ -57,7 +69,13 @@ export function ReparacionesFormulario() {
                     <input id="apellido" type="text" required />
 
                     <label htmlFor="tipoDispositivo">Tipo de Dispositivo</label>
-                    <select id="tipoDispositivo" defaultValue="" required>
+                    {/* <select id="tipoDispositivo" defaultValue="" required> */}
+                    <select
+                        id="tipoDispositivo"
+                        value={tipoDispositivo}
+                        onChange={(e) => setTipoDispositivo(e.target.value)}
+                        required
+                    >
                         <option value="" disabled>Seleccione una opción</option>
                         <option value="celular">Celular</option>
                         <option value="pc">PC Escritorio</option>
