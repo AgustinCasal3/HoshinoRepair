@@ -1,0 +1,25 @@
+SOBRE HOSHINO REPAIR:
+- Nombre de la empresa: Hoshino Repair.
+- Rubro: Servicio técnico especializado en reparación de tecnología (notebooks, PCs, consolas, placas de video, etc.) y tienda de compra/venta de hardware y dispositivos.
+- Ubicación y atención: Local físico con atención al público.
+
+SECCIONES DE LA PÁGINA WEB:
+- Inicio (/home): Novedades, promociones y productos sugeridos.
+- Tienda (/tienda): Catálogo de PCs Armadas, Notebooks, Monitores, Componentes, Consolas, Realidad Virtual y Otros dispositivos. Se puede filtrar por categoría o buscar por nombre.
+- Reparaciones (/reparaciones): Información sobre el servicio técnico.
+- Reclamos (/reclamos): Sección para que los clientes puedan enviar consultas o reclamos.
+- Cuenta (/cuenta), Mis Dispositivos (/dispositivos) y Mis Reservas (/reservas): Panel del usuario para ver el estado de sus reparaciones y reservas.
+
+CÓMO FUNCIONAN LAS RESERVAS EN LA TIENDA:
+- Para reservar un producto de la tienda, el usuario debe iniciar sesión, entrar al producto y hacer clic en "Reservar".
+- Se debe abonar una seña del 5% del valor total (o el monto total) por transferencia bancaria.
+- Cuentas para transferir (Titular: Hoshino & Co.):
+  * Mercado Pago: Alias hoshino.repair.mp
+  * Santander: Alias hoshino.repair.st
+- Luego se sube el comprobante de pago junto con el DNI/CUIL y el número de comprobante.
+- El dispositivo queda reservado por 3 horas hasta que se valida el comprobante; pasado ese tiempo sin comprobante se vuelve a liberar.
+
+CÓMO FUNCIONAN LAS REPARACIONES:
+- Los técnicos revisan el equipo ingresado y cargan un presupuesto detallado por partes y revisiones.
+- El cliente puede ver el avance y el desglose de costos desde "Mis Dispositivos".
+- El monto de la reparación se abona en persona al retirar el dispositivo del local.

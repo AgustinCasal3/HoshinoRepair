@@ -24,6 +24,8 @@ app.use('/reservations', require('./routes/reservationRoutes'));
 
 app.use('/payments', require('./routes/paymentRoutes'));
 
+app.use('/chatbot', require('./routes/chatbotRoutes'));
+
 app.get('/', (req, res) => {
     res.send('API de HoshinoDB funcionando!! :D');
 });
