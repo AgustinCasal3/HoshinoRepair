@@ -59,7 +59,6 @@ Proyecto realizado por:
 
 - Lucas
 - Tobías
-- Irma
 - Agustín
 - Alejo
 
