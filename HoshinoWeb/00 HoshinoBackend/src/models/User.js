@@ -6,7 +6,7 @@ const userSchema = new mongoose.Schema({
     email: { type: String, required: true, unique: true },
     number: { type: Number },
     passwordHash: { type: String, required: true },
-    
+
     // Verificación de cuenta por correo
     isVerified: { type: Boolean, default: false },
     verifyTokenHash: { type: String },
@@ -17,7 +17,8 @@ const userSchema = new mongoose.Schema({
     resetCodeExpires: { type: Date },
     resetAttempts: { type: Number, default: 0 },
 
-    picture: { type: String, default: 'UserPfp01.png' },
+    picture: { type: String, default: '1.png' },
+    pictureHistory: [{ type: String }], // <-- Historial de las últimas 3 fotos
     createdAt: { type: Date, default: Date.now },
     lastLogin: { type: Date },
     devices: [{

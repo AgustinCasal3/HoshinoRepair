@@ -28,13 +28,53 @@
     justify-content: center;
 }
 
-.cuentaPerfil img {
+.cuentaFotoWrapper {
+    position: relative;
     width: 15vw;
     height: 15vw;
+    margin-bottom: 2.5vh;
+}
+
+.cuentaFotoPrincipal {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Botón circular gris con cámara abajo a la izquierda */
+.cuentaCamaraBtn {
+    position: absolute;
+    bottom: 0.4vw;
+    left: 0.4vw;
+
+    width: 3.4vw;
+    height: 3.4vw;
+    min-width: 38px;
+    min-height: 38px;
 
     border-radius: 50%;
+    border: 2px solid #ffffff;
+    background-color: #d3d3d3;
+    color: #222222;
 
-    margin-bottom: 2.5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.cuentaCamaraBtn:hover {
+    background-color: #bdbdbd;
+    transform: scale(1.08);
+}
+
+.cuentaCamaraBtn svg {
+    width: 52%;
+    height: 52%;
 }
 
 .cuentaPerfil h1 {
@@ -74,6 +114,114 @@
 
 .cuentaDatos a:hover {
     background-color: rgb(185, 185, 185);
+}
+
+/* MODAL CAMBIO DE FOTO DE PERFIL */
+
+.cuentaModalFondo {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.cuentaModalContenido {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3vh;
+}
+
+.cuentaModalFotoGrande {
+    width: 36vh;
+    height: 36vh;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid rgba(255, 255, 255, 0.85);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.55);
+    background-color: #222;
+}
+
+.cuentaModalFotoGrande img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cuentaModalOpciones {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 80vw;
+    gap: 2vh;
+}
+
+.cuentaModalBtnAgregar {
+    width: 8.5vh;
+    height: 8.5vh;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.75);
+    background-color: #d9d9d9;
+    color: #111;
+    font-size: 4.5vh;
+    font-weight: 300;
+    line-height: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.cuentaModalBtnAgregar:hover:not(:disabled) {
+    background-color: #ffffff;
+    transform: scale(1.08);
+}
+
+.cuentaModalBtnAgregar:disabled {
+    opacity: 0.6;
+    cursor: default;
+}
+
+.cuentaModalHistorialItem {
+    width: 8.5vh;
+    height: 8.5vh;
+    padding: 0;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    overflow: hidden;
+    background-color: #333;
+    cursor: pointer;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.cuentaModalHistorialItem:hover:not(:disabled) {
+    transform: scale(1.08);
+    border-color: #ffffff;
+}
+
+.cuentaModalHistorialItem:disabled {
+    opacity: 0.6;
+    cursor: default;
+}
+
+.cuentaModalHistorialItem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cuentaModalGuardando {
+    color: #ffffff;
+    font-size: 2vh;
+    margin: 0;
 }
 
 /* DISPOSITIVOS DEL USUARIO */
@@ -149,7 +297,7 @@
 
     font-size: 1.15vw;
     font-weight: normal;
-    
+
     margin-bottom: 0.5vw;
 }
 
@@ -163,7 +311,7 @@
 .cuentaVerDispositivo a {
     color: black;
     text-decoration: none;
-    
+
     background-color: lightgray;
 }
 
@@ -171,7 +319,7 @@
     width: 7.5vw;
     height: 2.5vw;
     border-radius: 1vh;
-    
+
     display: flex;
     align-items: center;
     justify-content: center;

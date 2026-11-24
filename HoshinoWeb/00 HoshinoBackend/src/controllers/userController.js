@@ -301,6 +301,54 @@ const cambiarPassword = async (req, res) => {
     }
 };
 
+// Actualizar foto de perfil y guardar las últimas 3 en pictureHistory (PUT /users/:id/picture)
+const updateUserPicture = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { newPicture } = req.body;
+
+        if (!newPicture || typeof newPicture !== 'string') {
+            return res.status(400).json({ mensaje: 'Debes enviar una imagen válida.' });
+        }
+
+        const user = await User.findOne({ userId: id });
+        if (!user) {
+            return res.status(404).json({ mensaje: 'Usuario no encontrado.' });
+        }
+
+        const currentPicture = user.picture;
+        let history = Array.isArray(user.pictureHistory) ? [...user.pictureHistory] : [];
+
+        // Si la foto elegida es distinta a la actual, movemos la actual al historial (máximo 3)
+        if (currentPicture && currentPicture !== newPicture) {
+            history = [
+                currentPicture,
+                ...history.filter((pic) => pic !== newPicture && pic !== currentPicture)
+            ].slice(0, 5);
+        }
+
+        user.picture = newPicture;
+        user.pictureHistory = history;
+        await user.save();
+
+        const userObject = user.toObject();
+        delete userObject.passwordHash;
+        delete userObject.resetCodeHash;
+        delete userObject.resetCodeExpires;
+        delete userObject.resetAttempts;
+        delete userObject.verifyTokenHash;
+        delete userObject.verifyTokenExpires;
+
+        res.status(200).json({
+            mensaje: 'Foto de perfil actualizada con éxito.',
+            user: userObject
+        });
+    } catch (error) {
+        console.error('Error al actualizar foto de perfil:', error);
+        res.status(500).json({ mensaje: 'Error al actualizar la foto de perfil.' });
+    }
+};
+
 module.exports = {
     getUsers,
     getUserById,
@@ -309,5 +357,6 @@ module.exports = {
     loginUser,
     solicitarCodigo,
     verificarCodigo,
-    cambiarPassword
+    cambiarPassword,
+    updateUserPicture
 };

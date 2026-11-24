@@ -8,7 +8,8 @@ const {
     loginUser,
     solicitarCodigo,
     verificarCodigo,
-    cambiarPassword
+    cambiarPassword,
+    updateUserPicture
 } = require('../controllers/userController');
 
 router.get('/', getUsers);
@@ -21,6 +22,7 @@ router.post('/recuperar/solicitar', solicitarCodigo);
 router.post('/recuperar/verificar', verificarCodigo);
 router.post('/recuperar/cambiar', cambiarPassword);
 
+router.put('/:id/picture', updateUserPicture);
 router.get('/:id', getUserById);
 
 module.exports = router;

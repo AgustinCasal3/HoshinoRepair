@@ -1,26 +1,64 @@
-
 .reclamosBody {
-    max-width: 760px;
+    max-width: 980px;
     margin: 0 auto;
-    padding: 40px 20px 80px;
+    padding: 40px 24px 80px;
 }
 
 .reclamosContenedor {
     background: #dfdfdf;
     border-radius: 22px;
-    padding: 36px clamp(20px, 5vw, 52px) 44px;
+    padding: 38px clamp(24px, 5vw, 56px) 46px;
 }
+
 .reclamosContenedor h1 {
-    font-size: 30px; 
-    text-align: center; 
-    margin-bottom: 4px; 
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 4px;
 }
 
 .reclamosContenedor .reclamoSubtitulo {
-    color: #5c5c5c; 
-    margin-top: 10px; 
-    font-size: 14.5px; 
+    color: #5c5c5c;
+    margin-top: 10px;
+    font-size: 15px;
     text-align: center;
+}
+
+/* Aviso cuando no hay sesión iniciada */
+.reclamosAvisoSesion {
+    margin-top: 30px;
+    padding: 28px 24px;
+    border-radius: 18px;
+    background-color: #fdf4f4;
+    border: 1px solid #d49a9a;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.reclamosAvisoSesion p {
+    font-size: 16.5px;
+    font-weight: 600;
+    color: #8a1c1c;
+    margin: 0;
+}
+
+.reclamosBtnLogin {
+    padding: 11px 28px;
+    border-radius: 20px;
+    border: 1px solid #000000;
+    background-color: #ffffff;
+    color: #000000;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14.5px;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.reclamosBtnLogin:hover {
+    background-color: #ececec;
+    transform: scale(1.03);
 }
 
 .reclamosCampos {
@@ -28,9 +66,10 @@
     padding: 0;
     margin: 30px 0 0;
 }
+
 .reclamosCampos legend {
     font-weight: 700;
-    font-size: 13.5px;
+    font-size: 14px;
     color: #5c5c5c;
     margin-bottom: 14px;
     padding: 0 0 6px 0;
@@ -38,18 +77,24 @@
     width: 100%;
 }
 
-/*.reclamosRow {
+.reclamosRow {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 18px;
-    margin-bottom: 18px; 
-}*/
+    margin-bottom: 8px;
+}
+
+.reclamosRowSingle {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-bottom: 8px;
+}
 
 .reclamosField {
     display: flex;
     flex-direction: column;
     gap: 7px;
-    padding: 1.5vh;
+    padding: 1vh 0;
 }
 
 .reclamosField label {
@@ -73,15 +118,15 @@
 .reclamosField textarea {
     font-family: inherit;
     font-size: 14.5px;
-    padding: 11px 16px;
+    padding: 12px 16px;
     border-radius: 20px;
     border: 1px solid #9c9b9b;
     background: #b6b5b5;
     color: #000000;
-
-    /* Esta propiedad arregla los campos de contactos */
-    width: auto;
+    width: 100%;
+    box-sizing: border-box;
 }
+
 .reclamosField input::placeholder,
 .reclamosField textarea::placeholder {
     color: #4b4b4b;
@@ -89,16 +134,28 @@
 
 .reclamosField select {
     appearance: none;
-    background-image: url("../../assets/imgs/09\ reclamos/FlechaAbajo.svg");
+    background-image: url("../../assets/imgs/09 reclamos/FlechaAbajo.svg");
     background-repeat: no-repeat;
     background-position: right 14px center;
     background-size: 16px;
     padding-right: 38px;
+    cursor: pointer;
 }
-.reclamosField textarea {
-    min-height: 110px;
-    border-radius: 16px;
-    resize: vertical;
+
+/* Textarea que crece automáticamente */
+.reclamosTextareaAuto {
+    min-height: 120px;
+    border-radius: 16px !important;
+    resize: none;
+    overflow: hidden;
+    line-height: 1.45;
+}
+
+.reclamosContadorCaracteres {
+    align-self: flex-end;
+    font-size: 12.5px;
+    color: #4f4f4f;
+    margin-top: 2px;
 }
 
 .reclamosField input:focus,
@@ -108,82 +165,176 @@
     outline-offset: 1px;
 }
 
-
-.reclamosFilerow {
-    height: auto;
-    width: auto;
-    display: flex;
+/* Zona de archivos adjuntos (estilo ReservarProducto adaptado a Reclamos) */
+.reclamosDropzone {
+    display: flex !important;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 1.5vh;
-    border: 1px solid black;
-    border-radius: 1.5vh;
-    font-size: 1.5vh;
-    background: #b6b5b5;
-    /* min-height: 10vh;
-    color: #5c5c5c;
-    gap: 1.5vh;
-    border: 1px dashed #8a8a8a;
-    padding: 1.5vh;
-    */
-}
-
-/* .reclamosTextoArchivo{
-    border: 1px solid black 
-    
-} */
-
-.reclamosTextoArchivos{
-    background-color: lightgray;
-    border: 1px solid black;
-    border-radius: 1.5vh;
+    gap: 4px;
+    min-height: 78px;
+    padding: 12px 16px;
+    background-color: #b6b5b5;
+    border: 2px dashed #7f7e7e;
+    border-radius: 18px;
     cursor: pointer;
-    margin: 1.5vh;
-    padding: 1.5vh;
-    
-}
-
-.reclamosArchivos{
-    display: flex;
-    flex-direction: column;
-    display: none;
-}
-
-.previewImagenes {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin: 1.5vh;
-}
-
-.previewImagenes img {
-  width: 25vh;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-}
-
-.archivosSeleccionadosInfo {
-  /* display: block;
-  margin-top: 8px; */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.9rem;
-    color: #666;
-}
-
-.reclamosFilerow strong {
+    font-size: 15px !important;
+    font-weight: 500 !important;
     color: #000000;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.reclamosDropzone:hover {
+    background-color: #aba9a9;
+    border-color: #555555;
+}
+
+.reclamosDropzone small {
+    font-size: 12px;
+    font-weight: 400;
+    color: #4b4b4b;
 }
 
 .reclamosFileInput {
     display: none;
 }
 
+.reclamosErrorTexto {
+    color: #b00020;
+    font-size: 13px;
+    font-weight: 500;
+    margin-top: 6px;
+}
+
+/* Galería de miniaturas subidas */
+.reclamosMiniaturas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.reclamosMiniaturaItem {
+    position: relative;
+    width: 105px;
+    height: 105px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #8c8c8c;
+    background-color: #cfcfcf;
+}
+
+.reclamosMiniaturaItem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.reclamosMiniaturaOverlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.65);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 12px;
+    padding: 6px;
+    opacity: 0;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.reclamosMiniaturaItem:hover .reclamosMiniaturaOverlay {
+    opacity: 1;
+}
+
+.reclamosEliminarImg {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: none;
+    background-color: rgba(220, 53, 69, 0.92);
+    color: #ffffff;
+    font-size: 15px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 2;
+    transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.reclamosEliminarImg:hover {
+    background-color: rgb(200, 35, 51);
+    transform: scale(1.08);
+}
+
+/* Tarjeta cuadrada para archivos PDF dentro de la misma galería */
+.reclamosPdfMiniatura {
+    width: 100%;
+    height: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    text-decoration: none;
+    color: #1f1f1f;
+    background-color: #ececec;
+}
+
+.reclamosPdfBadge {
+    background-color: #c62828;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 6px;
+}
+
+.reclamosPdfNombre {
+    font-size: 11px;
+    text-align: center;
+    word-break: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Mensajes de validación y éxito */
+.reclamosMensajeError {
+    margin-top: 18px;
+    padding: 12px 16px;
+    border-radius: 14px;
+    background-color: #ffd6d6;
+    border: 1px solid #e06c6c;
+    color: #8a0000;
+    font-size: 14px;
+    text-align: center;
+}
+
+.reclamosMensajeExito {
+    margin-top: 18px;
+    padding: 12px 16px;
+    border-radius: 14px;
+    background-color: #d5f5dc;
+    border: 1px solid #5cb874;
+    color: #0e4f1e;
+    font-size: 14px;
+    text-align: center;
+}
+
 .reclamosSubmitBtn {
-    margin-top: 28px;
+    margin-top: 24px;
     width: 100%;
     padding: 15px;
     border-radius: 20px;
@@ -193,19 +344,26 @@
     font-weight: 700;
     font-size: 15.5px;
     cursor: pointer;
+    transition: background-color 0.2s ease;
 }
-.reclamosSubmitBtn:hover {
+
+.reclamosSubmitBtn:hover:not(:disabled) {
     background: #f3e4e4;
 }
 
+.reclamosSubmitBtn:disabled {
+    opacity: 0.6;
+    cursor: default;
+}
 
-/* De aca para abajo, los estilos tienen que ver sobre el historial de reclamos */
+/* HISTORIAL DE RECLAMOS ANTERIORES (DESPLEGABLES) */
+
 .reclamosHistorial {
-    margin-top: 34px;
+    margin-top: 38px;
 }
 
 .reclamosHistorial h2 {
-    font-size: 20px;
+    font-size: 22px;
     margin-bottom: 4px;
 }
 
@@ -215,31 +373,59 @@
     margin-bottom: 18px;
 }
 
-.reclamoItem {
+.reclamoItemCard {
+    border-radius: 16px;
+    background: #dfdfdf;
+    border: 1px solid #c9c9c9;
+    margin-bottom: 12px;
+    overflow: hidden;
+}
+
+.reclamoItemHeader {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 14px;
-    padding: 16px 18px;
-    border-radius: 16px;
-    background: #dfdfdf;
-    border: 1px solid #c9c9c9;
-    margin-bottom: 10px;
-}
-.reclamoItem .info {
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
+    padding: 16px 20px;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.2s ease;
 }
 
-.reclamoItem .info .ord {
+.reclamoItemHeader:hover {
+    background-color: #d4d4d4;
+}
+
+.reclamoItemHeader .info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.reclamoItemHeader .info .ord {
     font-size: 13px;
     color: #5c5c5c;
 }
 
-.reclamoItem .info .desc {
-    font-size: 14.5px;
+.reclamoItemHeader .info .desc {
+    font-size: 15.5px;
     font-weight: 600;
+}
+
+.reclamoItemAcciones {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.reclamoFlecha {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.3s ease;
+}
+
+.reclamoFlecha.rotada {
+    transform: rotate(180deg);
 }
 
 .reclamoBadge {
@@ -250,6 +436,7 @@
     white-space: nowrap;
     border: 1px solid #000000;
 }
+
 .reclamoBadge.revision {
     background: #ffffff;
     color: #000000;
@@ -265,12 +452,119 @@
     color: #ffffff;
 }
 
-@media (max-width: 560px) {
-    .reclamosRow {
-        grid-template-columns: 1fr;
-    }
+/* Contenido desplegable del historial */
+.reclamoDetalleWrapper {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.32s cubic-bezier(0.25, 1, 0.5, 1);
+}
 
-    .reclamosNavLinks {
-        gap: 16px;
+.reclamoDetalleWrapper.abierto {
+    grid-template-rows: 1fr;
+}
+
+.reclamoDetalleInner {
+    overflow: hidden;
+    padding: 0 20px;
+    transition: padding 0.32s ease;
+}
+
+.reclamoDetalleWrapper.abierto .reclamoDetalleInner {
+    padding: 4px 20px 20px;
+    border-top: 1px solid #c5c5c5;
+}
+
+.reclamoDetalleGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 20px;
+    margin-top: 14px;
+    font-size: 14px;
+    color: #2b2b2b;
+}
+
+.reclamoDetalleDescripcion {
+    margin-top: 14px;
+    font-size: 14px;
+}
+
+.reclamoDetalleDescripcion p {
+    margin: 6px 0 0;
+    padding: 12px 14px;
+    border-radius: 12px;
+    background-color: #ececec;
+    white-space: pre-wrap;
+    line-height: 1.45;
+}
+
+.reclamoDetalleAdjuntos {
+    margin-top: 14px;
+    font-size: 14px;
+}
+
+.reclamoDetalleAdjuntos .reclamosMiniaturas {
+    justify-content: flex-start;
+    margin-top: 8px;
+}
+
+.reclamoResolucionBox {
+    margin-top: 14px;
+    padding: 14px 16px;
+    border-radius: 12px;
+    background-color: #fdf4f4;
+    border: 1px solid #bdbdbd;
+    font-size: 14px;
+}
+
+.reclamoResolucionBox p {
+    margin: 6px 0 0;
+    color: #222;
+    line-height: 1.45;
+}
+
+/* Lightbox de ampliación de imagen */
+.reclamosLightboxFondo {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.82);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2500;
+    padding: 20px;
+}
+
+.reclamosLightboxContenido {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+}
+
+.reclamosLightboxContenido img {
+    max-width: 90vw;
+    max-height: 85vh;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.reclamosLightboxCerrar {
+    position: absolute;
+    top: -14px;
+    right: -14px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: none;
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+@media (max-width: 680px) {
+    .reclamosRow,
+    .reclamoDetalleGrid {
+        grid-template-columns: 1fr;
     }
 }
