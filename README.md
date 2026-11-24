@@ -68,11 +68,11 @@ El proyecto se encuentra en la etapa final del desarrollo, ya empezado el testin
 
 Se busca consolidar una plataforma integral que permita a Hoshino Repair optimizar sus procesos internos, mejorar la atención al cliente y contar con una infraestructura tecnológica que facilite su crecimiento y expansión dentro del país.
 
-## Como instalar y ejecutar el proyecto
+# Como instalar y ejecutar el proyecto
 
-1. Clonar el repo o En la parte superior de los archivos del Repositorio, desplegar el boton "Code" y descargar el ZIP del Repositorio.
-2. Extraer el Archivo y dirigirse a la carpeta "/HoshinoWeb/HoshinoWeb" (donde se ve la carpeta "00 HoshinoBackend").
-3. Es necesario abrir dos terminales, una en la carpeta "/HoshinoWeb/HoshinoWeb" y otra en "/00 HoshinoBackend".
-4. En la terminal de "Hoshino Web" escribir el comando "npm i" y cuando termina de cargar, continuar con el comando "npm run dev". Esto correra el servidor Frontend.
-5. En la terminal de "Hoshino Backend" escribir el comando "npm i" y cuando termina de cargar, continuar con, el comando "npm run start". Esto correra el servidor Backend.
-6. Finalmente, en la terminal del Frontend, escribir "o" y presionar enter. Asi se le abrira la pestaña de Hoshino Web en su navegador de preferencia.
+1. Clonar el repo o dirigirse a la parte superior de los archivos del Repositorio, desplegar el boton "Code" y descargar el ZIP del Repositorio.
+2. Extraer el Archivo y dirigirse a la carpeta "/HoshinoWeb" (donde se ve la carpeta "00 HoshinoBackend").
+3. Es necesario abrir dos terminales, una en la carpeta "/HoshinoWeb" y otra en "/00 HoshinoBackend".
+4. En la terminal de "Hoshino Web" escribir el comando "npm i" y cuando termina de cargar, continuar con el comando "npm run dev". Esto correrá el servidor Frontend.
+5. En la terminal de "Hoshino Backend" escribir el comando "npm i" y cuando termina de cargar, continuar con el comando "npm run start". Esto correrá el servidor Backend.
+6. Finalmente, en la terminal del Frontend, escribir "o" y presionar enter. Asi se abrirá la pestaña de Hoshino Web en su navegador de preferencia.
